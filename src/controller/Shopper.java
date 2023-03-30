@@ -1,5 +1,4 @@
 package controller;
-
 import model.Factor;
 import model.Product;
 

@@ -11,5 +11,7 @@ public class Opinion
  class Score
 {
 int score;
-
-}
+public int getScore()
+    {
+        return 0;
+    }}

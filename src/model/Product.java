@@ -8,6 +8,24 @@ abstract class Account
   private String password;
   private String phoneNumber;
 
+  Account(String email,String password,String phoneNumber)
+  {
+      this.email=email;
+      this.password=password;
+      this.phoneNumber=phoneNumber;
+  }
+  String getEmail()
+  {
+      return email;
+  }
+  String getPhoneNumber()
+  {
+      return phoneNumber;
+  }
+  String getPassword()
+  {
+      return password;
+  }
 }
 public class Product {
     Product product1=new Product("BMW",100000,1,3,category.VEHICLES);
@@ -169,6 +187,11 @@ class Car extends Vehicles {
 class Food {
     private String dateOfManufacture;
     private String expirationDate;
+    Food(String dateOfManufacture,String expirationDate)
+    {
+        this.dateOfManufacture=dateOfManufacture;
+        this.expirationDate=expirationDate;
+    }
 
 }
 class Shopper1{
@@ -181,9 +204,20 @@ class Shopper1{
     {
         return factors;
     }
+    Shopper1(String email,String password,String phoneNumber)
+    {
+        this.email=email;
+        this.password=password;
+        this.phoneNumber=phoneNumber;
+    }
 }
 class Admin1
 {
     String password;
     String userName;
+    Admin1(String password,String userName)
+    {
+        this.password=password;
+        this.userName=userName;
+    }
 }

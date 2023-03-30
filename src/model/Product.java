@@ -187,37 +187,20 @@ class Car extends Vehicles {
 class Food {
     private String dateOfManufacture;
     private String expirationDate;
-    Food(String dateOfManufacture,String expirationDate)
-    {
-        this.dateOfManufacture=dateOfManufacture;
-        this.expirationDate=expirationDate;
+
+    Food(String dateOfManufacture, String expirationDate) {
+        this.dateOfManufacture = dateOfManufacture;
+        this.expirationDate = expirationDate;
     }
 
+
 }
-class Shopper1{
-    private String password;
-    private String email;
-    private String phoneNumber;
-    private long  userAccountCredentials;
-    private ArrayList<Factor>factors=new ArrayList<>();
-    public ArrayList<Factor>getFactors()
-    {
-        return factors;
-    }
-    Shopper1(String email,String password,String phoneNumber)
-    {
-        this.email=email;
-        this.password=password;
-        this.phoneNumber=phoneNumber;
-    }
-}
-class Admin1
-{
+class Admin1 {
     String password;
     String userName;
-    Admin1(String password,String userName)
-    {
-        this.password=password;
-        this.userName=userName;
+
+    Admin1(String password, String userName) {
+        this.password = password;
+        this.userName = userName;
     }
 }

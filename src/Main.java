@@ -1,8 +1,9 @@
 import view.signIn;
 public class Main {
     public static void main(String[] args) {
-    signIn ko = new signIn();
+    signIn user = new signIn();
+    user.signIn1();
+    user.printRequest();
 
-    ko.signIn1();
     }
 }

@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class signIn {
 
 
+    int counter=0;
     String email;
     String password;
     String phoneNumber;
@@ -51,6 +52,7 @@ public class signIn {
             }
         }
         System.out.println("IT WAS SUCCESSFUL");
+        counter++;
     }
         public void signIn2 ()
         {
@@ -75,23 +77,31 @@ public class signIn {
 
 
         }
-        public void printRequest ()
-        {
-            signIn2();
-            cin.nextLine();
-            System.out.println("do you want to accept the user ? ");
-            String choice = cin.nextLine();
-            if (Objects.equals(choice, "yes")) ;
-            {
-                Shopper shopper = new Shopper(email,password,phoneNumber);
-                shopper.getShoppers().add(shopper);
-                System.out.println("you add this user"+" "+email);
+        public void printRequest () {
+            if (counter != 0) {
+                for (int i=0;i<counter;i++) {
+                    signIn2();
+                    cin.nextLine();
+                    System.out.println("do you want to accept the user ? ");
+                    String choice = cin.nextLine();
+                    if (Objects.equals(choice, "yes")) ;
+                    {
+                        Shopper shopper = new Shopper(email, password, phoneNumber);
+                        shopper.getShoppers().add(shopper);
+                        System.out.println("you add this user" + " " + email);
+                    }
+                    if (Objects.equals(choice, "no")) ;
+                    {
+                        System.out.println("you did not add shopper");
+                    }
+                }
+                counter=0;
             }
-            if (Objects.equals(choice,"no"));
+            else if (counter==0)
             {
-                System.out.println("you did not add shopper");
+                System.out.println("you do not have any log in request");
             }
-
         }
+
 
     }

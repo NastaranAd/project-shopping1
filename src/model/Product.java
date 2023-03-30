@@ -28,7 +28,6 @@ abstract class Account
   }
 }
 public class Product {
-    Product product1=new Product("BMW",100000,1,3,category.VEHICLES);
     private long productId;
     private int capacity;
     private long productPrice;
@@ -40,7 +39,7 @@ public class Product {
     {
         return opinions;
     }
-    Product(String productName,long productPrice,long productId,int capacity,category product)
+    public Product(String productName,long productPrice,long productId,int capacity,category product)
     {
        this.productPrice=productPrice;
        this.productId=productId;
@@ -48,11 +47,15 @@ public class Product {
        this.productName=productName;
        this.product=product;
     }
-    
+    public void setProductName(String name)
+    {
+        this.productName=name;
+    }
+    public enum category {
+        DIGITAL, STATIONARY, VEHICLES, FOOD
+    }
 }
-enum category {
-    DIGITAL, STATIONARY, VEHICLES, FOOD
-}
+
 
 class Digital {
     private double weight;
@@ -194,13 +197,4 @@ class Food {
     }
 
 
-}
-class Admin1 {
-    String password;
-    String userName;
-
-    Admin1(String password, String userName) {
-        this.password = password;
-        this.userName = userName;
-    }
 }

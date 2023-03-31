@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class Admin1
 {
+    private ArrayList<Shopper> shoppers=new ArrayList<>();
+    public ArrayList<Shopper> getShoppers()
+    {
+        return shoppers;
+    }
     private static Admin1 admin1;
     private ArrayList<Product> products =new ArrayList<>();
     public ArrayList<Product>getProducts()
@@ -13,7 +18,7 @@ public class Admin1
     private String password;
     private String userName;
 
-    public Admin1(String password, String userName) {
+     public Admin1(String password, String userName) {
         this.password = password;
         this.userName = userName;
     }

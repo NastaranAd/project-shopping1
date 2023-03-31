@@ -9,11 +9,7 @@ public class Shopper
     private String phoneNumber;
     private long  userAccountCredentials;
     private ArrayList<Factor> factors=new ArrayList<>();
-    private ArrayList<Shopper> shoppers;
-    public ArrayList<Shopper> getShoppers()
-    {
-        return shoppers;
-    }
+
     public ArrayList<Factor>getFactors()
     {
         return factors;
@@ -28,8 +24,12 @@ public class Shopper
     {
         return  password;
     }
-    public String setPassword(String password)
+    public String getEmail()
     {
-        return password;
+        return this.email;
+    }
+    public String getPhoneNumber()
+    {
+        return this.phoneNumber;
     }
 }

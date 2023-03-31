@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import model.Admin1;
 
 public class signIn {
 
@@ -13,6 +14,7 @@ public class signIn {
     String password;
     String phoneNumber;
     Scanner cin = new Scanner(System.in);
+
 
     public void signIn1() {
         boolean helper = false;
@@ -67,16 +69,7 @@ public class signIn {
             System.out.println("please enter your choice : ");
 
         }
-        public void printMenu ()
-        {
-            System.out.println("1.the information of your account");
-            System.out.println("2.View the goods");
-            System.out.println("3.shopping");
-            System.out.println("4.increase account credit");
-            System.out.println("5.Invoice display");
 
-
-        }
         public void printRequest () {
             if (counter != 0) {
                 for (int i=0;i<counter;i++) {
@@ -84,13 +77,13 @@ public class signIn {
                     cin.nextLine();
                     System.out.println("do you want to accept the user ? ");
                     String choice = cin.nextLine();
-                    if (Objects.equals(choice, "yes")) ;
+                    if (Objects.equals(choice, "yes"))
                     {
                         Shopper shopper = new Shopper(email, password, phoneNumber);
-                        shopper.getShoppers().add(shopper);
+                        Admin1.getAdmin1().getShoppers().add(shopper);
                         System.out.println("you add this user" + " " + email);
                     }
-                    if (Objects.equals(choice, "no")) ;
+                    if (Objects.equals(choice, "no"))
                     {
                         System.out.println("you did not add shopper");
                     }

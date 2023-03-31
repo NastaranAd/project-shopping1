@@ -25,6 +25,6 @@ public class Product1
         counter++;
         int productId = counter;
         Product product = new Product(productName,productPrice,productId,capacity,Product.category.valueOf(type));
-        admin1.getProducts().add(product);
+        Admin1.getAdmin1().getProducts().add(product);
     }
 }

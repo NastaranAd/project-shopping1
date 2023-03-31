@@ -47,21 +47,23 @@ public class Product {
        this.productName=productName;
        this.product=product;
     }
-    public void setProductName(String name)
+    public String  getProductName()
     {
-        this.productName=name;
+        return this.productName;
     }
+
     public enum category {
         DIGITAL, STATIONARY, VEHICLES, FOOD
     }
 }
 
 
-class Digital {
+class Digital extends Product{
     private double weight;
     private double dimension;
 
-    Digital(double weight, double dimension) {
+    Digital(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension) {
+        super(productName,productPrice,productId,capacity,product);
         this.weight = weight;
         this.dimension = dimension;
     }
@@ -69,12 +71,11 @@ class Digital {
 }
 
 class informationStorage extends Digital {
-    private int capacity;
+    private int capacity1;
 
-    informationStorage(double dimension, double weight, int capacity) {
-        super(weight, dimension);
-
-        this.capacity = capacity;
+    informationStorage(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension) {
+        super(productName,productPrice,productId,capacity,product,weight,dimension);
+        this.capacity1 = capacity;
 
     }
 
@@ -83,8 +84,8 @@ class informationStorage extends Digital {
 class Flash extends Digital {
     private String usbVersion;
 
-    Flash(double dimension, double weight, String usbVersion) {
-        super(weight, dimension);
+    Flash(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension , String usbVersion) {
+        super(productName,productPrice,productId,capacity,product,weight,dimension);
         this.usbVersion=usbVersion;
     }
 }
@@ -92,9 +93,9 @@ class SSD extends Digital
 {
     private double readingSpeed;
     private double writingSpeed;
-    SSD(double dimension, double weight,double readingSpeed,double writingSpeed)
+    SSD(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension , String usbVersiondouble,double readingSpeed,double writingSpeed)
     {
-        super(weight, dimension);
+        super(productName,productPrice,productId,capacity,product,weight,dimension);
         this.readingSpeed=readingSpeed;
         this.writingSpeed=writingSpeed;
     }
@@ -104,17 +105,18 @@ class Computer extends Digital {
     private String processorModel;
     private int RAM;
 
-    Computer(double dimension, double weight, int RAM, String processorModel) {
-        super(weight, dimension);
+    Computer(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension , int RAM, String processorModel) {
+        super(productName,productPrice,productId,capacity,product,weight,dimension);
         this.RAM = RAM;
         this.processorModel = processorModel;
     }
 }
 
-class Stationary {
+class Stationary extends Product {
     private String country;
 
-    Stationary(String country) {
+    Stationary(String productName,long productPrice,long productId,int capacity,category product,String country) {
+        super(productName,productPrice,productId,capacity,product);
         this.country = country;
     }
 }
@@ -126,8 +128,8 @@ class Pencil extends Stationary {
 
     pencil pencil1;
 
-    Pencil(String country, pencil pencil1) {
-        super(country);
+    Pencil(String productName,long productPrice,long productId,int capacity,category product,String country, pencil pencil1) {
+        super(productName,productPrice,productId,capacity,product,country);
         this.pencil1 = pencil1;
     }
 }
@@ -135,8 +137,8 @@ class Pencil extends Stationary {
 class Pen extends Stationary {
     private String color;
 
-    Pen(String country, String color) {
-        super(country);
+    Pen(String productName,long productPrice,long productId,int capacity,category product,String country, String color) {
+        super(productName,productPrice,productId,capacity,product,country);
         this.color = color;
     }
 }
@@ -145,18 +147,19 @@ class noteBook extends Stationary {
     private int pageNumber;
     private String paperType;
 
-    noteBook(String country, String paperType, int pageNumber) {
-        super(country);
+    noteBook(String productName,long productPrice,long productId,int capacity,category product,String country, String paperType, int pageNumber) {
+        super(productName,productPrice,productId,capacity,product,country);
         this.pageNumber = pageNumber;
         this.paperType = paperType;
     }
 
 }
 
-class Vehicles {
+class Vehicles extends Product {
     private String company;
 
-    Vehicles(String company) {
+    Vehicles(String productName,long productPrice,long productId,int capacity,category product,String company) {
+        super(productName,productPrice,productId,capacity,product);
         this.company = company;
     }
 }
@@ -168,8 +171,8 @@ class Bikecycle extends Vehicles {
 
     bikecycle bike;
 
-    Bikecycle(String company, bikecycle bike) {
-        super(company);
+    Bikecycle(String productName,long productPrice,long productId,int capacity,category product,String company, bikecycle bike) {
+        super(productName,productPrice,productId,capacity,product,company);
         this.bike = bike;
     }
 
@@ -179,19 +182,20 @@ class Car extends Vehicles {
     private boolean auto;
     private double engineVolume;
 
-    Car(String company, boolean auto, double engineVolume) {
-        super(company);
+    Car(String productName,long productPrice,long productId,int capacity,category product,String company, boolean auto, double engineVolume) {
+        super(productName,productPrice,productId,capacity,product,company);
         this.auto = auto;
         this.engineVolume = engineVolume;
     }
 
 }
 
-class Food {
+class Food extends Product{
     private String dateOfManufacture;
     private String expirationDate;
 
-    Food(String dateOfManufacture, String expirationDate) {
+    Food(String productName,long productPrice,long productId,int capacity,category product,String dateOfManufacture, String expirationDate) {
+        super(productName,productPrice,productId,capacity,product);
         this.dateOfManufacture = dateOfManufacture;
         this.expirationDate = expirationDate;
     }

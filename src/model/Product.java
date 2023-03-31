@@ -1,5 +1,4 @@
 package model;
-
 import java.util.ArrayList;
 
 abstract class Account
@@ -34,7 +33,7 @@ public class Product {
     private String productName;
     private double averageScore;
     private ArrayList<Opinion>opinions=new ArrayList<>();
-    category product;
+    public category product;
     public ArrayList<Opinion>getOpinions()
     {
         return opinions;
@@ -51,24 +50,24 @@ public class Product {
     {
         return this.productName;
     }
+    public long getProductPrice()
+    {
+        return this.productPrice;
+    }
+    public category getCategory()
+    {
+        return this.product;
+    }
 
     public enum category {
         DIGITAL, STATIONARY, VEHICLES, FOOD
     }
-}
-
-
-class Digital extends Product{
-    private double weight;
-    private double dimension;
-
-    Digital(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension) {
-        super(productName,productPrice,productId,capacity,product);
-        this.weight = weight;
-        this.dimension = dimension;
+   @Override
+    public String toString()
+    {
+        return "productPrice: "+ productPrice;
     }
-
-}
+    }
 
 class informationStorage extends Digital {
     private int capacity1;
@@ -80,7 +79,6 @@ class informationStorage extends Digital {
     }
 
 }
-
 class Flash extends Digital {
     private String usbVersion;
 

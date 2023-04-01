@@ -8,7 +8,7 @@ public class Shopper
     private String email;
     private String phoneNumber;
     private long  userAccountCredentials;
-     private String userName;
+     private final String userName;
     private ArrayList<Factor> factors=new ArrayList<>();
 
     public ArrayList<Factor>getFactors()
@@ -43,4 +43,16 @@ public class Shopper
     {
         return this.userName;
     }
+    public String setEmail(String email1)
+    {
+        return this.email= email1;
+    }
+    public String setPassword(String password1)
+    {
+        return this.password= password1;
+    }public String setPhoneNumber(String phoneNumber1)
+{
+    return this.phoneNumber= phoneNumber1;
 }
+}
+

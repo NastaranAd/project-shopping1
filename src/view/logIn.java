@@ -35,8 +35,45 @@ public class logIn {
                 while (choice1 != 12) {
                     if (choice1==1)
                     {
-                        System.out.println(admin3.showInformation());
-                        System.out.println("which part do you want to change : ");
+                        printAccount();
+                        cin.nextLine();
+                        System.out.println("please enter your choice : ");
+                        int chioce2= cin.nextInt();
+                        while (chioce2!=5)
+                        {
+                            if (chioce2==1)
+                            {
+                                System.out.println("please enter you new email : ");
+                                cin.nextLine();
+                                String email1 = cin.nextLine();
+                                System.out.println("your new email is :");
+                                System.out.println(admin3.changeingEmail(email1));
+                            }
+                            if (chioce2==2)
+                            {
+                                System.out.println("please enter you new password : ");
+                                cin.nextLine();
+                                String password1 = cin.nextLine();
+                                System.out.println("your new password is :");
+                                System.out.println(admin3.changeingPassword(password1));
+                            }
+                            if (chioce2==3)
+                            {
+                                System.out.println("please enter you new phone number : ");
+                                cin.nextLine();
+                                String phoneNumber1 = cin.nextLine();
+                                System.out.println("your new phone number is :");
+                                System.out.println(admin3.changeingPhoneNumber(phoneNumber1));
+                            }
+                            if (chioce2==4)
+                            {
+                                System.out.println(admin3.showInformation());
+                            }
+                            System.out.println("please enter your choice : ");
+                             chioce2= cin.nextInt();
+                        }
+
+
                     }
                     if (choice1 == 2) {
                      System.out.println(admin3.Showing());
@@ -98,6 +135,15 @@ public class logIn {
                         String country = cin.nextLine();
                         System.out.println(admin3.filterByCountry(country));
                     }
+                    if (choice1==11)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the product name :");
+                        String name1 = cin.nextLine();
+                        System.out.println(admin3.searchByName(name1));
+
+                    }
                     printMenu();
                     System.out.println("please enter your choice : ");
                     choice1 = cin.nextInt();
@@ -121,7 +167,7 @@ public class logIn {
         System.out.println("8.filter by capacity");
         System.out.println("9.filter by company");
         System.out.println("10.filter by country");
-        System.out.println("11.searching");
+        System.out.println("11.search by name ");
         System.out.println("12.EXIT");
     }
     public void printAccount()
@@ -129,6 +175,8 @@ public class logIn {
         System.out.println("1.email");
         System.out.println("2.password");
         System.out.println("3.phone number");
+        System.out.println("4.show the information");
+        System.out.println("5.Exit");
     }
 
 }

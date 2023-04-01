@@ -29,8 +29,10 @@ public class logIn {
         String password = cin.nextLine();
         System.out.println("please enter your phone number");
         String phoneNumber = cin.nextLine();
+        System.out.println("please enter your user name ");
+        String userName = cin.nextLine();
         for (int i = 0; i < Admin1.getAdmin1().getShoppers().size(); i++)
-            if (Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getEmail(), email) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPassword(), password) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPhoneNumber(), phoneNumber)) {
+            if (Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getEmail(), email) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPassword(), password) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPhoneNumber(), phoneNumber)&&Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getUserName(),userName)) {
                 System.out.println("        *****     WELCOME     *****");
                 printMenu();
                 System.out.println("please enter your choice : ");
@@ -89,8 +91,11 @@ public class logIn {
                     {
                         System.out.println("how much do you want to increase your credit cart");
                         long money=cin.nextInt();
-                        Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName());
+
+                        Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName(),money);
                         Admin1.getAdmin1().getRequestsmoney().add(request70);
+                        System.out.println("your request has sent to admin");
+
                     }
                     if (choice1==5)
                     {

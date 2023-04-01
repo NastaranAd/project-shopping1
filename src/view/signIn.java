@@ -62,8 +62,9 @@ public class signIn {
         userName = cin.nextLine();
         cin.nextLine();
         System.out.println("IT WAS SUCCESSFUL");
-        Request request = new Request(userName);
+        Request request = new Request(userName,0);
         Admin1.getAdmin1().getSignInRequests().add(request);
+
     }
 
     public void printCharacter() {
@@ -93,6 +94,27 @@ public class signIn {
             }
         } else if (Admin1.getAdmin1().getSignInRequests().size() == 0) {
             System.out.println("you do not have any log in request");
+        }
+
+    }
+    public void printRequestMoney() {
+        if (Admin1.getAdmin1().getRequestsmoney().size() != 0) {
+            for (int i = 0; i < Admin1.getAdmin1().getRequestsmoney().size(); i++) {
+                System.out.println(  Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90() + "," + "this user wants to increase ");
+                cin.nextLine();
+                System.out.println("do you want to accept the request ? ");
+                String choice = cin.nextLine();
+                if (Objects.equals(choice, "yes")) {
+                    Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials(Admin1.getAdmin1().getRequestsmoney().get(i).getMoney());
+                    System.out.println("new money : "+" "+Admin1.getAdmin1().getShoppers().get(i).getUserAccountCredentials());
+                }
+                if (Objects.equals(choice, "no")) {
+                    Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials1(Admin1.getAdmin1().getShoppers().get(i).getUserAccountCredentials());
+                }
+            }
+        } else if (Admin1.getAdmin1().getRequestsmoney().size() == 0) {
+            System.out.println("you do not have any money" +
+                    " request");
         }
 
     }

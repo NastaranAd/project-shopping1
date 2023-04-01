@@ -46,4 +46,14 @@ public class Admin {
         }
 
     }
+    public void showMoneyRequest(String order) {
+        String[] words = order.split("\\s");
+        for (int i = 0; i < words.length; i++) {
+            if (Objects.equals(words[i], "money"))
+            {
+                user1.printRequestMoney();
+            }
+        }
+
+    }
 }

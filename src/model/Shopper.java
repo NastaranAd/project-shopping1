@@ -49,7 +49,9 @@ public class Shopper {
     }
     public long setUserAccountCredentials(long money)
     {
-        return this.userAccountCredentials=money;
+        return this.userAccountCredentials+money;
+    }
+    public long setUserAccountCredentials1(long money){return  this.userAccountCredentials=money;
     }
 
     public String setEmail(String email1) {

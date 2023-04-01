@@ -1,6 +1,7 @@
 package view;
 
 import controller.Admin;
+import model.Admin1;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class Admin60 {
     Scanner cin = new Scanner(System.in);
     Admin admin = new Admin();
+    private long money;
     int choice6 = 0;
     public void adminDuty() {
         cin.nextLine();
@@ -31,6 +33,7 @@ public class Admin60 {
                     cin.nextLine();
                     String order = cin.nextLine();
                     admin.showSignRequest(order);
+                    admin.showMoneyRequest(order);
                 }
                 cin.nextLine();
                 printAdmin();
@@ -54,4 +57,5 @@ public class Admin60 {
         System.out.println("if you want to see the money request enter , money request");
         System.out.println("1.EXIT");
     }
+
 }

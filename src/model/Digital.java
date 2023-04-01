@@ -1,6 +1,6 @@
 package model;
 
-public class Digital extends Product
+abstract public class Digital extends Product
 {
 
     private double weight;

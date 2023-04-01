@@ -6,12 +6,22 @@ public class Admin1
 {
     private ArrayList<Shopper> shoppers = new ArrayList<>();
     private ArrayList<Request> requests = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Stationary> stationaries= new ArrayList<>();
     public ArrayList<Shopper> getShoppers()
     {
         return shoppers;
     }
     public ArrayList<Request> getRequests(){
         return requests;
+    }
+    public ArrayList<Vehicle> getVehicles()
+    {
+        return vehicles;
+    }
+    public ArrayList<Stationary> getStationaries()
+    {
+        return stationaries;
     }
 
     private static Admin1 admin1;

@@ -32,7 +32,12 @@ public class logIn {
                 printMenu();
                 System.out.println("please enter your choice : ");
                 int choice1 = cin.nextInt();
-                while (choice1 != 9) {
+                while (choice1 != 12) {
+                    if (choice1==1)
+                    {
+                        System.out.println(admin3.showInformation());
+                        System.out.println("which part do you want to change : ");
+                    }
                     if (choice1 == 2) {
                      System.out.println(admin3.Showing());
                     }
@@ -74,11 +79,28 @@ public class logIn {
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
-                        System.out.println(admin3.filterBycapacity());
+                        System.out.println(admin3.filterByCapacity());
+                    }
+                    if (choice1==9)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the company name :");
+                        String company = cin.nextLine();
+                        System.out.println(admin3.filterByCompany(company));
+
+                    }
+                    if (choice1==10)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the country name :");
+                        String country = cin.nextLine();
+                        System.out.println(admin3.filterByCountry(country));
                     }
                     printMenu();
                     System.out.println("please enter your choice : ");
-                     choice1 = cin.nextInt();
+                    choice1 = cin.nextInt();
 
                 }
 
@@ -97,7 +119,16 @@ public class logIn {
         System.out.println("6.filter by category");
         System.out.println("7.filter by price");
         System.out.println("8.filter by capacity");
-        System.out.println("9.EXIT");
+        System.out.println("9.filter by company");
+        System.out.println("10.filter by country");
+        System.out.println("11.searching");
+        System.out.println("12.EXIT");
+    }
+    public void printAccount()
+    {
+        System.out.println("1.email");
+        System.out.println("2.password");
+        System.out.println("3.phone number");
     }
 
 }

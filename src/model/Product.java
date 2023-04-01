@@ -73,32 +73,5 @@ public class Product {
     }
     }
 
-class informationStorage extends Digital {
-    private int capacity1;
 
-    informationStorage(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension) {
-        super(productName,productPrice,productId,capacity,product,weight,dimension);
-        this.capacity1 = capacity;
 
-    }
-
-}
-class Flash extends Digital {
-    private String usbVersion;
-
-    Flash(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension , String usbVersion) {
-        super(productName,productPrice,productId,capacity,product,weight,dimension);
-        this.usbVersion=usbVersion;
-    }
-}
-class SSD extends Digital
-{
-    private double readingSpeed;
-    private double writingSpeed;
-    SSD(String productName,long productPrice,long productId,int capacity,category product,double weight, double dimension , String usbVersiondouble,double readingSpeed,double writingSpeed)
-    {
-        super(productName,productPrice,productId,capacity,product,weight,dimension);
-        this.readingSpeed=readingSpeed;
-        this.writingSpeed=writingSpeed;
-    }
-}

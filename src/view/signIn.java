@@ -13,6 +13,7 @@ public class signIn {
     String email;
     String password;
     String phoneNumber;
+    String userName;
     Scanner cin = new Scanner(System.in);
     public void signIn1() {
         boolean helper = false;
@@ -51,13 +52,13 @@ public class signIn {
                 helper2 = true;
             }
         }
+        cin.nextLine();
+        System.out.println("please enter your username : ");
+         userName = cin.nextLine();
+        cin.nextLine();
         System.out.println("IT WAS SUCCESSFUL");
         counter++;
     }
-        public void signIn2 ()
-        {
-            System.out.println("log in request");
-        }
         public void printCharacter ()
         {
             System.out.println("1.sign in");
@@ -71,22 +72,22 @@ public class signIn {
         public void printRequest () {
             if (counter != 0) {
                 for (int i=0;i<counter;i++) {
-                    signIn2();
+                    System.out.println("this user wants to log in"+" "+userName);
                     cin.nextLine();
                     System.out.println("do you want to accept the user ? ");
                     String choice = cin.nextLine();
                     if (Objects.equals(choice, "yes"))
                     {
-                        Shopper shopper = new Shopper(email, password, phoneNumber);
+                        Shopper shopper = new Shopper(email, password, phoneNumber,userName);
                         Admin1.getAdmin1().getShoppers().add(shopper);
-                        System.out.println("you add this user" + " " + email);
+                        System.out.println("you add this user" + " " + userName);
                     }
                     if (Objects.equals(choice, "no"))
                     {
                         System.out.println("you did not add shopper");
                     }
                 }
-
+                counter=0;
             }
             else if (counter==0)
             {

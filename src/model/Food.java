@@ -1,6 +1,6 @@
 package model;
 
-public class Food extends Product{
+ public class Food extends Product{
     private String dateOfManufacture;
     private String expirationDate;
 

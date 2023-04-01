@@ -1,20 +1,25 @@
 package view;
+
+import controller.Admin;
+import model.Request;
 import model.Shopper;
+
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import model.Admin1;
 
 public class signIn {
 
-
-    int counter=0;
+    int counter = 0;
     String email;
     String password;
     String phoneNumber;
     String userName;
     Scanner cin = new Scanner(System.in);
+
     public void signIn1() {
         boolean helper = false;
         while (helper == false) {
@@ -54,46 +59,43 @@ public class signIn {
         }
         cin.nextLine();
         System.out.println("please enter your username : ");
-         userName = cin.nextLine();
+        userName = cin.nextLine();
         cin.nextLine();
         System.out.println("IT WAS SUCCESSFUL");
-        counter++;
+        Request request = new Request(userName);
+        Admin1.getAdmin1().getSignInRequests().add(request);
     }
-        public void printCharacter ()
-        {
-            System.out.println("1.sign in");
-            System.out.println("2.log in");
-            System.out.println("3.the list of products");
-            System.out.println("      ");
-            System.out.println("please enter your choice : ");
 
-        }
+    public void printCharacter() {
+        System.out.println("1.sign in");
+        System.out.println("2.log in");
+        System.out.println("3.the list of products");
+        System.out.println("      ");
+        System.out.println("please enter your choice : ");
 
-        public void printRequest () {
-            if (counter != 0) {
-                for (int i=0;i<counter;i++) {
-                    System.out.println("this user wants to log in"+" "+userName);
-                    cin.nextLine();
-                    System.out.println("do you want to accept the user ? ");
-                    String choice = cin.nextLine();
-                    if (Objects.equals(choice, "yes"))
-                    {
-                        Shopper shopper = new Shopper(email, password, phoneNumber,userName);
-                        Admin1.getAdmin1().getShoppers().add(shopper);
-                        System.out.println("you add this user" + " " + userName);
-                    }
-                    if (Objects.equals(choice, "no"))
-                    {
-                        System.out.println("you did not add shopper");
-                    }
+    }
+
+    public void printRequest() {
+        if (Admin1.getAdmin1().getSignInRequests().size() != 0) {
+            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size(); i++) {
+                System.out.println(  Admin1.getAdmin1().getSignInRequests().get(i).getUserName90() + " " + "this user wants to log in");
+                cin.nextLine();
+                System.out.println("do you want to accept the user ? ");
+                String choice = cin.nextLine();
+                if (Objects.equals(choice, "yes")) {
+                    Shopper shopper = new Shopper(email, password, phoneNumber, userName, 0);
+                    Admin1.getAdmin1().getShoppers().add(shopper);
+                    System.out.println("you add this user" + " " + Admin1.getAdmin1().getSignInRequests().get(i).getUserName90());
                 }
-                counter=0;
+                if (Objects.equals(choice, "no")) {
+                    System.out.println("you did not add shopper");
+                }
             }
-            else if (counter==0)
-            {
-                System.out.println("you do not have any log in request");
-            }
+        } else if (Admin1.getAdmin1().getSignInRequests().size() == 0) {
+            System.out.println("you do not have any log in request");
         }
 
-
     }
+
+
+}

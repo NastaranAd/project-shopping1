@@ -15,8 +15,11 @@ public class logIn {
     Product pro = new Product("hoho",9,2,2, Product.category.DIGITAL);
     // System.out.println(Admin1.getAdmin1().getProducts().get(1).toString());
     String category;
+    Admin admin= new Admin();
     Scanner cin = new Scanner(System.in);
     Shopper admin3 = new Shopper();
+    signIn helper5 = new signIn();
+
 
     public void logIn() {
         cin.nextLine();
@@ -81,9 +84,13 @@ public class logIn {
                     if (choice1==3);
                     {
 
+                    }
                     if (choice1==4)
                     {
-
+                        System.out.println("how much do you want to increase your credit cart");
+                        long money=cin.nextInt();
+                        Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName());
+                        Admin1.getAdmin1().getRequestsmoney().add(request70);
                     }
                     if (choice1==5)
                     {
@@ -97,7 +104,7 @@ public class logIn {
                         Product.category kind  = Product.category.valueOf(cin.nextLine());
                         System.out.println(admin3.filterByCategory(kind));
                     }
-                    }
+
                     if (choice1==7)
                     {
                         System.out.println(admin3.Showing());

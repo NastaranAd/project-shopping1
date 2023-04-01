@@ -2,57 +2,67 @@ package model;
 
 import java.util.ArrayList;
 
-public class Shopper
-{
+public class Shopper {
     private String password;
     private String email;
     private String phoneNumber;
-    private long  userAccountCredentials;
-     private final String userName;
-    private ArrayList<Factor> factors=new ArrayList<>();
+    private long userAccountCredentials;
+    private final String userName;
+    private ArrayList<Factor> factors = new ArrayList<>();
 
-    public ArrayList<Factor>getFactors()
-    {
+    public ArrayList<Factor> getFactors() {
         return factors;
     }
-    public Shopper(String email,String password,String phoneNumber,String userName)
-    {
-        this.email=email;
-        this.password=password;
-        this.phoneNumber=phoneNumber;
-        this.userName= userName;
+
+    public Shopper(String email, String password, String phoneNumber, String userName, long userAccountCredentials) {
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.userName = userName;
+        this.userAccountCredentials = userAccountCredentials;
 
     }
-    public String toString()
-    {
-        return "userName : "+userName+ ", password : "+password+", phone number : "+phoneNumber+", email : "+email;
+
+    public String toString() {
+        return "userName : " + userName + ", password : " + password + ", phone number : " + phoneNumber + ", email : " + email;
     }
-    public String getPassword()
-    {
-        return  password;
+
+    public String getPassword() {
+        return password;
     }
-    public String getEmail()
-    {
+
+    public String getEmail() {
         return this.email;
     }
-    public String getPhoneNumber()
-    {
+
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
-    public String getUserName()
-    {
+
+    public String getUserName() {
         return this.userName;
     }
-    public String setEmail(String email1)
+
+    public long getUserAccountCredentials()
     {
-        return this.email= email1;
+        return  this.userAccountCredentials;
     }
-    public String setPassword(String password1)
+    public long setUserAccountCredentials(long money)
     {
-        return this.password= password1;
-    }public String setPhoneNumber(String phoneNumber1)
-{
-    return this.phoneNumber= phoneNumber1;
-}
+        return this.userAccountCredentials=money;
+    }
+
+    public String setEmail(String email1) {
+        return this.email = email1;
+    }
+
+    public String setPassword(String password1) {
+        return this.password = password1;
+    }
+
+    public String setPhoneNumber(String phoneNumber1) {
+        return this.phoneNumber = phoneNumber1;
+    }
+
 }
 

@@ -5,15 +5,19 @@ import java.util.ArrayList;
 public class Admin1
 {
     private ArrayList<Shopper> shoppers = new ArrayList<>();
-    private ArrayList<Request> requests = new ArrayList<>();
+    private ArrayList<Request> signInRequests = new ArrayList<>();
+    private ArrayList<Request> requestsMoney= new ArrayList<>();
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<Stationary> stationaries= new ArrayList<>();
     public ArrayList<Shopper> getShoppers()
     {
         return shoppers;
     }
-    public ArrayList<Request> getRequests(){
-        return requests;
+    public ArrayList<Request> getSignInRequests(){
+        return signInRequests;
+    }
+    public ArrayList<Request> getRequestsmoney(){
+        return requestsMoney;
     }
     public ArrayList<Vehicle> getVehicles()
     {

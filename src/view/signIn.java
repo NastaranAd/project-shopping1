@@ -14,8 +14,6 @@ public class signIn {
     String password;
     String phoneNumber;
     Scanner cin = new Scanner(System.in);
-
-
     public void signIn1() {
         boolean helper = false;
         while (helper == false) {
@@ -88,7 +86,7 @@ public class signIn {
                         System.out.println("you did not add shopper");
                     }
                 }
-                counter=0;
+
             }
             else if (counter==0)
             {

@@ -6,6 +6,7 @@ import model.Product;
 import model.Admin1;
 import model.*;
 import controller.Admin;
+import controller.Shopper;
 
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class logIn {
     // System.out.println(Admin1.getAdmin1().getProducts().get(1).toString());
     String category;
     Scanner cin = new Scanner(System.in);
-    Admin admin3 = new Admin();
+    Shopper admin3 = new Shopper();
 
     public void logIn() {
         cin.nextLine();
@@ -31,18 +32,13 @@ public class logIn {
                 printMenu();
                 System.out.println("please enter your choice : ");
                 int choice1 = cin.nextInt();
-                while (choice1 != 8) {
+                while (choice1 != 9) {
                     if (choice1 == 2) {
                      System.out.println(admin3.Showing());
                     }
                     if (choice1==3);
                     {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the category : ");
-                        Product.category kind  = Product.category.valueOf(cin.nextLine());
-                        System.out.println(admin3.filterByCategory(kind));
-                    }
+
                     if (choice1==4)
                     {
 
@@ -53,11 +49,32 @@ public class logIn {
                     }
                     if (choice1==6)
                     {
-
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the category : ");
+                        Product.category kind  = Product.category.valueOf(cin.nextLine());
+                        System.out.println(admin3.filterByCategory(kind));
+                    }
                     }
                     if (choice1==7)
                     {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the period of your price : ");
+                        cin.nextLine();
+                        System.out.println("max : ");
+                        long max = cin.nextLong();
+                        cin.nextLine();
+                        System.out.println("min : ");
+                        long min = cin.nextLong();
+                        System.out.println(admin3.filterByPrice(max,min));
 
+                    }
+                    if (choice1==8)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println(admin3.filterBycapacity());
                     }
                     printMenu();
                     System.out.println("please enter your choice : ");
@@ -79,7 +96,8 @@ public class logIn {
         System.out.println("5.Invoice display");
         System.out.println("6.filter by category");
         System.out.println("7.filter by price");
-        System.out.println("8.EXIT");
+        System.out.println("8.filter by capacity");
+        System.out.println("9.EXIT");
     }
 
 }

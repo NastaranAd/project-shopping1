@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class Admin1
 {
-    private ArrayList<Shopper> shoppers=new ArrayList<>();
+    private ArrayList<Shopper> shoppers = new ArrayList<>();
+    private ArrayList<Request> requests = new ArrayList<>();
     public ArrayList<Shopper> getShoppers()
     {
         return shoppers;
     }
+    public ArrayList<Request> getRequests(){
+        return requests;
+    }
+
     private static Admin1 admin1;
     private ArrayList<Product> products =new ArrayList<>();
     public ArrayList<Product>getProducts()

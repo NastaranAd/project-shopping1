@@ -10,8 +10,9 @@ public class Main {
     signIn user = new signIn();
     logIn user1= new logIn();
     user.signIn1();
+    user.signIn1();
     user.printRequest();
-    user1.logIn();
+
 
     }
 }

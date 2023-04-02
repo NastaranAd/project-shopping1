@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Factor
 {
+    private String productName ;
     private long factorId;
     private String date;
     private double  amountPaid;
@@ -12,5 +13,12 @@ public class Factor
     {
         return products;
     }
+    public Factor(String date,double amountPaid,String productName)
+    {
+        this.productName=productName;
+        this.date=date;
+        this.amountPaid=amountPaid;
+    }
+
 
 }

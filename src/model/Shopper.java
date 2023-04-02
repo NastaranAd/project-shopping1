@@ -7,6 +7,7 @@ public class Shopper {
     private String email;
     private String phoneNumber;
     private long userAccountCredentials;
+    long Accountmoney;
     private final String userName;
     private ArrayList<Factor> factors = new ArrayList<>();
 
@@ -49,7 +50,11 @@ public class Shopper {
     }
     public long setUserAccountCredentials(long money)
     {
-        return this.userAccountCredentials+money;
+        return this.userAccountCredentials=this.userAccountCredentials+money;
+    }
+    public long setUserAccountCredentialsShopper(long money)
+    {
+        return  this.userAccountCredentials=this.userAccountCredentials-money;
     }
     public long setUserAccountCredentials1(long money){return  this.userAccountCredentials=money;
     }

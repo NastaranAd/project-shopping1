@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Admin60 {
     Scanner cin = new Scanner(System.in);
     Admin admin = new Admin();
-    private long money;
     int choice6 = 0;
     public void adminDuty() {
         cin.nextLine();
@@ -39,6 +38,7 @@ public class Admin60 {
                 printAdmin();
                 choice5 = cin.nextInt();
             }
+
         }
 
     }

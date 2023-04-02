@@ -12,16 +12,16 @@ import java.util.Objects;
 
 public class logIn {
 
-    Product pro = new Product("hoho",9,2,2, Product.category.DIGITAL);
+    //Product pro = new Product("hoho",9,2,2, Product.category.DIGITAL);
     // System.out.println(Admin1.getAdmin1().getProducts().get(1).toString());
-    String category;
+    //String category;
     Admin admin= new Admin();
     Scanner cin = new Scanner(System.in);
     Shopper admin3 = new Shopper();
     signIn helper5 = new signIn();
 
 
-    public void logIn() {
+    public void logIn1() {
         cin.nextLine();
         System.out.println("please enter your email");
         String email = cin.nextLine();

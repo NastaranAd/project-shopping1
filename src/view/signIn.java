@@ -12,8 +12,6 @@ import java.util.regex.Pattern;
 import model.Admin1;
 
 public class signIn {
-
-    int counter = 0;
     String email;
     String password;
     String phoneNumber;
@@ -62,8 +60,10 @@ public class signIn {
         userName = cin.nextLine();
         cin.nextLine();
         System.out.println("IT WAS SUCCESSFUL");
-        Request request = new Request(userName,0);
+        Request request = new Request(email,userName,phoneNumber,password);
+        Request request1 = new Request(userName,0);
         Admin1.getAdmin1().getSignInRequests().add(request);
+        Admin1.getAdmin1().getSignInRequests().add(request1);
 
     }
 
@@ -71,20 +71,25 @@ public class signIn {
         System.out.println("1.sign in");
         System.out.println("2.log in");
         System.out.println("3.the list of products");
+        System.out.println("4.EXIT");
         System.out.println("      ");
-        System.out.println("please enter your choice : ");
-
+    }
+    public void printChoice()
+    {
+        System.out.println("1.admin");
+        System.out.println("2.shopper");
+        System.out.println("3.EXIT");
     }
 
     public void printRequest() {
         if (Admin1.getAdmin1().getSignInRequests().size() != 0) {
-            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size(); i++) {
+            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size()-1 ; i++) {
                 System.out.println(  Admin1.getAdmin1().getSignInRequests().get(i).getUserName90() + " " + "this user wants to log in");
                 cin.nextLine();
                 System.out.println("do you want to accept the user ? ");
                 String choice = cin.nextLine();
                 if (Objects.equals(choice, "yes")) {
-                    Shopper shopper = new Shopper(email, password, phoneNumber, userName, 0);
+                    Shopper shopper = new Shopper(Admin1.getAdmin1().getSignInRequests().get(i).getEmail(),Admin1.getAdmin1().getSignInRequests().get(i).getPassword(), Admin1.getAdmin1().getSignInRequests().get(i).getPhoneNumber(), Admin1.getAdmin1().getSignInRequests().get(i).getUserName90(), 0);
                     Admin1.getAdmin1().getShoppers().add(shopper);
                     System.out.println("you add this user" + " " + Admin1.getAdmin1().getSignInRequests().get(i).getUserName90());
                 }
@@ -106,10 +111,10 @@ public class signIn {
                 String choice = cin.nextLine();
                 if (Objects.equals(choice, "yes")) {
                     Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials(Admin1.getAdmin1().getRequestsmoney().get(i).getMoney());
-                    System.out.println("new money : "+" "+Admin1.getAdmin1().getShoppers().get(i).getUserAccountCredentials());
+                    System.out.println("new money : "+" "+Admin1.getAdmin1().getShoppers().get(i).getUserAccountCredentials()+"of this user : "+ Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90());
                 }
                 if (Objects.equals(choice, "no")) {
-                    Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials1(Admin1.getAdmin1().getShoppers().get(i).getUserAccountCredentials());
+                    System.out.println("you did not accept the request");
                 }
             }
         } else if (Admin1.getAdmin1().getRequestsmoney().size() == 0) {

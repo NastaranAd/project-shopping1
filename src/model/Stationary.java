@@ -7,6 +7,11 @@ abstract public class Stationary extends Product {
         super(productName,productPrice,productId,capacity,product);
         this.country = country;
     }
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "country : "+country;
+    }
     public String getCountry()
     {
         return this.country;

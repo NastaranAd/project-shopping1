@@ -51,7 +51,7 @@ public class Admin {
         for (int i = 0; i < words.length; i++) {
             if (Objects.equals(words[i], "money"))
             {
-                user1.printRequestMoney();
+                user1.printRequestMoney(0);
             }
         }
 

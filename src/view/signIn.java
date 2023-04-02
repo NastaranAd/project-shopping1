@@ -103,18 +103,20 @@ public class signIn {
 
     }
 
-    public void printRequestMoney() {
+    public void printRequestMoney(int index) {
         if (Admin1.getAdmin1().getRequestsmoney().size() != 0) {
             for (int i = 0; i < Admin1.getAdmin1().getRequestsmoney().size(); i++) {
-                System.out.println(Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90() + "," + "this user wants to increase ");
-                cin.nextLine();
-                System.out.println("do you want to accept the request ? ");
-                String choice = cin.nextLine();
-                if (Objects.equals(choice, "yes")) {
-                    System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials(Admin1.getAdmin1().getRequestsmoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90());
-                }
-                if (Objects.equals(choice, "no")) {
-                    System.out.println("you did not accept the request");
+                if (i == Admin1.getAdmin1().getRequestsmoney().size() - 1) {
+                    System.out.println(Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90() + "," + "this user wants to increase ");
+                    cin.nextLine();
+                    System.out.println("do you want to accept the request ? ");
+                    String choice = cin.nextLine();
+                    if (Objects.equals(choice, "yes")) {
+                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentials(Admin1.getAdmin1().getRequestsmoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90());
+                    }
+                    if (Objects.equals(choice, "no")) {
+                        System.out.println("you did not accept the request");
+                    }
                 }
             }
         } else if (Admin1.getAdmin1().getRequestsmoney().size() == 0) {
@@ -177,15 +179,14 @@ public class signIn {
                 if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                     Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
                     Admin1.getAdmin1().getBaskets().add(shop);
-                    Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
-                    Factor factor = new Factor("4/4",Admin1.getAdmin1().getProducts().get(l).getProductPrice(),Admin1.getAdmin1().getProducts().get(l).getProductName());
+                    System.out.println("new mojodi : " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice()));
+                    Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
                     Admin1.getAdmin1().getFactors().add(factor);
                     System.out.println("you take the thing that you want ");
                     cin.nextLine();
                     System.out.println("are you done with shopping ?");
-                    String done= cin.nextLine();
-                    if (Objects.equals(done,"yes"))
-                    {
+                    String done = cin.nextLine();
+                    if (Objects.equals(done, "yes")) {
                         Shopping();
                     }
 

@@ -56,8 +56,6 @@ public class Shopper {
     {
         return  this.userAccountCredentials=this.userAccountCredentials-money;
     }
-    public long setUserAccountCredentials1(long money){return  this.userAccountCredentials=money;
-    }
 
     public String setEmail(String email1) {
         return this.email = email1;

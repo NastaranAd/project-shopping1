@@ -33,6 +33,7 @@ public class Admin60 {
                     String order = cin.nextLine();
                     admin.showSignRequest(order);
                     admin.showMoneyRequest(order);
+                    admin.addingAdmin(order);
                 }
                 cin.nextLine();
                 printAdmin();
@@ -53,8 +54,9 @@ public class Admin60 {
     }
 
     public void printHelp() {
-        System.out.println("if you want to see sign in request enter , sign in request");
-        System.out.println("if you want to see the money request enter , money request");
+        System.out.println("if you want to see sign in request enter -> sign in request");
+        System.out.println("if you want to see the money request enter -> money request");
+        System.out.println("if you want to add product -> Add Car 4300 true BMW X5 66000 3");
         System.out.println("1.EXIT");
     }
 

@@ -7,4 +7,11 @@ public class Flash extends Digital {
         super(productName,productPrice,productId,capacity,product,weight,dimension);
         this.usbVersion=usbVersion;
     }
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "usb version : "+usbVersion;
+    }
+
 }

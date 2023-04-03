@@ -9,5 +9,11 @@ public class noteBook extends Stationary {
         this.pageNumber = pageNumber;
         this.paperType = paperType;
     }
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "page Number : "+pageNumber+" , paper type : "+paperType;
+    }
 
 }

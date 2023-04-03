@@ -9,6 +9,12 @@ public class Car extends Vehicle {
         this.auto = auto;
         this.engineVolume = engineVolume;
     }
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "auto : "+ auto+" , engine volume : "+engineVolume;
+    }
 
 }
 

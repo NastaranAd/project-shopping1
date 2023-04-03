@@ -10,4 +10,10 @@ public class SSD extends Digital
         this.readingSpeed=readingSpeed;
         this.writingSpeed=writingSpeed;
     }
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "readingSpeed : "+readingSpeed +" , writingSpeed : "+writingSpeed;
+    }
 }

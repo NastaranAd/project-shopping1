@@ -7,4 +7,10 @@ public class Pen extends Stationary {
         super(productName,productPrice,productId,capacity,product,country);
         this.color = color;
     }
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "color : "+ color;
+    }
 }

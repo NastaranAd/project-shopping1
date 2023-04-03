@@ -9,6 +9,12 @@ package model;
         this.dateOfManufacture = dateOfManufacture;
         this.expirationDate = expirationDate;
     }
+    @Override
+     public String toString()
+    {
+        return super.toString()+"\n"+
+                "date of manu facture : "+dateOfManufacture+" , expiration date : "+expirationDate;
+    }
 
 
 }

@@ -7,6 +7,7 @@ abstract public class Stationary extends Product {
         super(productName,productPrice,productId,capacity,product);
         this.country = country;
     }
+    @Override
     public String toString()
     {
         return super.toString()+"\n"+

@@ -10,4 +10,11 @@ public class Computer extends Digital
         this.RAM = RAM;
         this.processorModel = processorModel;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString()+"\n"+
+                "RAM : "+RAM+" , processor : "+processorModel;
+    }
 }

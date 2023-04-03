@@ -34,16 +34,31 @@ public class Admin60 {
                     System.out.println("please enter your order : ");
                     cin.nextLine();
                     String order = cin.nextLine();
-                    admin.showSignRequest(order);
-                    admin.showMoneyRequest(order);
-                    admin.addingAdmin(order);
+                    //admin.showSignRequest(order);
+                    //admin.showMoneyRequest(order);
+                    //admin.addingAdmin(order);
 
                     if (Objects.equals(order, "Remove")) {
                         System.out.println(admin3.Showing());
                         System.out.println("please enter the product name : ");
                         String name = cin.nextLine();
                         admin.removeAdmin(order, name);
+
                     }
+                    if (Objects.equals(order, "Change name"))
+                    {
+                        admin.changingInformationName(order);
+                    }
+                    if (Objects.equals(order, "Change capacity"))
+                    {
+                        admin.changingInformationCapacity(order);
+                    }
+                    if (Objects.equals(order, "Change price"))
+                    {
+                        admin.changingInformationPrice(order);
+                    }
+
+
                 }
                 cin.nextLine();
                 printAdmin();

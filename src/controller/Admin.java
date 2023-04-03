@@ -153,5 +153,43 @@ public class Admin {
                 }
 
             }
+            public void changingInformationName(String order)
+            {
+                String[] words = order.split("\\s");
+                for (int t =0 ;t< words.length;t++)
+                {
+                    if (Objects.equals(words[t],"Change"))
+                    {
+                        if (Objects.equals(words[t+1],"name"))
+                        {
+                           user1.changeName();
+                        }
+                    }
+                }
+
+            }
+    public void changingInformationCapacity(String order) {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "Change")) {
+                if (Objects.equals(words[t + 1], "capacity")) {
+                    user1.changeCapacity();
+                }
+            }
 
         }
+
+    }
+    public void changingInformationPrice(String order) {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "Change")) {
+                if (Objects.equals(words[t + 1], "price")) {
+                    user1.changePrice();
+                }
+            }
+
+        }
+
+    }
+}

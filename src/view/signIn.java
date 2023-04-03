@@ -191,13 +191,64 @@ public class signIn {
         }
 
     }
-    public void removeAdmin(String name)
+    public void changeName()
     {
-        admin3.Showing();
-        System.out.println("which product do you want to remove?");
+        System.out.println(admin3.Showing());
         cin.nextLine();
-        System.out.println("please enter the product name?");
+        System.out.println("which product do you want to change the name ?");
+        String name = cin.nextLine();
+        for (int k=0;k<Admin1.getAdmin1().getProducts().size();k++)
+        {
+            if (Objects.equals(name,Admin1.getAdmin1().getProducts().get(k).getProductName()))
+            {
+                cin.nextLine();
+                System.out.println("please enter the new name of product : ");
+                String name1= cin.nextLine();
+                Admin1.getAdmin1().getProducts().get(k).setProductName(name1);
+                System.out.println("the new name of product "+Admin1.getAdmin1().getProducts().get(k).getProductName());
+            }
+        }
 
     }
+    public void changeCapacity()
+    {
+        System.out.println(admin3.Showing());
+        cin.nextLine();
+        System.out.println("which product do you want to change the capacity ?");
+        String name =cin.nextLine();
+        for (int k=0;k<Admin1.getAdmin1().getProducts().size();k++)
+        {
+            if (Objects.equals(name,Admin1.getAdmin1().getProducts().get(k).getProductName()))
+            {
+                cin.nextLine();
+                System.out.println("please enter the new capacity of product : ");
+                int capacity1 = cin.nextInt();
+                Admin1.getAdmin1().getProducts().get(k).setProductCapacity(capacity1);
+                System.out.println("the new capacity of this product -> "+Admin1.getAdmin1().getProducts().get(k).getProductName()+"is"+Admin1.getAdmin1().getProducts().get(k).getCapacity());
+            }
+        }
+
+    }
+    public void changePrice()
+    {
+        System.out.println(admin3.Showing());
+        cin.nextLine();
+        System.out.println("which product do you want to change the price ?");
+        String name =cin.nextLine();
+        for (int k=0;k<Admin1.getAdmin1().getProducts().size();k++)
+        {
+            if (Objects.equals(name,Admin1.getAdmin1().getProducts().get(k).getProductName()))
+            {
+                cin.nextLine();
+                System.out.println("please enter the new price of product : ");
+                long price = cin.nextLong();
+                Admin1.getAdmin1().getProducts().get(k).setProductprice(price);
+                System.out.println("the new price of this product -> "+Admin1.getAdmin1().getProducts().get(k).getProductName()+"is"+Admin1.getAdmin1().getProducts().get(k).getProductPrice());
+            }
+        }
+
+    }
+
+
 }
 

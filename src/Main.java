@@ -2,13 +2,14 @@ import model.Admin1;
 import view.signIn;
 import view.logIn;
 import view.Admin60;
-import controller.Admin;
+import controller.*;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
     Scanner cin = new Scanner(System.in);
     Admin1.getAdmin1("admin","admin");
     Admin add = new Admin();
+    Shopper admin40 = new Shopper();
     add.add(Admin1.getAdmin1());
     Admin60 admin60 = new Admin60();
     signIn user = new signIn();
@@ -52,7 +53,7 @@ public class Main {
         }
         if (choice8==3)
         {
-
+            System.out.println(admin40.Showing());
         }
         user.printCharacter();
         System.out.println("please enter your choice : ");

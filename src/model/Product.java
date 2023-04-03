@@ -66,6 +66,19 @@ public class Product {
     public enum category {
         DIGITAL, STATIONARY, VEHICLES, FOOD
     }
+    public String  setProductName(String name)
+    {
+        return this.productName=name;
+    }
+    public int  setProductCapacity(int capacity)
+    {
+        return this.capacity=capacity;
+    }
+    public long  setProductprice(long price)
+    {
+        return this.productPrice=price;
+    }
+
    @Override
     public String toString()
     {

@@ -90,7 +90,26 @@ public class logIn {
                                 System.out.println("please enter the product name : ");
                                 String name = cin.nextLine();
                                 helper5.Shopping(name,i);
+                                cin.nextLine();
+                                System.out.println("are you done with shopping ?");
+                                String done = cin.nextLine();
+                                if (Objects.equals(done, "yes")) {
+                                    helper5.Shopping();
+                                }
+                                if (Objects.equals(done,"no"))
+                                {
+                                   break;
+                                }
                             }
+                            if (chioce80==2)
+                            {
+                                System.out.println(admin3.showBaskest());
+                            }
+                            if (chioce80==3)
+                            {
+
+                            }
+                            printShopperDuty();
                             cin.nextLine();
                             System.out.println("please enter your choice : ");
                              chioce80 = cin.nextInt();
@@ -105,6 +124,8 @@ public class logIn {
 
                     }
                     if (choice1 == 5) {
+                        System.out.println(admin3.showFactors());
+                        System.out.println("    ");
 
                     }
                     if (choice1 == 6) {

@@ -181,14 +181,9 @@ public class signIn {
                     Admin1.getAdmin1().getBaskets().add(shop);
                     System.out.println("new mojodi : " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice()));
                     Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
+                    //Admin1.getAdmin1().getFactors().get(l).getProducts().add(Admin1.getAdmin1().getProducts().get(l));
                     Admin1.getAdmin1().getFactors().add(factor);
                     System.out.println("you take the thing that you want ");
-                    cin.nextLine();
-                    System.out.println("are you done with shopping ?");
-                    String done = cin.nextLine();
-                    if (Objects.equals(done, "yes")) {
-                        Shopping();
-                    }
 
                 }
             }

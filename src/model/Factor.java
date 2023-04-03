@@ -19,6 +19,18 @@ public class Factor
         this.date=date;
         this.amountPaid=amountPaid;
     }
+    public String getProductName()
+    {
+        return this.productName;
+    }
+    public String getDate()
+    {
+        return this.date;
+    }
+    public double getAmountPaid()
+    {
+        return this.amountPaid;
+    }
 
 
 }

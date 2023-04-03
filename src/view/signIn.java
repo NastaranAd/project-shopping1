@@ -17,6 +17,7 @@ public class signIn {
     String phoneNumber;
     String userName;
     Scanner cin = new Scanner(System.in);
+    controller.Shopper admin3 = new controller.Shopper();
 
     public void signIn1() {
         boolean helper = false;
@@ -188,6 +189,14 @@ public class signIn {
                 }
             }
         }
+
+    }
+    public void removeAdmin(String name)
+    {
+        admin3.Showing();
+        System.out.println("which product do you want to remove?");
+        cin.nextLine();
+        System.out.println("please enter the product name?");
 
     }
 }

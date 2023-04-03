@@ -11,6 +11,7 @@ import java.util.Objects;
 
 public class Admin {
 
+    Shopper admin = new Shopper();
     signIn user1 = new signIn();
 
     public StringBuilder signInRequest() {
@@ -39,85 +40,118 @@ public class Admin {
     public void showSignRequest(String order) {
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
-            if (Objects.equals(words[i], "sign"))
-            {
-               user1.printRequest();
+            if (Objects.equals(words[i], "sign")) {
+                user1.printRequest();
             }
         }
 
     }
+
     public void showMoneyRequest(String order) {
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
-            if (Objects.equals(words[i], "money"))
-            {
+            if (Objects.equals(words[i], "money")) {
                 user1.printRequestMoney(0);
             }
         }
 
     }
+
     public void addingAdmin(String order) {
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
-            if (Objects.equals(words[i], "Add"))
-            {
-                if (Objects.equals(words[i+1],"Car"))
-                {
+            if (Objects.equals(words[i], "Add")) {
+                if (Objects.equals(words[i + 1], "car")) {
                     boolean auto;
-                    int price = Integer.parseInt(words[i+6]);
-                    int capacity = Integer.parseInt(words[i+7]);
-                    double volume = Integer.parseInt(words[i+2]);
-                    if (Objects.equals(words[i+3],"true"))
-                    {
-                        auto=true;
-                    }
-                    else
-                    {
+                    int price = Integer.parseInt(words[i + 6]);
+                    int capacity = Integer.parseInt(words[i + 7]);
+                    double volume = Integer.parseInt(words[i + 2]);
+                    if (Objects.equals(words[i + 3], "true")) {
+                        auto = true;
+                    } else {
                         auto = false;
                     }
-                    Car car = new Car(words[i+5],price,1,capacity, Product.category.VEHICLES,words[i+4],auto,volume);
+                    Car car = new Car(words[i + 5], price, 1, capacity, Product.category.VEHICLES, words[i + 4], auto, volume);
                     Admin1.getAdmin1().getProducts().add(car);
-                }
-                if (Objects.equals(words[i+1],"Bikecycle"))
-                {
-                    int price = Integer.parseInt(words[i+5]);
-                    int capacity = Integer.parseInt(words[i+6]);
-                    Bikecycle bike = new Bikecycle(words[i+4],price,1,capacity, Product.category.VEHICLES,words[i+3], Bikecycle.bikecycle.valueOf(words[i+2]));
+                } else if (Objects.equals(words[i + 1], "bikecycle")) {
+                    int price = Integer.parseInt(words[i + 5]);
+                    int capacity = Integer.parseInt(words[i + 6]);
+                    Bikecycle bike = new Bikecycle(words[i + 4], price, 1, capacity, Product.category.VEHICLES, words[i + 3], Bikecycle.bikecycle.valueOf(words[i + 2]));
                     Admin1.getAdmin1().getProducts().add(bike);
-                }
-                if (Objects.equals(words[i+1],"Computer"))
-                {
-                    int price = Integer.parseInt(words[i+3]);
-                    int capacity = Integer.parseInt(words[i+8]);
-                    double weight = Integer.parseInt(words[i+4]);
-                    double dimention = Integer.parseInt(words[i+5]);
-                    int RAM = Integer.parseInt(words[i+6]);
-                    Computer computer = new Computer(words[i+2],price,1,capacity, Product.category.DIGITAL,weight,dimention,RAM,words[i+7]);
+                } else if (Objects.equals(words[i + 1], "computer")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 8]);
+                    double weight = Integer.parseInt(words[i + 4]);
+                    double dimention = Integer.parseInt(words[i + 5]);
+                    int RAM = Integer.parseInt(words[i + 6]);
+                    Computer computer = new Computer(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimention, RAM, words[i + 7]);
                     Admin1.getAdmin1().getProducts().add(computer);
-                }
-                if (Objects.equals(words[i+1],"information"))
-                {
-                    int price = Integer.parseInt(words[i+3]);
-                    int capacity = Integer.parseInt(words[i+6]);
-                    double weight = Integer.parseInt(words[i+4]);
-                    double dimension = Integer.parseInt(words[i+5]);
-                    informationStorage informationStorage=new informationStorage(words[i+2],price,1,capacity, Product.category.DIGITAL,weight,dimension);
+                } else if (Objects.equals(words[i + 1], "information")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 6]);
+                    double weight = Integer.parseInt(words[i + 4]);
+                    double dimension = Integer.parseInt(words[i + 5]);
+                    informationStorage informationStorage = new informationStorage(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension);
                     Admin1.getAdmin1().getProducts().add(informationStorage);
 
-                }
-                if (Objects.equals(words[i+1],"Flash"))
-                {
-                    int price = Integer.parseInt(words[i+3]);
-                    int capacity = Integer.parseInt(words[i+7]);
-                    double weight = Integer.parseInt(words[i+4]);
-                    double dimension = Integer.parseInt(words[i+5]);
-                    Flash flash = new Flash(words[i+2],price,1,capacity,Product.category.DIGITAL,weight,dimension,words[i+6]);
+                } else if (Objects.equals(words[i + 1], "flash")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 7]);
+                    double weight = Integer.parseInt(words[i + 4]);
+                    double dimension = Integer.parseInt(words[i + 5]);
+                    Flash flash = new Flash(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6]);
                     Admin1.getAdmin1().getProducts().add(flash);
+                } else if (Objects.equals(words[i + 1], "SSD")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 9]);
+                    double weight = Integer.parseInt(words[i + 4]);
+                    double dimension = Integer.parseInt(words[i + 5]);
+                    double readingSpeed = Integer.parseInt(words[i + 7]);
+                    double writingSpeed = Integer.parseInt(words[i + 8]);
+                    SSD ssd = new SSD(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6], readingSpeed, writingSpeed);
+                    Admin1.getAdmin1().getProducts().add(ssd);
+                } else if (Objects.equals(words[i + 1], "pen")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 6]);
+                    Pen pen = new Pen(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5]);
+                    Admin1.getAdmin1().getProducts().add(pen);
+                } else if (Objects.equals(words[i + 1], "Pencil")) {
+                    int price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 6]);
+                    Pencil pencil = new Pencil(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], Pencil.pencil.valueOf(words[i + 5]));
+                    Admin1.getAdmin1().getProducts().add(pencil);
+                } else if (Objects.equals(words[i + 1], "notebook")) {
+                    long price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 7]);
+                    int page = Integer.parseInt(words[i + 6]);
+                    noteBook noteBook = new noteBook(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page);
+                    Admin1.getAdmin1().getProducts().add(noteBook);
+                } else if (Objects.equals(words[i + 1], "food")) {
+                    long price = Integer.parseInt(words[i + 3]);
+                    int capacity = Integer.parseInt(words[i + 6]);
+                    Food food = new Food(words[i + 2], price, 1, capacity, Product.category.FOOD, words[i + 4], words[i + 5]);
+                    Admin1.getAdmin1().getProducts().add(food);
+                }
+
+
+            }
+
+        }
+    }
+
+    public void removeAdmin(String order,String name ) {
+
+            String[] words = order.split("\\s");
+            for (int i = 0; i < words.length; i++) {
+                if (Objects.equals(words[i], "Remove")) {
+                        for (int r=0;r<Admin1.getAdmin1().getProducts().size();r++) {
+                            if (Objects.equals(name, Admin1.getAdmin1().getProducts().get(r).getProductName())) {
+                                Admin1.getAdmin1().getProducts().remove(r);
+                            }
+                        }
+                    }
                 }
 
             }
+
         }
-
-    }
-
-}

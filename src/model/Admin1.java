@@ -8,7 +8,7 @@ public class Admin1 {
     private ArrayList<Request> requestsMoney = new ArrayList<>();
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<Factor> factors = new ArrayList<>();
-
+    private ArrayList<Opinion> opinions = new ArrayList<>();
     private ArrayList<Stationary> stationaries = new ArrayList<>();
     private ArrayList<Basket> baskets = new ArrayList<>();
 
@@ -34,6 +34,9 @@ public class Admin1 {
 
     public ArrayList<Basket> getBaskets() {
         return baskets;
+    }
+    public ArrayList<Opinion> getOpinion() {
+        return opinions;
     }
 
     private static Admin1 admin1;

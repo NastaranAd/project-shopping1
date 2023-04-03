@@ -1,17 +1,30 @@
 package model;
 
-public class Opinion
-{
+public class Opinion {
     String commentingUser;
-    String commentText;
+    private String commentText;
     String commentStatus;
-    long  productId;
+    private double score;
+    private String productName;
+    public double getScore() {
+        return this.score;
+    }
 
-}
- class Score
-{
-int score;
-public int getScore()
+    public String getCommentingUser() {
+        return this.commentingUser;
+    }
+    public String getProductName1000() {
+        return this.productName;
+    }
+    public double setscore(double score200)
     {
-        return 0;
-    }}
+        return this.score=this.score+score200;
+    }
+
+    public Opinion(String commentingUser,String productName, String commentText, int score) {
+        this.score = score;
+        this.commentText = commentText;
+        this.productName=productName;
+        this.commentingUser=commentingUser;
+    }
+}

@@ -16,6 +16,7 @@ public class signIn {
     String password;
     String phoneNumber;
     String userName;
+    int index1 ;
     Scanner cin = new Scanner(System.in);
     controller.Shopper admin3 = new controller.Shopper();
 
@@ -166,30 +167,33 @@ public class signIn {
         }
         cin.nextLine();
         System.out.println("IT WAS SUCCESSFUL");
-
-
+        System.out.println();
+        showOpinion(index1);
     }
 
     public void Shopping(String name1, int index) {
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
+
                 long sum = 0;
                 for (int j = 0; j < Admin1.getAdmin1().getBaskets().size(); j++) {
                     sum = sum + Admin1.getAdmin1().getBaskets().get(j).getMoney100();
                 }
-                if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
-                    Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
-                    Admin1.getAdmin1().getBaskets().add(shop);
-                    System.out.println("new mojodi : " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice()));
-                    Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
-                    //Admin1.getAdmin1().getFactors().get(l).getProducts().add(Admin1.getAdmin1().getProducts().get(l));
-                    Admin1.getAdmin1().getFactors().add(factor);
-                    System.out.println("you take the thing that you want ");
-
+                if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >=0 ) {
+                    if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
+                        Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
+                        Admin1.getAdmin1().getBaskets().add(shop);
+                        Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
+                        Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
+                        //Admin1.getAdmin1().getFactors().get(l).getProducts().add(Admin1.getAdmin1().getProducts().get(l));
+                        Admin1.getAdmin1().getFactors().add(factor);
+                        System.out.println("you take the thing that you want ");
+                        Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
+                        index1=l;
+                    }
                 }
             }
         }
-
     }
     public void changeName()
     {
@@ -206,6 +210,9 @@ public class signIn {
                 String name1= cin.nextLine();
                 Admin1.getAdmin1().getProducts().get(k).setProductName(name1);
                 System.out.println("the new name of product "+Admin1.getAdmin1().getProducts().get(k).getProductName());
+            }
+            else {
+                System.out.println("we do not have this product");
             }
         }
 
@@ -226,6 +233,10 @@ public class signIn {
                 Admin1.getAdmin1().getProducts().get(k).setProductCapacity(capacity1);
                 System.out.println("the new capacity of this product -> "+Admin1.getAdmin1().getProducts().get(k).getProductName()+"is"+Admin1.getAdmin1().getProducts().get(k).getCapacity());
             }
+            else
+            {
+                System.out.println("we do not have this product");
+            }
         }
 
     }
@@ -245,9 +256,60 @@ public class signIn {
                 Admin1.getAdmin1().getProducts().get(k).setProductprice(price);
                 System.out.println("the new price of this product -> "+Admin1.getAdmin1().getProducts().get(k).getProductName()+"is"+Admin1.getAdmin1().getProducts().get(k).getProductPrice());
             }
+            else {
+                System.out.println("we do not have this product");
+            }
         }
 
     }
+    public void showOpinion(int index2)
+    {
+        System.out.println("please enter your opinion about the product about"+Admin1.getAdmin1().getProducts().get(index2).getProductName());
+        cin.nextLine();
+        System.out.println("opinion : ");
+        String opinion1 = cin.nextLine();
+        cin.nextLine();
+        System.out.println("please enter one number between 1 to 5");
+        int number = cin.nextInt();
+        cin.nextLine();
+        Opinion opinion= new Opinion(Admin1.getAdmin1().getShoppers().get(0).getUserName(),Admin1.getAdmin1().getProducts().get(index2).getProductName(),opinion1,number);
+        Admin1.getAdmin1().getOpinion().add(opinion);
+        System.out.println("your opinion has send to admin");
+    }
+    public void showOpinionRequst()
+    {
+
+       for (int e=0;e<Admin1.getAdmin1().getOpinion().size();e++)
+        {
+            System.out.println("this user "+Admin1.getAdmin1().getOpinion().get(e).getCommentingUser()+""+"wants to send the score for "+Admin1.getAdmin1().getOpinion().get(e).getProductName1000());
+            cin.nextLine();
+            System.out.println("do you accept the request?");
+            String choice45 = cin.nextLine();
+            if (Objects.equals(choice45,"yes"))
+            {
+                double sum20=0;
+                for (int p=0;p<Admin1.getAdmin1().getOpinion().size();p++)
+                {
+                    sum20=sum20+Admin1.getAdmin1().getOpinion().get(p).getScore();
+                    sum20=sum20/Admin1.getAdmin1().getOpinion().size();
+                }
+               for (int w=0;w<Admin1.getAdmin1().getProducts().size();w++)
+               {
+                   if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(),Admin1.getAdmin1().getOpinion().get(e).getProductName1000()))
+                   {
+                       System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum20));
+
+                   }
+               }
+            }
+            if (Objects.equals(choice45,"no"))
+            {
+                System.out.println("you did not accept the request");
+            }
+        }
+
+    }
+
 
 
 }

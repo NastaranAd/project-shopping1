@@ -34,10 +34,15 @@ public class Admin60 {
                     System.out.println("please enter your order : ");
                     cin.nextLine();
                     String order = cin.nextLine();
-                    //admin.showSignRequest(order);
-                    //admin.showMoneyRequest(order);
+                    if (Objects.equals(order,"sign in"))
+                    { admin.showSignRequest(order);}
+                    if (Objects.equals(order,"money"))
+                    {admin.showMoneyRequest(order);}
                     //admin.addingAdmin(order);
-
+                     if (Objects.equals(order, "opinion"))
+                     {
+                         admin.showOpnionRequest(order);
+                     }
                     if (Objects.equals(order, "Remove")) {
                         System.out.println(admin3.Showing());
                         System.out.println("please enter the product name : ");

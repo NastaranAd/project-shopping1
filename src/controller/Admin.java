@@ -14,20 +14,11 @@ public class Admin {
     Shopper admin = new Shopper();
     signIn user1 = new signIn();
 
-    public StringBuilder signInRequest() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int o = 0; o < Admin1.getAdmin1().getSignInRequests().size(); o++) {
-            stringBuilder.append(Admin1.getAdmin1().getSignInRequests().get(o).getUserName90() + " " + "wants to log in");
-        }
-        return stringBuilder;
-    }
-
-
     public void add(Admin1 admin2) {
-        Car product1 = new Car("BMW", 1000, 1, 3, Product.category.VEHICLES, "BMW", true, 3500);
-        Food product2 = new Food("nodel", 10, 2, 3, Product.category.FOOD, "4/8", "12/12");
-        Computer product3 = new Computer("ASUS", 450, 3, 3, Product.category.DIGITAL, 4.5, 80.4, 4, "intel core i5");
-        noteBook product4 = new noteBook("book", 90, 4, 2, Product.category.STATIONARY, "IRAN", "Wove", 100);
+        Car product1 = new Car("BMW", 1000, 0, 3, Product.category.VEHICLES, "BMW", true, 3500);
+        Food product2 = new Food("nodel", 10, 0, 3, Product.category.FOOD, "4/8", "12/12");
+        Computer product3 = new Computer("ASUS", 450, 0, 3, Product.category.DIGITAL, 4.5, 80.4, 4, "intel core i5");
+        noteBook product4 = new noteBook("book", 90, 0, 2, Product.category.STATIONARY, "IRAN", "Wove", 100);
         admin2.getProducts().add(product1);
         admin2.getProducts().add(product2);
         admin2.getProducts().add(product3);
@@ -56,6 +47,16 @@ public class Admin {
         }
 
     }
+    public void showOpnionRequest(String order) {
+        String[] words = order.split("\\s");
+        for (int i = 0; i < words.length; i++) {
+            if (Objects.equals(words[i], "opinion"))
+            {
+                user1.showOpinionRequst();
+            }
+        }
+
+    }
 
     public void addingAdmin(String order) {
         String[] words = order.split("\\s");
@@ -71,12 +72,12 @@ public class Admin {
                     } else {
                         auto = false;
                     }
-                    Car car = new Car(words[i + 5], price, 1, capacity, Product.category.VEHICLES, words[i + 4], auto, volume);
+                    Car car = new Car(words[i + 5], price, 0, capacity, Product.category.VEHICLES, words[i + 4], auto, volume);
                     Admin1.getAdmin1().getProducts().add(car);
                 } else if (Objects.equals(words[i + 1], "bikecycle")) {
                     int price = Integer.parseInt(words[i + 5]);
                     int capacity = Integer.parseInt(words[i + 6]);
-                    Bikecycle bike = new Bikecycle(words[i + 4], price, 1, capacity, Product.category.VEHICLES, words[i + 3], Bikecycle.bikecycle.valueOf(words[i + 2]));
+                    Bikecycle bike = new Bikecycle(words[i + 4], price, 0, capacity, Product.category.VEHICLES, words[i + 3], Bikecycle.bikecycle.valueOf(words[i + 2]));
                     Admin1.getAdmin1().getProducts().add(bike);
                 } else if (Objects.equals(words[i + 1], "computer")) {
                     int price = Integer.parseInt(words[i + 3]);
@@ -84,14 +85,14 @@ public class Admin {
                     double weight = Integer.parseInt(words[i + 4]);
                     double dimention = Integer.parseInt(words[i + 5]);
                     int RAM = Integer.parseInt(words[i + 6]);
-                    Computer computer = new Computer(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimention, RAM, words[i + 7]);
+                    Computer computer = new Computer(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimention, RAM, words[i + 7]);
                     Admin1.getAdmin1().getProducts().add(computer);
                 } else if (Objects.equals(words[i + 1], "information")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     double weight = Integer.parseInt(words[i + 4]);
                     double dimension = Integer.parseInt(words[i + 5]);
-                    informationStorage informationStorage = new informationStorage(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension);
+                    informationStorage informationStorage = new informationStorage(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension);
                     Admin1.getAdmin1().getProducts().add(informationStorage);
 
                 } else if (Objects.equals(words[i + 1], "flash")) {
@@ -99,7 +100,7 @@ public class Admin {
                     int capacity = Integer.parseInt(words[i + 7]);
                     double weight = Integer.parseInt(words[i + 4]);
                     double dimension = Integer.parseInt(words[i + 5]);
-                    Flash flash = new Flash(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6]);
+                    Flash flash = new Flash(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6]);
                     Admin1.getAdmin1().getProducts().add(flash);
                 } else if (Objects.equals(words[i + 1], "SSD")) {
                     int price = Integer.parseInt(words[i + 3]);
@@ -108,28 +109,28 @@ public class Admin {
                     double dimension = Integer.parseInt(words[i + 5]);
                     double readingSpeed = Integer.parseInt(words[i + 7]);
                     double writingSpeed = Integer.parseInt(words[i + 8]);
-                    SSD ssd = new SSD(words[i + 2], price, 1, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6], readingSpeed, writingSpeed);
+                    SSD ssd = new SSD(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6], readingSpeed, writingSpeed);
                     Admin1.getAdmin1().getProducts().add(ssd);
                 } else if (Objects.equals(words[i + 1], "pen")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
-                    Pen pen = new Pen(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5]);
+                    Pen pen = new Pen(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5]);
                     Admin1.getAdmin1().getProducts().add(pen);
                 } else if (Objects.equals(words[i + 1], "Pencil")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
-                    Pencil pencil = new Pencil(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], Pencil.pencil.valueOf(words[i + 5]));
+                    Pencil pencil = new Pencil(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], Pencil.pencil.valueOf(words[i + 5]));
                     Admin1.getAdmin1().getProducts().add(pencil);
                 } else if (Objects.equals(words[i + 1], "notebook")) {
                     long price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     int page = Integer.parseInt(words[i + 6]);
-                    noteBook noteBook = new noteBook(words[i + 2], price, 1, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page);
+                    noteBook noteBook = new noteBook(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page);
                     Admin1.getAdmin1().getProducts().add(noteBook);
                 } else if (Objects.equals(words[i + 1], "food")) {
                     long price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
-                    Food food = new Food(words[i + 2], price, 1, capacity, Product.category.FOOD, words[i + 4], words[i + 5]);
+                    Food food = new Food(words[i + 2], price, 0, capacity, Product.category.FOOD, words[i + 4], words[i + 5]);
                     Admin1.getAdmin1().getProducts().add(food);
                 }
 

@@ -7,8 +7,8 @@ public class Bikecycle  extends Vehicle {
 
     public bikecycle bike;
 
-    public Bikecycle(String productName,long productPrice,long productId,int capacity,category product,String company, bikecycle bike) {
-        super(productName,productPrice,productId,capacity,product,company);
+    public Bikecycle(String productName,long productPrice,double averageScore,int capacity,category product,String company, bikecycle bike) {
+        super(productName,productPrice, averageScore,capacity,product,company);
         this.bike = bike;
     }
     @Override

@@ -5,17 +5,11 @@ import java.util.Scanner;
 import model.Product;
 import model.Admin1;
 import model.*;
-import controller.Admin;
 import controller.Shopper;
 
 import java.util.Objects;
 
 public class logIn {
-
-    //Product pro = new Product("hoho",9,2,2, Product.category.DIGITAL);
-    // System.out.println(Admin1.getAdmin1().getProducts().get(1).toString());
-    //String category;
-    Admin admin = new Admin();
     Scanner cin = new Scanner(System.in);
     Shopper admin3 = new Shopper();
     signIn helper5 = new signIn();
@@ -23,13 +17,13 @@ public class logIn {
 
     public void logIn1() {
         cin.nextLine();
-        System.out.println("please enter your email");
+        System.out.println("please enter your email : ");
         String email = cin.nextLine();
-        System.out.println("please enter your password");
+        System.out.println("please enter your password : ");
         String password = cin.nextLine();
-        System.out.println("please enter your phone number");
+        System.out.println("please enter your phone number : ");
         String phoneNumber = cin.nextLine();
-        System.out.println("please enter your user name ");
+        System.out.println("please enter your user name :");
         String userName = cin.nextLine();
         for (int i = 0; i < Admin1.getAdmin1().getShoppers().size(); i++)
             if (Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getEmail(), email) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPassword(), password) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPhoneNumber(), phoneNumber) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getUserName(), userName)) {
@@ -49,21 +43,21 @@ public class logIn {
                                 cin.nextLine();
                                 String email1 = cin.nextLine();
                                 System.out.println("your new email is :");
-                                System.out.println(admin3.changeingEmail(email1));
+                                System.out.println(admin3.changingEmail(email1));
                             }
                             if (chioce2 == 2) {
                                 System.out.println("please enter you new password : ");
                                 cin.nextLine();
                                 String password1 = cin.nextLine();
                                 System.out.println("your new password is :");
-                                System.out.println(admin3.changeingPassword(password1));
+                                System.out.println(admin3.changingPassword(password1));
                             }
                             if (chioce2 == 3) {
                                 System.out.println("please enter you new phone number : ");
                                 cin.nextLine();
                                 String phoneNumber1 = cin.nextLine();
                                 System.out.println("your new phone number is :");
-                                System.out.println(admin3.changeingPhoneNumber(phoneNumber1));
+                                System.out.println(admin3.changingPhoneNumber(phoneNumber1));
                             }
                             if (chioce2 == 4) {
                                 System.out.println(admin3.showInformation());
@@ -83,7 +77,7 @@ public class logIn {
                         cin.nextLine();
                         System.out.println("please enter your choice : ");
                         int chioce80 = cin.nextInt();
-                        while (chioce80 != 4) {
+                        while (chioce80 != 3) {
                             if (chioce80 == 1) {
                                 System.out.println(admin3.Showing());
                                 cin.nextLine();
@@ -105,10 +99,6 @@ public class logIn {
                             {
                                 System.out.println(admin3.showBaskest());
                             }
-                            if (chioce80==3)
-                            {
-
-                            }
                             printShopperDuty();
                             cin.nextLine();
                             System.out.println("please enter your choice : ");
@@ -116,7 +106,7 @@ public class logIn {
                         }
                     }
                     if (choice1 == 4) {
-                        System.out.println("how much do you want to increase your credit cart");
+                        System.out.println("how much do you want to increase your Bank account balance?");
                         long money = cin.nextInt();
                         Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
                         Admin1.getAdmin1().getRequestsmoney().add(request70);
@@ -215,8 +205,7 @@ public class logIn {
     public void printShopperDuty() {
         System.out.println("1.shopping");
         System.out.println("2.basket");
-        System.out.println("3.opinion");
-        System.out.println("4.Exit");
+        System.out.println("3.Exit");
     }
 
 }

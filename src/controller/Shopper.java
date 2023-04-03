@@ -1,11 +1,7 @@
 package controller;
 
 import model.Admin1;
-import model.Factor;
 import model.Product;
-import model.*;
-
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +20,7 @@ public class Shopper {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if ((kind.compareTo(Admin1.getAdmin1().getProducts().get(k).product) == 0)) {
-                stringBuilder.append((Admin1.getAdmin1().getProducts().get(k).getProductName()) + "\n");
+                stringBuilder.append((Admin1.getAdmin1().getProducts().get(k).toString()) + "\n");
             }
         return stringBuilder;
     }
@@ -33,8 +29,7 @@ public class Shopper {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if ((min <= Admin1.getAdmin1().getProducts().get(k).getProductPrice()) && (Admin1.getAdmin1().getProducts().get(k).getProductPrice() <= max)) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).getProductName() + "\n");
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).getCategory() + "\n");
+                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
@@ -44,8 +39,7 @@ public class Shopper {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if (Admin1.getAdmin1().getProducts().get(k).getCapacity() > 0) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).getProductName() + "\n");
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).getCategory() + "\n");
+                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
@@ -55,7 +49,7 @@ public class Shopper {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
             if (Objects.equals(Admin1.getAdmin1().getVehicles().get(k).getCompany(), company)) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).getProductName() + "\n");
+                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
@@ -65,8 +59,7 @@ public class Shopper {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getStationaries().size(); k++)
             if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getCountry(), country)) {
-                stringBuilder.append((k + 1) + "." + Admin1.getAdmin1().getProducts().get(k).getProductName() + "\n");
-                stringBuilder.append((k + 1) + "." + Admin1.getAdmin1().getProducts().get(k).getCategory() + "\n");
+                stringBuilder.append((k + 1) + "." + Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
@@ -80,7 +73,7 @@ public class Shopper {
         return stringBuilder;
     }
 
-    public StringBuilder changeingEmail(String email1) {
+    public StringBuilder changingEmail(String email1) {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -100,7 +93,7 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public StringBuilder changeingPhoneNumber(String phoneNumber1) {
+    public StringBuilder changingPhoneNumber(String phoneNumber1) {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -120,7 +113,7 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public StringBuilder changeingPassword(String password1) {
+    public StringBuilder changingPassword(String password1) {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -149,19 +142,6 @@ public class Shopper {
             }
         }
         return stringBuilder;
-    }
-
-
-    public void Factors(String name )
-    {
-        for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
-            if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(),name)) {
-                Factor factor = new Factor("4/4",Admin1.getAdmin1().getProducts().get(l).getProductPrice(),Admin1.getAdmin1().getProducts().get(l).getProductName());
-                Admin1.getAdmin1().getFactors().add(factor);
-
-            }
-
-        }
     }
     public StringBuilder showFactors()
     {

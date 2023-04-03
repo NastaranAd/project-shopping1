@@ -1,11 +1,7 @@
 package view;
 
-import controller.Admin;
 import model.*;
-import controller.*;
 import model.Shopper;
-
-import java.sql.SQLOutput;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -191,7 +187,16 @@ public class signIn {
                         Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                         index1=l;
                     }
+                    else {
+                        System.out.println("you do not have enough money in your bank account");
+                    }
                 }
+                else {
+                    System.out.println("you can not get this product because we do not have it anymore");
+                }
+            }
+            else {
+                System.out.println("we do not have this product");
             }
         }
     }

@@ -1,9 +1,9 @@
 package model;
 
 public class Opinion {
-    String commentingUser;
+    private String commentingUser;
     private String commentText;
-    String commentStatus;
+    private String commentStatus;
     private double score;
     private String productName;
     public double getScore() {

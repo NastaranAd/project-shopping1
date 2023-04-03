@@ -34,34 +34,21 @@ public class Admin60 {
                     System.out.println("please enter your order : ");
                     cin.nextLine();
                     String order = cin.nextLine();
-                    if (Objects.equals(order,"sign in"))
-                    { admin.showSignRequest(order);}
-                    if (Objects.equals(order,"money"))
-                    {admin.showMoneyRequest(order);}
-                    //admin.addingAdmin(order);
-                     if (Objects.equals(order, "opinion"))
-                     {
-                         admin.showOpnionRequest(order);
-                     }
+                    admin.showSignRequest(order);
+                    admin.showMoneyRequest(order);
+                    admin.addingAdmin(order);
+                    admin.showOpnionRequest(order);
+                    admin.changingInformationName(order);
+                    admin.changingInformationCapacity(order);
+                    admin.changingInformationPrice(order);
+
                     if (Objects.equals(order, "Remove")) {
                         System.out.println(admin3.Showing());
                         System.out.println("please enter the product name : ");
                         String name = cin.nextLine();
                         admin.removeAdmin(order, name);
+                    }
 
-                    }
-                    if (Objects.equals(order, "Change name"))
-                    {
-                        admin.changingInformationName(order);
-                    }
-                    if (Objects.equals(order, "Change capacity"))
-                    {
-                        admin.changingInformationCapacity(order);
-                    }
-                    if (Objects.equals(order, "Change price"))
-                    {
-                        admin.changingInformationPrice(order);
-                    }
 
 
                 }
@@ -95,6 +82,9 @@ public class Admin60 {
         System.out.println("if you want to add notebook -> Add notebook name price country paperType pageNumber capacity");
         System.out.println("if you want to add food -> Add food name price productionDay expirationDate capacity");
         System.out.println("if you want to remove the product -> Remove");
+        System.out.println("if you want to change the product name -> Change name");
+        System.out.println("if you want to change the product price -> Change price");
+        System.out.println("if you want to change the product capacity -> Change capacity");
         System.out.println("1.EXIT");
     }
 

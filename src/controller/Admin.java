@@ -11,7 +11,6 @@ import java.util.Objects;
 
 public class Admin {
 
-    Shopper admin = new Shopper();
     signIn user1 = new signIn();
 
     public void add(Admin1 admin2) {

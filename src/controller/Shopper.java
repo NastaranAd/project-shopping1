@@ -148,20 +148,20 @@ public class Shopper {
         return stringBuilder;
     }
 
-    public StringBuilder showFactors() {
+    public StringBuilder showFactors(int k) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int h = 0; h < Admin1.getAdmin1().getFactors().size(); h++) {
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getProductName() + "\n");
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getAmountPaid() + "\n");
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getDate() + "\n");
+        for (int h = 0; h < Admin1.getAdmin1().getShoppers().get(k).getFactors().size(); h++) {
+            stringBuilder.append(Admin1.getAdmin1().getShoppers().get(k).getFactors().get(h).getProductName() + "\n");
+            stringBuilder.append(Admin1.getAdmin1().getShoppers().get(k).getFactors().get(h).getAmountPaid() + "\n");
+            stringBuilder.append(Admin1.getAdmin1().getShoppers().get(k).getFactors().get(h).getDate() + "\n");
             stringBuilder.append("\n");
         }
         return stringBuilder;
     }
 
-    public StringBuilder showBaskest() {
+    public StringBuilder showBaskest(int i) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int t = 0; t < Admin1.getAdmin1().getBaskets().size(); t++) {
+        for (int t = 0; t < Admin1.getAdmin1().getShoppers().get(i).getBaskets().size(); t++) {
             stringBuilder.append(Admin1.getAdmin1().getBaskets().get(t).getProductName100() + "\n");
             stringBuilder.append("\n");
         }

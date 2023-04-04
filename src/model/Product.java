@@ -32,19 +32,21 @@ public class Product {
     private long productPrice;
     private String productName;
     private double averageScore;
+     private String comment;
     private ArrayList<Opinion>opinions=new ArrayList<>();
     public category product;
     public ArrayList<Opinion>getOpinions()
     {
         return opinions;
     }
-    public Product(String productName,long productPrice,double averageScore ,int capacity,category product)
+    public Product(String productName,long productPrice,double averageScore ,int capacity,category product,String comment)
     {
        this.productPrice=productPrice;
        this.averageScore=averageScore;
        this.capacity=capacity;
        this.productName=productName;
        this.product=product;
+       this.comment=comment;
     }
     public String  getProductName()
     {
@@ -82,6 +84,10 @@ public class Product {
     {
         return this.capacity= this.capacity-1;
     }
+    public String  setProductcomment(String comment1)
+    {
+        return this.comment=comment1;
+    }
     public double  setProductScore(double sum)
     {
         return this.averageScore=averageScore+sum;
@@ -90,7 +96,7 @@ public class Product {
    @Override
     public String toString()
     {
-        return "product name : "+ productName+", product price : "+productPrice+", product category : "+product+", product capacity : "+capacity+",product average score : "+averageScore;
+        return "product name : "+ productName+", product price : "+productPrice+", product category : "+product+", product capacity : "+capacity+",product average score : "+averageScore+" , comment : "+comment;
     }
     }
 

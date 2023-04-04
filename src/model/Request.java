@@ -7,6 +7,7 @@ private String userName90;
     private String email;
     private String phoneNumber;
     private String password;
+    private int index;
 private long money;
 public Request(String userName,long money)
 {
@@ -21,6 +22,10 @@ public Request(String email,String userName,String phoneNumber,String password)
     this.phoneNumber=phoneNumber;
     this.email=email;
 
+}
+public Request(int index)
+{
+    this.index=index;
 }
 public String getUserName90()
     {
@@ -42,6 +47,10 @@ public String getUserName90()
     public long getMoney()
     {
         return this.money;
+    }
+    public int getIndex()
+    {
+       return this.index;
     }
 
 }

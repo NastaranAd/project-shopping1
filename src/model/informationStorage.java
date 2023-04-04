@@ -3,8 +3,8 @@ package model;
 public class informationStorage extends Digital {
     private int capacity1;
 
-    public informationStorage(String productName,long productPrice,double averageScore,int capacity,category product,double weight, double dimension) {
-        super(productName,productPrice, averageScore,capacity,product,weight,dimension);
+    public informationStorage(String productName,long productPrice,double averageScore,int capacity,category product,double weight, double dimension,String comment) {
+        super(productName,productPrice, averageScore,capacity,product,weight,dimension,comment);
         this.capacity1 = capacity;
     }
     @Override

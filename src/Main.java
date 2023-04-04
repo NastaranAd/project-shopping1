@@ -3,9 +3,7 @@ import view.signIn;
 import view.logIn;
 import view.Admin60;
 import controller.*;
-
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);

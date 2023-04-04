@@ -3,8 +3,8 @@ package model;
 abstract public class Stationary extends Product {
     private String country;
 
-   public Stationary(String productName,long productPrice,double averageScore,int capacity,category product,String country) {
-        super(productName,productPrice, averageScore,capacity,product);
+   public Stationary(String productName,long productPrice,double averageScore,int capacity,category product,String country,String comment) {
+        super(productName,productPrice, averageScore,capacity,product,comment);
         this.country = country;
     }
     @Override

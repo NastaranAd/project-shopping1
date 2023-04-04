@@ -10,6 +10,7 @@ import controller.Shopper;
 import java.util.Objects;
 
 public class logIn {
+    private int index;
     Scanner cin = new Scanner(System.in);
     Shopper admin3 = new Shopper();
     signIn helper5 = new signIn();
@@ -85,12 +86,14 @@ public class logIn {
                             }
                             if (choice80==2)
                             {
-                                System.out.println(admin3.showBaskest());
+                                System.out.println(admin3.showBaskest(i));
+                                Basket basket = new Basket(i);
+                                Admin1.getAdmin1().getBaskets().add(basket);
                                 cin.nextLine();
                                 System.out.println("are you done with shopping ?");
                                 String done = cin.nextLine();
                                 if (Objects.equals(done, "yes")) {
-                                    helper5.Shopping();
+                                    helper5.Shopping1(i);
                                 }
                                 if (Objects.equals(done,"no"))
                                 {
@@ -110,10 +113,9 @@ public class logIn {
                         Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
                         Admin1.getAdmin1().getRequestsMoney().add(request70);
                         System.out.println("your request has sent to admin");
-
                     }
                     if (choice1 == 5) {
-                        System.out.println(admin3.showFactors());
+                        System.out.println(admin3.showFactors(i));
                         System.out.println("    ");
 
                     }

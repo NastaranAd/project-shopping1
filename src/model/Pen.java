@@ -3,8 +3,8 @@ package model;
 public class Pen extends Stationary {
     private String color;
 
-   public  Pen(String productName,long productPrice,double averageScore,int capacity,category product,String country, String color) {
-        super(productName,productPrice, averageScore,capacity,product,country);
+   public  Pen(String productName,long productPrice,double averageScore,int capacity,category product,String country, String color,String comment) {
+        super(productName,productPrice, averageScore,capacity,product,country,comment);
         this.color = color;
     }
     @Override

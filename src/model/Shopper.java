@@ -10,6 +10,16 @@ public class Shopper {
     long Accountmoney;
     private final String userName;
     private ArrayList<Factor> factors = new ArrayList<>();
+    private ArrayList<Basket> baskets= new ArrayList<>();
+    private ArrayList<Opinion> opinions= new ArrayList<>();
+
+    public ArrayList<Opinion> getOpinions() {
+        return opinions;
+    }
+
+    public ArrayList<Basket> getBaskets() {
+        return baskets;
+    }
 
     public ArrayList<Factor> getFactors() {
         return factors;
@@ -68,6 +78,5 @@ public class Shopper {
     public String setPhoneNumber(String phoneNumber1) {
         return this.phoneNumber = phoneNumber1;
     }
-
 }
 

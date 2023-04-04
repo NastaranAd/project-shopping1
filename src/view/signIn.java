@@ -88,7 +88,7 @@ public class signIn {
 
     public void printRequest() {
         if (Admin1.getAdmin1().getSignInRequests().size() != 0) {
-            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size() / 2; i++) {
+            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size() ; i=i+2) {
                 System.out.println(Admin1.getAdmin1().getSignInRequests().get(i).getUserName90() + " " + "this user wants to log in");
                 cin.nextLine();
                 System.out.println("do you want to accept the user ? ");
@@ -108,7 +108,7 @@ public class signIn {
 
     }
 
-    public void printRequestMoney(int index) {
+    public void printRequestMoney() {
         if (Admin1.getAdmin1().getRequestsMoney().size() != 0) {
             for (int i = 0; i < Admin1.getAdmin1().getRequestsMoney().size(); i++) {
                 if (i == Admin1.getAdmin1().getRequestsMoney().size() - 1) {
@@ -117,7 +117,7 @@ public class signIn {
                     System.out.println("do you want to accept the request ? ");
                     String choice = cin.nextLine();
                     if (Objects.equals(choice, "yes")) {
-                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentials(Admin1.getAdmin1().getRequestsMoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsMoney().get(i).getUserName90());
+                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(i).setUserAccountCredentials(Admin1.getAdmin1().getRequestsMoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsMoney().get(i).getUserName90());
                     }
                     if (Objects.equals(choice, "no")) {
                         System.out.println("you did not accept the request");
@@ -131,7 +131,7 @@ public class signIn {
 
     }
 
-    public void Shopping() {
+    public void Shopping1(int i) {
         boolean helper = false;
         while (helper == false) {
             cin.nextLine();
@@ -176,18 +176,18 @@ public class signIn {
         if (Objects.equals(opinion, "yes")) {
             cin.nextLine();
             printOpinionMenu();
-            int choice99= cin.nextInt();
-            while (choice99!=2) {
+            int choice99 = cin.nextInt();
+            while (choice99 != 2) {
                 System.out.println("which product do you want to ");
                 cin.nextLine();
-                System.out.println(admin3.showBaskest());
+                System.out.println(admin3.showBaskest(i));
                 cin.nextLine();
                 System.out.println("please enter the name : ");
                 String name1000 = cin.nextLine();
-                showOpinion(name1000);
+                showOpinion(name1000,i);
                 cin.nextLine();
                 printOpinionMenu();
-                choice99= cin.nextInt();
+                choice99 = cin.nextInt();
             }
         }
         if (Objects.equals(opinion, "no")) {
@@ -202,16 +202,17 @@ public class signIn {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
                 bool = true;
                 long sum = 0;
-                for (int j = 0; j < Admin1.getAdmin1().getBaskets().size(); j++) {
-                    sum = sum + Admin1.getAdmin1().getBaskets().get(j).getMoney100();
+                for (int j = 0; j < Admin1.getAdmin1().getShoppers().get(index).getBaskets().size(); j++) {
+                    sum = sum + Admin1.getAdmin1().getShoppers().get(index).getBaskets().get(j).getMoney100();
                 }
                 if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >= 0) {
                     if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                         Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
+                        Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
                         Admin1.getAdmin1().getBaskets().add(shop);
                         Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
                         Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
-                        Admin1.getAdmin1().getFactors().add(factor);
+                        Admin1.getAdmin1().getShoppers().get(index).getFactors().add(factor);
                         System.out.println("you take the thing that you want ");
                         Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                         index1 = l;
@@ -286,13 +287,18 @@ public class signIn {
 
     }
 
-    public void showOpinion(String name900) {
-        for (int i = 0; i < Admin1.getAdmin1().getBaskets().size(); i++) {
-            if (Objects.equals(name900, Admin1.getAdmin1().getBaskets().get(i).getProductName100())) {
+    public void showOpinion(String name900,int j) {
+        for (int i = 0; i < Admin1.getAdmin1().getShoppers().get(j).getBaskets().size(); i++) {
+            if (Objects.equals(name900, Admin1.getAdmin1().getShoppers().get(j).getBaskets().get(i).getProductName100())) {
                 System.out.println("please enter one number between 1 to 5");
                 int number200 = cin.nextInt();
-                Opinion opinion = new Opinion(Admin1.getAdmin1().getBaskets().get(i).getProductName100(), number200);
-                Admin1.getAdmin1().getOpinion().add(opinion);
+                cin.nextLine();
+                System.out.println("please enter your opinion : ");
+                String opinion = cin.nextLine();
+                Opinion opinion1 = new Opinion(Admin1.getAdmin1().getShoppers().get(j).getBaskets().get(i).getProductName100(),opinion, number200);
+                Admin1.getAdmin1().getOpinion().add(opinion1);
+                Opinion opinion2 = new Opinion(j);
+                Admin1.getAdmin1().getOpinion().add(opinion2);
                 System.out.println("your opinion has send to admin");
             }
         }
@@ -302,29 +308,36 @@ public class signIn {
 
     public void showOpinionRequest() {
 
-        for (int e = 0; e < Admin1.getAdmin1().getBaskets().size(); e++) {
-            System.out.println("this user " + Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getShoppers().size() - 1).getUserName() + " " + "wants to send the score for " + Admin1.getAdmin1().getOpinion().get(e).getProductName1000());
-            cin.nextLine();
-            System.out.println("do you accept the request?");
-            String choice45 = cin.nextLine();
-            if (Objects.equals(choice45, "yes")) {
-                double sum20 = 0;
-                for (int p = 0; p < Admin1.getAdmin1().getBaskets().size(); p++) {
-                    sum20 = sum20 + Admin1.getAdmin1().getOpinion().get(e).getScore();
-                }
-                for (int w = 0; w < Admin1.getAdmin1().getProducts().size(); w++) {
-                    if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(), Admin1.getAdmin1().getOpinion().get(e).getProductName1000())) {
-                        System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum20));
+        for (int e = 0; e < Admin1.getAdmin1().getOpinion().size(); e++) {
+            if (e == 0 || e == 2) {
+                System.out.println("this user " + Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getOpinion().get(e+1).getIndex()).getUserName() + " " + "wants to send the score for " + Admin1.getAdmin1().getOpinion().get(e).getProductName1000());
+                cin.nextLine();
+                System.out.println("do you accept the request?");
+                String choice45 = cin.nextLine();
+                if (Objects.equals(choice45, "yes")) {
+                    double sum20 = 0;
+                    int counter = 0;
+                    for (int p = 0; p < Admin1.getAdmin1().getBaskets().size(); p++) {
+                        if (Objects.equals( Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getOpinion().get(e+1).getIndex()).getOpinions().get(e).getProductName1000(), Admin1.getAdmin1().getBaskets().get(p).getProductName100())) {
+                            counter=counter+1;
+                            sum20 = sum20 + Admin1.getAdmin1().getOpinion().get(e).getScore();
+                            sum20 = sum20 / counter;
+                        }
+                    }
+                    for (int w = 0; w < Admin1.getAdmin1().getProducts().size(); w++) {
+                        if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(), Admin1.getAdmin1().getOpinion().get(e).getProductName1000())) {
+                            System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum20));
+                            System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductcomment(Admin1.getAdmin1().getOpinion().get(e).getCommentingUser()));
+                        }
                     }
                 }
+                if (Objects.equals(choice45, "no")) {
+                    System.out.println("you did not accept the request");
+                }
             }
-            if (Objects.equals(choice45, "no")) {
-                System.out.println("you did not accept the request");
-            }
+
         }
-
     }
-
 
 }
 

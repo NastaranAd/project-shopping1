@@ -17,7 +17,7 @@ public class Admin60 {
         cin.nextLine();
         System.out.println("please enter your user name : ");
         String userName30 = cin.nextLine();
-        System.out.println("please enter your password ");
+        System.out.println("please enter your password : ");
         String password30 = cin.nextLine();
         if (Objects.equals(userName30, "admin") && Objects.equals(password30, "admin")) {
             printAdmin();
@@ -37,19 +37,19 @@ public class Admin60 {
                     admin.showSignRequest(order);
                     admin.showMoneyRequest(order);
                     admin.addingAdmin(order);
-                    admin.showOpnionRequest(order);
+                    admin.showOpinionRequest(order);
                     admin.changingInformationName(order);
                     admin.changingInformationCapacity(order);
                     admin.changingInformationPrice(order);
-
                     if (Objects.equals(order, "Remove")) {
                         System.out.println(admin3.Showing());
                         System.out.println("please enter the product name : ");
                         String name = cin.nextLine();
                         admin.removeAdmin(order, name);
                     }
-
-
+                   // if () {
+                       // System.out.println("we do not have this order please try again");
+                   // }
 
                 }
                 cin.nextLine();
@@ -73,6 +73,7 @@ public class Admin60 {
         System.out.println("if you want to see sign in request enter -> sign in request");
         System.out.println("if you want to see the money request enter -> money request");
         System.out.println("if you want to add car -> Add car engine true|false company name price capacity");
+        System.out.println("if you want to add bikeCycle -> Add bikeCycle bikeCycleEnum company name price capacity");
         System.out.println("if you want to add computer -> Add computer name price weight dimension RAM model capacity");
         System.out.println("if you want to add information -> Add information name price weight dimension capacity");
         System.out.println("if you want to add SSD -> Add SSD name price weight dimension usbVersion readingSpeed writingSpeed capacity");

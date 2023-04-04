@@ -1,7 +1,9 @@
 package controller;
 
 import model.Admin1;
+import model.Basket;
 import model.Product;
+import view.logIn;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,10 +20,12 @@ public class Shopper {
 
     public StringBuilder filterByCategory(Product.category kind) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
+        for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++) {
             if ((kind.compareTo(Admin1.getAdmin1().getProducts().get(k).product) == 0)) {
                 stringBuilder.append((Admin1.getAdmin1().getProducts().get(k).toString()) + "\n");
             }
+
+        }
         return stringBuilder;
     }
 
@@ -57,9 +61,9 @@ public class Shopper {
 
     public StringBuilder filterByCountry(String country) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getStationaries().size(); k++)
-            if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getCountry(), country)) {
-                stringBuilder.append((k + 1) + "." + Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
+        for (int b = 0; b < Admin1.getAdmin1().getStationaries().size(); b++)
+            if (Objects.equals(Admin1.getAdmin1().getStationaries().get(b).getCountry(), country)) {
+                stringBuilder.append((b + 1) + "." + Admin1.getAdmin1().getStationaries().get(b).toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
@@ -143,24 +147,22 @@ public class Shopper {
         }
         return stringBuilder;
     }
-    public StringBuilder showFactors()
-    {
-        StringBuilder stringBuilder= new StringBuilder();
-        for(int h=0;h<Admin1.getAdmin1().getFactors().size();h++)
-        {
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getProductName()+"\n");
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getAmountPaid()+"\n");
-            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getDate()+"\n");
+
+    public StringBuilder showFactors() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int h = 0; h < Admin1.getAdmin1().getFactors().size(); h++) {
+            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getProductName() + "\n");
+            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getAmountPaid() + "\n");
+            stringBuilder.append(Admin1.getAdmin1().getFactors().get(h).getDate() + "\n");
             stringBuilder.append("\n");
         }
         return stringBuilder;
     }
-    public StringBuilder showBaskest()
-    {
+
+    public StringBuilder showBaskest() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int t=0;t<Admin1.getAdmin1().getBaskets().size();t++)
-        {
-            stringBuilder.append(Admin1.getAdmin1().getBaskets().get(t).getProductName100()+"\n");
+        for (int t = 0; t < Admin1.getAdmin1().getBaskets().size(); t++) {
+            stringBuilder.append(Admin1.getAdmin1().getBaskets().get(t).getProductName100() + "\n");
             stringBuilder.append("\n");
         }
         return stringBuilder;

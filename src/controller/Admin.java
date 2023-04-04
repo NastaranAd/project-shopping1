@@ -24,6 +24,8 @@ public class Admin {
         admin2.getProducts().add(product4);
         admin2.getVehicles().add(product1);
         admin2.getStationaries().add(product4);
+        admin2.getDigitals().add(product3);
+        admin2.getFoods().add(product2);
 
     }
 
@@ -41,16 +43,16 @@ public class Admin {
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
             if (Objects.equals(words[i], "money")) {
-                user1.printRequestMoney(Admin1.getAdmin1().getShoppers().size()-1);
+                user1.printRequestMoney(Admin1.getAdmin1().getShoppers().size() - 1);
             }
         }
 
     }
+
     public void showOpinionRequest(String order) {
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
-            if (Objects.equals(words[i], "opinion"))
-            {
+            if (Objects.equals(words[i], "opinion")) {
                 user1.showOpinionRequest();
             }
         }
@@ -73,11 +75,13 @@ public class Admin {
                     }
                     Car car = new Car(words[i + 5], price, 0, capacity, Product.category.VEHICLES, words[i + 4], auto, volume);
                     Admin1.getAdmin1().getProducts().add(car);
+                    Admin1.getAdmin1().getVehicles().add(car);
                 } else if (Objects.equals(words[i + 1], "bikeCycle")) {
                     int price = Integer.parseInt(words[i + 5]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     bikeCycle bike = new bikeCycle(words[i + 4], price, 0, capacity, Product.category.VEHICLES, words[i + 3], bikeCycle.bikeCycle1.valueOf(words[i + 2]));
                     Admin1.getAdmin1().getProducts().add(bike);
+                    Admin1.getAdmin1().getVehicles().add(bike);
                 } else if (Objects.equals(words[i + 1], "computer")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 8]);
@@ -86,6 +90,7 @@ public class Admin {
                     int RAM = Integer.parseInt(words[i + 6]);
                     Computer computer = new Computer(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, RAM, words[i + 7]);
                     Admin1.getAdmin1().getProducts().add(computer);
+                    Admin1.getAdmin1().getDigitals().add(computer);
                 } else if (Objects.equals(words[i + 1], "information")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
@@ -93,6 +98,7 @@ public class Admin {
                     double dimension = Integer.parseInt(words[i + 5]);
                     informationStorage informationStorage = new informationStorage(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension);
                     Admin1.getAdmin1().getProducts().add(informationStorage);
+                    Admin1.getAdmin1().getDigitals().add(informationStorage);
 
                 } else if (Objects.equals(words[i + 1], "flash")) {
                     int price = Integer.parseInt(words[i + 3]);
@@ -101,6 +107,7 @@ public class Admin {
                     double dimension = Integer.parseInt(words[i + 5]);
                     Flash flash = new Flash(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6]);
                     Admin1.getAdmin1().getProducts().add(flash);
+                    Admin1.getAdmin1().getDigitals().add(flash);
                 } else if (Objects.equals(words[i + 1], "SSD")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 9]);
@@ -110,27 +117,32 @@ public class Admin {
                     double writingSpeed = Integer.parseInt(words[i + 8]);
                     SSD ssd = new SSD(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6], readingSpeed, writingSpeed);
                     Admin1.getAdmin1().getProducts().add(ssd);
+                    Admin1.getAdmin1().getDigitals().add(ssd);
                 } else if (Objects.equals(words[i + 1], "pen")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     Pen pen = new Pen(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5]);
                     Admin1.getAdmin1().getProducts().add(pen);
+                    Admin1.getAdmin1().getStationaries().add(pen);
                 } else if (Objects.equals(words[i + 1], "pencil")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     Pencil pencil = new Pencil(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], Pencil.pencil.valueOf(words[i + 5]));
                     Admin1.getAdmin1().getProducts().add(pencil);
+                    Admin1.getAdmin1().getStationaries().add(pencil);
                 } else if (Objects.equals(words[i + 1], "notebook")) {
                     long price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     int page = Integer.parseInt(words[i + 6]);
                     noteBook noteBook = new noteBook(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page);
                     Admin1.getAdmin1().getProducts().add(noteBook);
+                    Admin1.getAdmin1().getStationaries().add(noteBook);
                 } else if (Objects.equals(words[i + 1], "food")) {
                     long price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     Food food = new Food(words[i + 2], price, 0, capacity, Product.category.FOOD, words[i + 4], words[i + 5]);
                     Admin1.getAdmin1().getProducts().add(food);
+                    Admin1.getAdmin1().getFoods().add(food);
                 }
 
 
@@ -139,35 +151,33 @@ public class Admin {
         }
     }
 
-    public void removeAdmin(String order,String name ) {
+    public void removeAdmin(String order, String name) {
 
-            String[] words = order.split("\\s");
-            for (int i = 0; i < words.length; i++) {
-                if (Objects.equals(words[i], "Remove")) {
-                        for (int r=0;r<Admin1.getAdmin1().getProducts().size();r++) {
-                            if (Objects.equals(name, Admin1.getAdmin1().getProducts().get(r).getProductName())) {
-                                Admin1.getAdmin1().getProducts().remove(r);
-                            }
-                        }
+        String[] words = order.split("\\s");
+        for (int i = 0; i < words.length; i++) {
+            if (Objects.equals(words[i], "Remove")) {
+                for (int r = 0; r < Admin1.getAdmin1().getProducts().size(); r++) {
+                    if (Objects.equals(name, Admin1.getAdmin1().getProducts().get(r).getProductName())) {
+                        Admin1.getAdmin1().getProducts().remove(r);
                     }
                 }
-
             }
-            public void changingInformationName(String order)
-            {
-                String[] words = order.split("\\s");
-                for (int t =0 ;t< words.length;t++)
-                {
-                    if (Objects.equals(words[t],"Change"))
-                    {
-                        if (Objects.equals(words[t+1],"name"))
-                        {
-                           user1.changeName();
-                        }
-                    }
+        }
+
+    }
+
+    public void changingInformationName(String order) {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "Change")) {
+                if (Objects.equals(words[t + 1], "name")) {
+                    user1.changeName();
                 }
-
             }
+        }
+
+    }
+
     public void changingInformationCapacity(String order) {
         String[] words = order.split("\\s");
         for (int t = 0; t < words.length; t++) {
@@ -180,6 +190,7 @@ public class Admin {
         }
 
     }
+
     public void changingInformationPrice(String order) {
         String[] words = order.split("\\s");
         for (int t = 0; t < words.length; t++) {

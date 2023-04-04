@@ -82,11 +82,11 @@ public class logIn {
                                 System.out.println("please enter the product name : ");
                                 String name = cin.nextLine();
                                 helper5.Shopping(name,i);
-                                cin.nextLine();
                             }
                             if (choice80==2)
                             {
                                 System.out.println(admin3.showBaskest());
+                                cin.nextLine();
                                 System.out.println("are you done with shopping ?");
                                 String done = cin.nextLine();
                                 if (Objects.equals(done, "yes")) {
@@ -97,17 +97,18 @@ public class logIn {
                                     break;
                                 }
                             }
+                            cin.nextLine();
                             printShopperDuty();
                             cin.nextLine();
                             System.out.println("please enter your choice : ");
-                             choice80 = cin.nextInt();
+                            choice80 = cin.nextInt();
                         }
                     }
                     if (choice1 == 4) {
                         System.out.println("how much do you want to increase your Bank account balance?");
                         long money = cin.nextInt();
                         Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
-                        Admin1.getAdmin1().getRequestsmoney().add(request70);
+                        Admin1.getAdmin1().getRequestsMoney().add(request70);
                         System.out.println("your request has sent to admin");
 
                     }

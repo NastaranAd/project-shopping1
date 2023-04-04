@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Opinion {
     private String commentingUser;
     private String commentText;
@@ -21,10 +23,14 @@ public class Opinion {
         return this.score=this.score+score200;
     }
 
-    public Opinion(String commentingUser,String productName, String commentText, int score) {
+    public Opinion(String productName, int score) {
         this.score = score;
-        this.commentText = commentText;
         this.productName=productName;
-        this.commentingUser=commentingUser;
     }
+    private ArrayList<Product> products = new ArrayList<>();
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
 }

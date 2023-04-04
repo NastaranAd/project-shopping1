@@ -58,7 +58,8 @@ public class signIn {
         System.out.println("please enter your username : ");
         userName = cin.nextLine();
         cin.nextLine();
-        System.out.println("IT WAS SUCCESSFUL");
+        System.out.println("   ");
+        System.out.println("your log in request has sent to admin");
         Request request = new Request(email, userName, phoneNumber, password);
         Request request1 = new Request(userName, 0);
         Admin1.getAdmin1().getSignInRequests().add(request);
@@ -80,9 +81,14 @@ public class signIn {
         System.out.println("3.EXIT");
     }
 
+    public void printOpinionMenu() {
+        System.out.println("1.other");
+        System.out.println("2.EXIT");
+    }
+
     public void printRequest() {
         if (Admin1.getAdmin1().getSignInRequests().size() != 0) {
-            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size() - 1; i++) {
+            for (int i = 0; i < Admin1.getAdmin1().getSignInRequests().size() / 2; i++) {
                 System.out.println(Admin1.getAdmin1().getSignInRequests().get(i).getUserName90() + " " + "this user wants to log in");
                 cin.nextLine();
                 System.out.println("do you want to accept the user ? ");
@@ -103,22 +109,22 @@ public class signIn {
     }
 
     public void printRequestMoney(int index) {
-        if (Admin1.getAdmin1().getRequestsmoney().size() != 0) {
-            for (int i = 0; i < Admin1.getAdmin1().getRequestsmoney().size(); i++) {
-                if (i == Admin1.getAdmin1().getRequestsmoney().size() - 1) {
-                    System.out.println(Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90() + "," + "this user wants to increase ");
+        if (Admin1.getAdmin1().getRequestsMoney().size() != 0) {
+            for (int i = 0; i < Admin1.getAdmin1().getRequestsMoney().size(); i++) {
+                if (i == Admin1.getAdmin1().getRequestsMoney().size() - 1) {
+                    System.out.println(Admin1.getAdmin1().getRequestsMoney().get(i).getUserName90() + "," + "this user wants to increase ");
                     cin.nextLine();
                     System.out.println("do you want to accept the request ? ");
                     String choice = cin.nextLine();
                     if (Objects.equals(choice, "yes")) {
-                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentials(Admin1.getAdmin1().getRequestsmoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsmoney().get(i).getUserName90());
+                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentials(Admin1.getAdmin1().getRequestsMoney().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequestsMoney().get(i).getUserName90());
                     }
                     if (Objects.equals(choice, "no")) {
                         System.out.println("you did not accept the request");
                     }
                 }
             }
-        } else if (Admin1.getAdmin1().getRequestsmoney().size() == 0) {
+        } else if (Admin1.getAdmin1().getRequestsMoney().size() == 0) {
             System.out.println("you do not have any money" +
                     " request");
         }
@@ -163,9 +169,31 @@ public class signIn {
             }
         }
         cin.nextLine();
-        System.out.println("IT WAS SUCCESSFUL");
-        System.out.println();
-        showOpinion(index1);
+        System.out.println("you bought the thing that you want");
+        cin.nextLine();
+        System.out.println("do you want to send your opinion about the products that you just bought?");
+        String opinion = cin.nextLine();
+        if (Objects.equals(opinion, "yes")) {
+            cin.nextLine();
+            printOpinionMenu();
+            int choice99= cin.nextInt();
+            while (choice99!=2) {
+                System.out.println("which product do you want to ");
+                cin.nextLine();
+                System.out.println(admin3.showBaskest());
+                cin.nextLine();
+                System.out.println("please enter the name : ");
+                String name1000 = cin.nextLine();
+                showOpinion(name1000);
+                cin.nextLine();
+                printOpinionMenu();
+                choice99= cin.nextInt();
+            }
+        }
+        if (Objects.equals(opinion, "no")) {
+            System.out.println("you did not send your opinion");
+        }
+
     }
 
     public void Shopping(String name1, int index) {
@@ -258,39 +286,35 @@ public class signIn {
 
     }
 
-    public void showOpinion(int index2) {
-        for (int i = 0; i < Admin1.getAdmin1().getFactors().size(); i++) {
-            System.out.println("please enter your opinion about the product about" + " " + Admin1.getAdmin1().getProducts().get(i).getProductName());
-            cin.nextLine();
-            System.out.println("opinion : ");
-            String opinion1 = cin.nextLine();
-            cin.nextLine();
-            System.out.println("please enter one number between 1 to 5");
-            int number = cin.nextInt();
-            cin.nextLine();
-            Opinion opinion = new Opinion(Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getShoppers().size()-1).getUserName(), Admin1.getAdmin1().getProducts().get(i).getProductName(), opinion1, number);
-            Admin1.getAdmin1().getOpinion().add(opinion);
-            System.out.println("your opinion has send to admin");
+    public void showOpinion(String name900) {
+        for (int i = 0; i < Admin1.getAdmin1().getBaskets().size(); i++) {
+            if (Objects.equals(name900, Admin1.getAdmin1().getBaskets().get(i).getProductName100())) {
+                System.out.println("please enter one number between 1 to 5");
+                int number200 = cin.nextInt();
+                Opinion opinion = new Opinion(Admin1.getAdmin1().getBaskets().get(i).getProductName100(), number200);
+                Admin1.getAdmin1().getOpinion().add(opinion);
+                System.out.println("your opinion has send to admin");
+            }
         }
+
+
     }
 
     public void showOpinionRequest() {
 
-        for (int e = 0; e < Admin1.getAdmin1().getOpinion().size(); e++) {
-            System.out.println("this user " + Admin1.getAdmin1().getOpinion().get(e).getCommentingUser() + " " + "wants to send the score for " + Admin1.getAdmin1().getOpinion().get(e).getProductName1000());
+        for (int e = 0; e < Admin1.getAdmin1().getBaskets().size(); e++) {
+            System.out.println("this user " + Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getShoppers().size() - 1).getUserName() + " " + "wants to send the score for " + Admin1.getAdmin1().getOpinion().get(e).getProductName1000());
             cin.nextLine();
             System.out.println("do you accept the request?");
             String choice45 = cin.nextLine();
             if (Objects.equals(choice45, "yes")) {
                 double sum20 = 0;
-                for (int p = 0; p < Admin1.getAdmin1().getOpinion().size(); p++) {
-                    sum20 = sum20 + Admin1.getAdmin1().getOpinion().get(p).getScore();
-                    sum20 = sum20 / Admin1.getAdmin1().getOpinion().size();
+                for (int p = 0; p < Admin1.getAdmin1().getBaskets().size(); p++) {
+                    sum20 = sum20 + Admin1.getAdmin1().getOpinion().get(e).getScore();
                 }
                 for (int w = 0; w < Admin1.getAdmin1().getProducts().size(); w++) {
                     if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(), Admin1.getAdmin1().getOpinion().get(e).getProductName1000())) {
                         System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum20));
-
                     }
                 }
             }

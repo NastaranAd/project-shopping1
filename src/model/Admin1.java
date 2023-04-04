@@ -7,6 +7,8 @@ public class Admin1 {
     private ArrayList<Request> signInRequests = new ArrayList<>();
     private ArrayList<Request> requestsMoney = new ArrayList<>();
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Digital>digitals= new ArrayList<>();
+    private ArrayList<Food>foods=new ArrayList<>();
     private ArrayList<Factor> factors = new ArrayList<>();
     private ArrayList<Opinion> opinions = new ArrayList<>();
     private ArrayList<Stationary> stationaries = new ArrayList<>();
@@ -20,7 +22,7 @@ public class Admin1 {
         return signInRequests;
     }
 
-    public ArrayList<Request> getRequestsmoney() {
+    public ArrayList<Request> getRequestsMoney() {
         return requestsMoney;
     }
 
@@ -31,6 +33,14 @@ public class Admin1 {
     public ArrayList<Stationary> getStationaries() {
         return stationaries;
     }
+    public ArrayList<Digital> getDigitals() {
+        return digitals;
+    }
+    public ArrayList<Food> getFoods() {
+        return foods;
+    }
+
+
 
     public ArrayList<Basket> getBaskets() {
         return baskets;

@@ -55,6 +55,11 @@ public class Admin1 {
     public ArrayList<Product> getProducts() {
         return products;
     }
+    private ArrayList<Request1>request1s= new ArrayList<>();
+
+    public ArrayList<Request1> getRequest1s() {
+        return request1s;
+    }
 
     public ArrayList<Factor> getFactors() {
         return factors;

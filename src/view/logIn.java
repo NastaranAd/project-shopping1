@@ -30,7 +30,7 @@ public class logIn {
                 printMenu();
                 System.out.println("please enter your choice : ");
                 int choice1 = cin.nextInt();
-                while (choice1 != 12) {
+                while (choice1 != 15) {
                     if (choice1 == 1) {
                         printAccount();
                         cin.nextLine();
@@ -160,7 +160,31 @@ public class logIn {
                         String country = cin.nextLine();
                         System.out.println(admin3.filterByCountry(country));
                     }
-                    if (choice1 == 11) {
+                    if (choice1==11)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the country color:");
+                        String color = cin.nextLine();
+                        System.out.println(admin3.filterByColor(color));
+                    }
+                    if (choice1==12)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the  weight:");
+                        double weight = cin.nextInt();
+                        System.out.println(admin3.filterByWeight(weight));
+                    }
+                    if (choice1==13)
+                    {
+                        System.out.println(admin3.Showing());
+                        cin.nextLine();
+                        System.out.println("please enter the  dimension:");
+                        double dimension = cin.nextInt();
+                        System.out.println(admin3.filterByDimension(dimension));
+                    }
+                    if (choice1 == 14) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the product name :");
@@ -195,8 +219,11 @@ public class logIn {
         System.out.println("8.filter by capacity");
         System.out.println("9.filter by company");
         System.out.println("10.filter by country");
-        System.out.println("11.search by name ");
-        System.out.println("12.EXIT");
+        System.out.println("11.filter by color");
+        System.out.println("12.filter by weight");
+        System.out.println("13.filter by dimension");
+        System.out.println("14.search by name ");
+        System.out.println("15.EXIT");
     }
 
     public void printAccount() {

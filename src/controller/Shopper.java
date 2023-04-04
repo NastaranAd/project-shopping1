@@ -58,6 +58,35 @@ public class Shopper {
             }
         return stringBuilder;
     }
+    public StringBuilder filterByWeight(double weight) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
+            if (Objects.equals(Admin1.getAdmin1().getDigitals().get(k).getWeight(), weight)) {
+                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
+                stringBuilder.append("\n");
+            }
+        return stringBuilder;
+    }
+    public StringBuilder filterByDimension(double dimension) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
+            if (Objects.equals(Admin1.getAdmin1().getDigitals().get(k).getDimension(), dimension)) {
+                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
+                stringBuilder.append("\n");
+            }
+        return stringBuilder;
+    }
+    public StringBuilder filterByColor(String color) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int k = 0; k < Admin1.getAdmin1().getStationaries().get(k).getPens().size(); k++)
+            if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).getColor(),color)) {
+                stringBuilder.append(Admin1.getAdmin1().getStationaries().get(k).getPens().toString() + "\n");
+                stringBuilder.append("\n");
+            }
+        return stringBuilder;
+    }
+
+
 
     public StringBuilder filterByCountry(String country) {
         StringBuilder stringBuilder = new StringBuilder();

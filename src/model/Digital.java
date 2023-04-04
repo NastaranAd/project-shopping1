@@ -16,6 +16,14 @@ abstract public class Digital extends Product
         return super.toString()+"\n"+
                 "weight : "+weight+" , dimension : "+dimension;
     }
+    public double getWeight()
+    {
+        return this.weight;
+    }
+    public double getDimension()
+    {
+        return this.dimension;
+    }
 
 }
 

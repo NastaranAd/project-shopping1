@@ -13,4 +13,8 @@ public class Pen extends Stationary {
         return super.toString()+"\n"+
                 "color : "+ color;
     }
+    public String getColor()
+    {
+        return this.color;
+    }
 }

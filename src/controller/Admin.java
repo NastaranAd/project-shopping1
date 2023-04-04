@@ -124,6 +124,7 @@ public class Admin {
                     Pen pen = new Pen(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5],"nothing");
                     Admin1.getAdmin1().getProducts().add(pen);
                     Admin1.getAdmin1().getStationaries().add(pen);
+                    //Admin1.getAdmin1().getStationaries().get().getPens().add(pen);
                 } else if (Objects.equals(words[i + 1], "pencil")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);

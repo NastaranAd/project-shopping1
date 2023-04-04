@@ -13,8 +13,8 @@ public class Opinion {
         return this.score;
     }
 
-    public String getCommentingUser() {
-        return this.commentingUser;
+    public String getCommentText() {
+        return this.commentText;
     }
     public String getProductName1000() {
         return this.productName;

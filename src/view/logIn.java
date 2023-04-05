@@ -87,8 +87,8 @@ public class logIn {
                             if (choice80==2)
                             {
                                 System.out.println(admin3.showBaskest(i));
-                                Basket basket = new Basket(i);
-                                Admin1.getAdmin1().getBaskets().add(basket);
+                                //Basket basket = new Basket(i);
+                                //Admin1.getAdmin1().getBaskets().add(basket);
                                 cin.nextLine();
                                 System.out.println("are you done with shopping ?");
                                 String done = cin.nextLine();
@@ -174,17 +174,27 @@ public class logIn {
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
-                        System.out.println("please enter the  weight:");
-                        double weight = cin.nextInt();
-                        System.out.println(admin3.filterByWeight(weight));
+                        System.out.println("please enter the period of the weight:");
+                        cin.nextLine();
+                        System.out.println("max : ");
+                        double max = cin.nextDouble();
+                        cin.nextLine();
+                        System.out.println("min : ");
+                        double min = cin.nextDouble();
+                        System.out.println(admin3.filterByWeight(max,min));
                     }
                     if (choice1==13)
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the  dimension:");
-                        double dimension = cin.nextInt();
-                        System.out.println(admin3.filterByDimension(dimension));
+                        cin.nextLine();
+                        System.out.println("max : ");
+                        double max = cin.nextDouble();
+                        cin.nextLine();
+                        System.out.println("min : ");
+                        double min = cin.nextDouble();
+                        System.out.println(admin3.filterByDimension(max,min));
                     }
                     if (choice1 == 14) {
                         System.out.println(admin3.Showing());
@@ -206,7 +216,6 @@ public class logIn {
         {
             System.out.println("we do not have this user");
         }
-
 
     }
 

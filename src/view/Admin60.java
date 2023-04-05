@@ -3,7 +3,6 @@ package view;
 import controller.Admin;
 import controller.Shopper;
 import model.Admin1;
-
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -47,10 +46,6 @@ public class Admin60 {
                         String name = cin.nextLine();
                         admin.removeAdmin(order, name);
                     }
-                   // if () {
-                       // System.out.println("we do not have this order please try again");
-                   // }
-
                 }
                 cin.nextLine();
                 printAdmin();

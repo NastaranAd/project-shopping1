@@ -118,7 +118,7 @@ public class signIn {
                     System.out.println("do you want to accept the request ? ");
                     String choice = cin.nextLine();
                     if (Objects.equals(choice, "yes")) {
-                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getRequest200().get(i).getIndex()).setUserAccountCredentials(Admin1.getAdmin1().getRequest200().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequest200().get(i).getUserName());
+                        System.out.println("new money : " + " " + Admin1.getAdmin1().getShoppers().get(Admin1.getAdmin1().getRequest200().get(i+1).getIndex()).setUserAccountCredentials(Admin1.getAdmin1().getRequest200().get(i).getMoney()) + " " + "of this user : " + Admin1.getAdmin1().getRequest200().get(i).getUserName());
                     }
                     if (Objects.equals(choice, "no")) {
                         System.out.println("you did not accept the request");
@@ -243,8 +243,7 @@ public class signIn {
                 String name1 = cin.nextLine();
                 Admin1.getAdmin1().getProducts().get(k).setProductName(name1);
                 System.out.println("the new name of product " + Admin1.getAdmin1().getProducts().get(k).getProductName());
-            } else {
-                System.out.println("we do not have this product");
+
             }
         }
 
@@ -262,8 +261,6 @@ public class signIn {
                 int capacity1 = cin.nextInt();
                 Admin1.getAdmin1().getProducts().get(k).setProductCapacity(capacity1);
                 System.out.println("the new capacity of this product -> " + Admin1.getAdmin1().getProducts().get(k).getProductName() + "is" + Admin1.getAdmin1().getProducts().get(k).getCapacity());
-            } else {
-                System.out.println("we do not have this product");
             }
         }
 
@@ -281,8 +278,6 @@ public class signIn {
                 long price = cin.nextLong();
                 Admin1.getAdmin1().getProducts().get(k).setProductprice(price);
                 System.out.println("the new price of this product -> " + Admin1.getAdmin1().getProducts().get(k).getProductName() + "is" + Admin1.getAdmin1().getProducts().get(k).getProductPrice());
-            } else {
-                System.out.println("we do not have this product");
             }
         }
 
@@ -317,21 +312,21 @@ public class signIn {
                 String choice45 = cin.nextLine();
                 if (Objects.equals(choice45, "yes")) {
                     double sum20 = 0;
-                    int counter = 0;
+                    double  counter = 0;
+                    double sum1 = 0;
                         for (int p = 0; p < Admin1.getAdmin1().getBasket1().size(); p++) {
-                            if (Objects.equals(Admin1.getAdmin1().getOpinion().get(e).getProductName1000(), Admin1.getAdmin1().getBaskets().get(p).getProductName100())) {
+                            if (Objects.equals(Admin1.getAdmin1().getOpinion().get(e).getProductName1000(), Admin1.getAdmin1().getBasket1().get(p).getProductName())) {
                                 counter = counter + 1;
                                 sum20 = sum20 + Admin1.getAdmin1().getOpinion().get(e).getScore();
-                                sum20 = sum20 / counter;
                             }
                         }
+                        sum1 = sum20 / counter;
                         for (int w = 0; w < Admin1.getAdmin1().getProducts().size(); w++) {
                             if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(), Admin1.getAdmin1().getOpinion().get(e).getProductName1000())) {
-                                System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum20));
+                                System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum1));
                                 System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductcomment(Admin1.getAdmin1().getOpinion().get(e).getCommentText()));
                             }
                         }
-
 
                 }
                 if (Objects.equals(choice45, "no")) {

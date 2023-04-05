@@ -99,7 +99,6 @@ public class Admin {
                     informationStorage informationStorage = new informationStorage(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension,"nothing");
                     Admin1.getAdmin1().getProducts().add(informationStorage);
                     Admin1.getAdmin1().getDigitals().add(informationStorage);
-
                 } else if (Objects.equals(words[i + 1], "flash")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);

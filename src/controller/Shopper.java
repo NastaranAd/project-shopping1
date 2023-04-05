@@ -4,6 +4,7 @@ import model.Admin1;
 import model.Basket;
 import model.Product;
 import view.logIn;
+
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,34 +59,37 @@ public class Shopper {
             }
         return stringBuilder;
     }
-    public StringBuilder filterByWeight(double weight) {
+
+    public StringBuilder filterByWeight(double max, double min) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
-            if (Admin1.getAdmin1().getDigitals().get(k).getWeight()==weight) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
-                stringBuilder.append("\n");
-            }
-        return stringBuilder;
-    }
-    public StringBuilder filterByDimension(double dimension) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
-            if (Admin1.getAdmin1().getDigitals().get(k).getDimension()== dimension) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
-                stringBuilder.append("\n");
-            }
-        return stringBuilder;
-    }
-    public StringBuilder filterByColor(String color) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getStationaries().get(k).getPens().size(); k++)
-            if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).getColor(),color)) {
-                stringBuilder.append(Admin1.getAdmin1().getStationaries().get(k).getPens().toString() + "\n");
+            if (min <= Admin1.getAdmin1().getDigitals().get(k).getWeight() && Admin1.getAdmin1().getDigitals().get(k).getWeight() <= max) {
+                stringBuilder.append(Admin1.getAdmin1().getDigitals().toString() + "\n");
                 stringBuilder.append("\n");
             }
         return stringBuilder;
     }
 
+    public StringBuilder filterByDimension(double max, double min) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
+            if (min <= Admin1.getAdmin1().getDigitals().get(k).getDimension() && Admin1.getAdmin1().getDigitals().get(k).getDimension() <= max) {
+                stringBuilder.append(Admin1.getAdmin1().getDigitals().toString() + "\n");
+                stringBuilder.append("\n");
+            }
+        return stringBuilder;
+    }
+
+    public StringBuilder filterByColor(String color) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int k = 0; k < Admin1.getAdmin1().getStationaries().get(k).getPens().size(); k++)
+            if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).getColor(), color)) {
+                    stringBuilder.append(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).toString() + "\n");
+                    stringBuilder.append("\n");
+                }
+
+        return stringBuilder;
+    }
 
 
     public StringBuilder filterByCountry(String country) {
@@ -191,7 +195,7 @@ public class Shopper {
     public StringBuilder showBaskest(int i) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int t = 0; t < Admin1.getAdmin1().getShoppers().get(i).getBaskets().size(); t++) {
-            stringBuilder.append(Admin1.getAdmin1().getBaskets().get(t).getProductName100() + "\n");
+            stringBuilder.append(Admin1.getAdmin1().getBasket1().get(t).getProductName() + "\n");
             stringBuilder.append("\n");
         }
         return stringBuilder;

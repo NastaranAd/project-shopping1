@@ -110,8 +110,10 @@ public class logIn {
                     if (choice1 == 4) {
                         System.out.println("how much do you want to increase your Bank account balance?");
                         long money = cin.nextInt();
-                        Request request70 = new Request(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
-                        Admin1.getAdmin1().getRequestsMoney().add(request70);
+                        Request200 request70 = new Request200(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
+                        Admin1.getAdmin1().getRequest200().add(request70);
+                        Request200 request200 = new Request200(i);
+                        Admin1.getAdmin1().getRequest200().add(request200);
                         System.out.println("your request has sent to admin");
                     }
                     if (choice1 == 5) {

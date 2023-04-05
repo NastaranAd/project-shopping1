@@ -60,8 +60,8 @@ public class Shopper {
     }
     public StringBuilder filterByWeight(double weight) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
-            if (Objects.equals(Admin1.getAdmin1().getDigitals().get(k).getWeight(), weight)) {
+        for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
+            if (Admin1.getAdmin1().getDigitals().get(k).getWeight()==weight) {
                 stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }
@@ -69,8 +69,8 @@ public class Shopper {
     }
     public StringBuilder filterByDimension(double dimension) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
-            if (Objects.equals(Admin1.getAdmin1().getDigitals().get(k).getDimension(), dimension)) {
+        for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
+            if (Admin1.getAdmin1().getDigitals().get(k).getDimension()== dimension) {
                 stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
                 stringBuilder.append("\n");
             }

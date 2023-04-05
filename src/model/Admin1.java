@@ -40,8 +40,8 @@ public class Admin1 {
         return foods;
     }
 
-
-
+    private ArrayList<Basket1>basket1s= new ArrayList<>();
+    private ArrayList<Request200>request200s=new ArrayList<>();
     public ArrayList<Basket> getBaskets() {
         return baskets;
     }
@@ -63,6 +63,13 @@ public class Admin1 {
 
     public ArrayList<Factor> getFactors() {
         return factors;
+    }
+    public ArrayList<Request200> getRequest200() {
+        return request200s;
+    }
+    public ArrayList<Basket1> getBasket1()
+    {
+        return basket1s;
     }
 
     private String password;

@@ -94,8 +94,8 @@ public class Admin {
                 } else if (Objects.equals(words[i + 1], "information")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
-                    double weight = Integer.parseInt(words[i + 4]);
-                    double dimension = Integer.parseInt(words[i + 5]);
+                    double weight = Double.parseDouble(words[i + 4]);
+                    double dimension = Double.parseDouble(words[i + 5]);
                     informationStorage informationStorage = new informationStorage(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension,"nothing");
                     Admin1.getAdmin1().getProducts().add(informationStorage);
                     Admin1.getAdmin1().getDigitals().add(informationStorage);
@@ -103,18 +103,18 @@ public class Admin {
                 } else if (Objects.equals(words[i + 1], "flash")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
-                    double weight = Integer.parseInt(words[i + 4]);
-                    double dimension = Integer.parseInt(words[i + 5]);
+                    double weight = Double.parseDouble(words[i + 4]);
+                    double dimension = Double.parseDouble(words[i + 5]);
                     Flash flash = new Flash(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6],"nothing");
                     Admin1.getAdmin1().getProducts().add(flash);
                     Admin1.getAdmin1().getDigitals().add(flash);
                 } else if (Objects.equals(words[i + 1], "SSD")) {
                     int price = Integer.parseInt(words[i + 3]);
-                    int capacity = Integer.parseInt(words[i + 8]);
-                    double weight = Integer.parseInt(words[i + 4]);
-                    double dimension = Integer.parseInt(words[i + 5]);
-                    double readingSpeed = Integer.parseInt(words[i + 6]);
-                    double writingSpeed = Integer.parseInt(words[i + 7]);
+                    int capacity = Integer.parseInt(words[i + 9]);
+                    double weight = Double.parseDouble(words[i + 4]);
+                    double dimension =Double.parseDouble(words[i + 5]);
+                    double readingSpeed = Double.parseDouble(words[i + 7]);
+                    double writingSpeed = Double.parseDouble(words[i + 8]);
                     SSD ssd = new SSD(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, readingSpeed, writingSpeed,"nothing");
                     Admin1.getAdmin1().getProducts().add(ssd);
                     Admin1.getAdmin1().getDigitals().add(ssd);
@@ -124,7 +124,8 @@ public class Admin {
                     Pen pen = new Pen(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5],"nothing");
                     Admin1.getAdmin1().getProducts().add(pen);
                     Admin1.getAdmin1().getStationaries().add(pen);
-                    //Admin1.getAdmin1().getStationaries().get().getPens().add(pen);
+                    for (int u=0;u<Admin1.getAdmin1().getStationaries().get(u).getPens().size();u++)
+                    { Admin1.getAdmin1().getStationaries().get(u).getPens().add(pen);}
                 } else if (Objects.equals(words[i + 1], "pencil")) {
                     int price = Integer.parseInt(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
@@ -132,7 +133,7 @@ public class Admin {
                     Admin1.getAdmin1().getProducts().add(pencil);
                     Admin1.getAdmin1().getStationaries().add(pencil);
                 } else if (Objects.equals(words[i + 1], "notebook")) {
-                    long price = Integer.parseInt(words[i + 3]);
+                    long price = Long.parseLong(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     int page = Integer.parseInt(words[i + 6]);
                     noteBook noteBook = new noteBook(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page,"nothing");

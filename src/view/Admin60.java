@@ -3,6 +3,7 @@ package view;
 import controller.Admin;
 import controller.Shopper;
 import model.Admin1;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -33,18 +34,35 @@ public class Admin60 {
                     System.out.println("please enter your order : ");
                     cin.nextLine();
                     String order = cin.nextLine();
-                    admin.showSignRequest(order);
-                    admin.showMoneyRequest(order);
-                    admin.addingAdmin(order);
-                    admin.showOpinionRequest(order);
-                    admin.changingInformationName(order);
-                    admin.changingInformationCapacity(order);
-                    admin.changingInformationPrice(order);
-                    if (Objects.equals(order, "Remove")) {
+                    if (Objects.equals(order, "sign in request")) {
+                        admin.showSignRequest(order);
+                    }
+                    else if (Objects.equals(order, "money request")) {
+                        admin.showMoneyRequest(order);
+                    }
+                    else if (Objects.equals(order, "opinion request")) {
+                        admin.showOpinionRequest(order);
+                    }
+                    else if (Objects.equals(order, "Change name")) {
+                        admin.changingInformationName(order);
+                    }
+                    else if (Objects.equals(order, "Change capacity")) {
+                        admin.changingInformationCapacity(order);
+                    }
+                    else if (Objects.equals(order, "Change price")) {
+                        admin.changingInformationPrice(order);
+                    }
+                    else if (Objects.equals(order, "Remove")) {
                         System.out.println(admin3.Showing());
                         System.out.println("please enter the product name : ");
                         String name = cin.nextLine();
                         admin.removeAdmin(order, name);
+                    }
+                    else if (order.contains("Add")) {
+                        admin.addingAdmin(order);
+                    }
+                    else {
+                        System.out.println("wo do not have this order");
                     }
                 }
                 cin.nextLine();

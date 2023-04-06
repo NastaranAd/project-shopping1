@@ -61,6 +61,7 @@ public class logIn {
                             if (choice2 == 4) {
                                 System.out.println(admin3.showInformation());
                             }
+                            printAccount();
                             System.out.println("please enter your choice : ");
                             choice2 = cin.nextInt();
                         }
@@ -87,8 +88,6 @@ public class logIn {
                             if (choice80==2)
                             {
                                 System.out.println(admin3.showBaskest(i));
-                                //Basket basket = new Basket(i);
-                                //Admin1.getAdmin1().getBaskets().add(basket);
                                 cin.nextLine();
                                 System.out.println("are you done with shopping ?");
                                 String done = cin.nextLine();
@@ -114,7 +113,7 @@ public class logIn {
                         Admin1.getAdmin1().getRequest200().add(request70);
                         Request200 request200 = new Request200(i);
                         Admin1.getAdmin1().getRequest200().add(request200);
-                        System.out.println("your request has sent to admin");
+                        helper5.Shopper200();
                     }
                     if (choice1 == 5) {
                         System.out.println(admin3.showFactors(i));
@@ -249,10 +248,6 @@ public class logIn {
         System.out.println("1.shopping");
         System.out.println("2.basket");
         System.out.println("3.Exit");
-    }
-    public void printNotCategory()
-    {
-        System.out.println("we do not have this category in our product");
     }
 
 }

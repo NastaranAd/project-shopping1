@@ -1,10 +1,7 @@
 package controller;
 
 import model.Admin1;
-import model.Basket;
 import model.Product;
-import view.logIn;
-
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -117,7 +114,7 @@ public class Shopper {
             stringBuilder.append(Admin1.getAdmin1().getShoppers().get(k).toString());
             boolean helper = false;
             while (helper == false) {
-                Pattern pattern = Pattern.compile("^\\w+@(gmail|yahoo)\\.com$");
+                Pattern pattern = Pattern.compile("^(.+)@(gmail|yahoo)\\.com$");
                 Matcher matcher = pattern.matcher(email1);
                 boolean found = matcher.find();
                 if (found == true) {
@@ -157,7 +154,7 @@ public class Shopper {
             stringBuilder.append(Admin1.getAdmin1().getShoppers().get(k).toString());
             boolean helper = false;
             while (helper == false) {
-                Pattern pattern = Pattern.compile("^09\\d{9}$");
+                Pattern pattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&]).{6,20}$");
                 Matcher matcher = pattern.matcher(password1);
                 boolean found = matcher.find();
                 if (found == true) {

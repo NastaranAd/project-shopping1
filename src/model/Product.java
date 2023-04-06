@@ -27,6 +27,7 @@ abstract class Account
   }
 }
 public class Product {
+    private int opinionNumber=0;
     private long productId;
     private int capacity;
     private long productPrice;
@@ -90,10 +91,19 @@ public class Product {
     }
     public double  setProductScore(double sum)
     {
-        return this.averageScore=averageScore+sum;
+         this.averageScore=averageScore+sum;
+        return this.averageScore/=opinionNumber;
     }
 
-   @Override
+    public int getOpinionNumber() {
+        return opinionNumber;
+    }
+
+    public void setOpinionNumber(int opinionNumber) {
+        this.opinionNumber += opinionNumber;
+    }
+
+    @Override
     public String toString()
     {
         return "product name : "+ productName+", product price : "+productPrice+", product category : "+product+", product capacity : "+capacity+",product average score : "+averageScore+" , comment : "+comment;

@@ -28,7 +28,7 @@ public class Basket
     {
         return this.money100;
     }
-    private ArrayList<Product> products= new ArrayList<>();
+    final private ArrayList<Product> products= new ArrayList<>();
 
     public ArrayList<Product> getProducts() {
         return products;

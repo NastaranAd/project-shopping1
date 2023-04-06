@@ -9,9 +9,9 @@ public class Shopper {
     private long userAccountCredentials;
     long Accountmoney;
     private final String userName;
-    private ArrayList<Factor> factors = new ArrayList<>();
-    private ArrayList<Basket> baskets= new ArrayList<>();
-    private ArrayList<Opinion> opinions= new ArrayList<>();
+    final private ArrayList<Factor> factors = new ArrayList<>();
+    final private ArrayList<Basket> baskets= new ArrayList<>();
+    final private ArrayList<Opinion> opinions= new ArrayList<>();
 
     public ArrayList<Opinion> getOpinions() {
         return opinions;

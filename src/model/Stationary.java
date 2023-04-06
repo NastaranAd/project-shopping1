@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 abstract public class Stationary extends Product {
     private String country;
-    private ArrayList<Pen> pens= new ArrayList<>();
+    final private ArrayList<Pen> pens= new ArrayList<>();
     public ArrayList<Pen>getPens()
     {
         return pens;

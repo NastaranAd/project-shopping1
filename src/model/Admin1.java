@@ -3,16 +3,16 @@ package model;
 import java.util.ArrayList;
 
 public class Admin1 {
-    private ArrayList<Shopper> shoppers = new ArrayList<>();
-    private ArrayList<Request> signInRequests = new ArrayList<>();
-    private ArrayList<Request> requestsMoney = new ArrayList<>();
-    private ArrayList<Vehicle> vehicles = new ArrayList<>();
-    private ArrayList<Digital>digitals= new ArrayList<>();
-    private ArrayList<Food>foods=new ArrayList<>();
-    private ArrayList<Factor> factors = new ArrayList<>();
-    private ArrayList<Opinion> opinions = new ArrayList<>();
-    private ArrayList<Stationary> stationaries = new ArrayList<>();
-    private ArrayList<Basket> baskets = new ArrayList<>();
+    final private ArrayList<Shopper> shoppers = new ArrayList<>();
+    final private ArrayList<Request> signInRequests = new ArrayList<>();
+    final private ArrayList<Request> requestsMoney = new ArrayList<>();
+    final private ArrayList<Vehicle> vehicles = new ArrayList<>();
+    final private ArrayList<Digital>digitals= new ArrayList<>();
+    final private ArrayList<Food>foods=new ArrayList<>();
+    final private ArrayList<Factor> factors = new ArrayList<>();
+    final private ArrayList<Opinion> opinions = new ArrayList<>();
+    final private ArrayList<Stationary> stationaries = new ArrayList<>();
+    final private ArrayList<Basket> baskets = new ArrayList<>();
 
     public ArrayList<Shopper> getShoppers() {
         return shoppers;
@@ -40,8 +40,8 @@ public class Admin1 {
         return foods;
     }
 
-    private ArrayList<Basket1>basket1s= new ArrayList<>();
-    private ArrayList<Request200>request200s=new ArrayList<>();
+    final private ArrayList<Basket1>basket1s= new ArrayList<>();
+    final private ArrayList<Request200>request200s=new ArrayList<>();
     public ArrayList<Basket> getBaskets() {
         return baskets;
     }
@@ -50,12 +50,12 @@ public class Admin1 {
     }
 
     private static Admin1 admin1;
-    private ArrayList<Product> products = new ArrayList<>();
+    final private ArrayList<Product> products = new ArrayList<>();
 
-    public ArrayList<Product> getProducts() {
+    final public ArrayList<Product> getProducts() {
         return products;
     }
-    private ArrayList<Request1>request1s= new ArrayList<>();
+    final private ArrayList<Request1>request1s= new ArrayList<>();
 
     public ArrayList<Request1> getRequest1s() {
         return request1s;

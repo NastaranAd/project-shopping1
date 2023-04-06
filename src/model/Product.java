@@ -34,7 +34,7 @@ public class Product {
     private String productName;
     private double averageScore;
      private String comment;
-    private ArrayList<Opinion>opinions=new ArrayList<>();
+    final private ArrayList<Opinion>opinions=new ArrayList<>();
     public category product;
     public ArrayList<Opinion>getOpinions()
     {

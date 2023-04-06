@@ -1,8 +1,8 @@
-import model.Admin1;
-import view.signIn;
-import view.logIn;
-import view.Admin60;
-import controller.*;
+import Model.Admin1;
+import View.signIn;
+import View.logIn;
+import View.Admin60;
+import Controller.*;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {

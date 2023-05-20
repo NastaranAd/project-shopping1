@@ -26,11 +26,11 @@ abstract class Account
       return password;
   }
 }
-public class Product {
+public class Product implements Comparable{
     private int opinionNumber=0;
     private long productId;
     private int capacity;
-    private long productPrice;
+    private double productPrice;
     private String productName;
     private double averageScore;
      private String comment;
@@ -40,7 +40,7 @@ public class Product {
     {
         return opinions;
     }
-    public Product(String productName,long productPrice,double averageScore ,int capacity,category product,String comment)
+    public Product(String productName,double productPrice,double averageScore ,int capacity,category product,String comment)
     {
        this.productPrice=productPrice;
        this.averageScore=averageScore;
@@ -53,7 +53,7 @@ public class Product {
     {
         return this.productName;
     }
-    public long getProductPrice()
+    public double getProductPrice()
     {
         return this.productPrice;
     }
@@ -64,6 +64,18 @@ public class Product {
     public int getCapacity()
     {
         return this.capacity;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Product product100 = (Product) o;
+       if (this.productName.compareTo(product100.productName)<0)
+       {
+           return -1;}
+       else if (this.productName.compareTo(product100.productName)==0)
+           return 0;
+       else if (this.productName.compareTo(product100.productName)>0)
+           return 1;
     }
 
     public enum category {
@@ -77,7 +89,7 @@ public class Product {
     {
         return this.capacity=capacity;
     }
-    public long  setProductprice(long price)
+    public double  setProductprice(double price)
     {
         return this.productPrice=price;
     }

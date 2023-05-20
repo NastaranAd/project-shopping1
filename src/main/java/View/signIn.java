@@ -2,6 +2,7 @@ package View;
 
 import Model.*;
 
+import Exception.*;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -16,7 +17,7 @@ public class signIn {
     Scanner cin = new Scanner(System.in);
     Controller.Shopper admin3 = new Controller.Shopper();
 
-    public void signIn1() {
+    public void signIn1() throws InvalidEmail, InvalidPassword {
         boolean helper = false;
         while (helper == false) {
             cin.nextLine();
@@ -27,6 +28,8 @@ public class signIn {
             boolean found = matcher.find();
             if (found == true) {
                 helper = true;
+            } else if (found==false&&helper==false){
+                throw new InvalidEmail("invalid email");
             }
         }
         boolean helper1 = false;
@@ -39,6 +42,8 @@ public class signIn {
             boolean found1 = matcher.find();
             if (found1 == true) {
                 helper1 = true;
+            }else if (found1==false&&helper1==false){
+                throw new InvalidPassword("invalid password");
             }
         }
         boolean helper2 = false;
@@ -51,6 +56,9 @@ public class signIn {
             boolean found2 = matcher.find();
             if (found2 == true) {
                 helper2 = true;
+            }
+            else if (found2==false&&helper2==false){
+                throw new InvalidPassword("invalid phone number ");
             }
         }
         cin.nextLine();
@@ -65,19 +73,15 @@ public class signIn {
             Admin1.getAdmin1().getSignInRequests().add(request);
             Admin1.getAdmin1().getSignInRequests().add(request1);
 
-        }
-        else {
+        } else {
             boolean bool1000 = false;
-            for (int r=0;r<Admin1.getAdmin1().getShoppers().size();r++)
-            {
-                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getUserName(),userName)&&Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getPassword(),password))
-                {
+            for (int r = 0; r < Admin1.getAdmin1().getShoppers().size(); r++) {
+                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getUserName(), userName) && Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getPassword(), password)) {
                     System.out.println("you have already sign in");
-                    bool1000=true;
+                    bool1000 = true;
                 }
             }
-            if (bool1000==false)
-            {
+            if (bool1000 == false) {
                 System.out.println("your log in request has sent to admin");
                 Request request = new Request(email, userName, phoneNumber, password);
                 Request request1 = new Request(userName, 0);
@@ -214,12 +218,12 @@ public class signIn {
 
     }
 
-    public void Shopping(String name1, int index) {
+    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct {
         boolean bool = false;
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
                 bool = true;
-                long sum = 0;
+                double sum = 0;
                 for (int j = 0; j < Admin1.getAdmin1().getShoppers().get(index).getBaskets().size(); j++) {
                     sum = sum + Admin1.getAdmin1().getShoppers().get(index).getBaskets().get(j).getMoney100();
                 }
@@ -236,10 +240,10 @@ public class signIn {
                         Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                         index1 = l;
                     } else {
-                        System.out.println("you do not have enough money in your bank account");
+                        throw new LackOfMoney("Lack of money");
                     }
                 } else {
-                    System.out.println("you can not get this product because we do not have it anymore");
+                    throw new OutOfProduct("Out of product");
                 }
             }
 

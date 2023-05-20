@@ -1,5 +1,6 @@
 package View;
 
+import Exception.*;
 import Controller.Shopper;
 import Model.Admin1;
 import Model.Product;
@@ -9,7 +10,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class logIn {
-    private int index;
+
     Scanner cin = new Scanner(System.in);
     Shopper admin3 = new Shopper();
     signIn helper5 = new signIn();
@@ -82,7 +83,11 @@ public class logIn {
                                 cin.nextLine();
                                 System.out.println("please enter the product name : ");
                                 String name = cin.nextLine();
-                                helper5.Shopping(name,i);
+                                try {
+                                    helper5.Shopping(name,i);
+                                } catch (LackOfMoney | OutOfProduct e) {
+                                    System.out.println(e);
+                                }
                             }
                             if (choice80==2)
                             {

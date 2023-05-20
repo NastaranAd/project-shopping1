@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Basket
 {
    private  String productName100;
-   private long money100;
+   private double money100;
    private int index;
-   public Basket(String productName,long money100)
+   public Basket(String productName, double money100)
    {
        this.productName100= productName;
        this.money100=money100;
@@ -24,7 +24,7 @@ public class Basket
    {
        return this.productName100;
    }
-   public long getMoney100()
+   public double getMoney100()
     {
         return this.money100;
     }

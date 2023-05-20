@@ -8,7 +8,7 @@ public class Pencil extends Stationary {
 
     public pencil pencil1;
 
-    public Pencil(String productName,long productPrice,double averageScore,int capacity,category product,String country, pencil pencil1,String comment) {
+    public Pencil(String productName,double productPrice,double averageScore,int capacity,category product,String country, pencil pencil1,String comment) {
         super(productName,productPrice,averageScore,capacity,product,country,comment);
         this.pencil1 = pencil1;
     }

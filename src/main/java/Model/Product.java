@@ -93,7 +93,7 @@ public class Product implements Comparable {
         return this.capacity = capacity;
     }
 
-    public double setProductprice(double price) {
+    public double setProductPrice(double price) {
         return this.productPrice = price;
     }
 
@@ -101,7 +101,7 @@ public class Product implements Comparable {
         return this.capacity = this.capacity - 1;
     }
 
-    public String setProductcomment(String comment1) {
+    public String setProductComment(String comment1) {
         return this.comment = comment1;
     }
 

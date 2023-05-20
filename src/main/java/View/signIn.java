@@ -298,7 +298,7 @@ public class signIn {
                 cin.nextLine();
                 System.out.println("please enter the new price of product : ");
                 long price = cin.nextLong();
-                Admin1.getAdmin1().getProducts().get(k).setProductprice(price);
+                Admin1.getAdmin1().getProducts().get(k).setProductPrice(price);
                 System.out.println("the new price of this product -> " + Admin1.getAdmin1().getProducts().get(k).getProductName() + "is" + Admin1.getAdmin1().getProducts().get(k).getProductPrice());
             }
         }
@@ -347,7 +347,7 @@ public class signIn {
                         if (Objects.equals(Admin1.getAdmin1().getProducts().get(w).getProductName(), Admin1.getAdmin1().getOpinion().get(e).getProductName1000())) {
                             Admin1.getAdmin1().getProducts().get(w).setOpinionNumber(1);
                             System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductScore(sum1));
-                            System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductcomment(Admin1.getAdmin1().getOpinion().get(e).getCommentText()));
+                            System.out.println(Admin1.getAdmin1().getProducts().get(w).setProductComment(Admin1.getAdmin1().getOpinion().get(e).getCommentText()));
                         }
                     }
 

@@ -1,31 +1,7 @@
 package Model;
 import java.util.ArrayList;
 
-abstract class Account
-{
-  private String email;
-  private String password;
-  private String phoneNumber;
 
-  Account(String email,String password,String phoneNumber)
-  {
-      this.email=email;
-      this.password=password;
-      this.phoneNumber=phoneNumber;
-  }
-  String getEmail()
-  {
-      return email;
-  }
-  String getPhoneNumber()
-  {
-      return phoneNumber;
-  }
-  String getPassword()
-  {
-      return password;
-  }
-}
 public class Product implements Comparable{
     private int opinionNumber=0;
     private long productId;

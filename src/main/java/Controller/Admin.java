@@ -67,7 +67,7 @@ public class Admin {
                     try {
                         price = Double.parseDouble(words[i + 6]);
                     } catch (InputMismatchException e) {
-                        System.out.println("Invalid value");
+                        System.out.println("Invalid price");
                     }
                     int capacity = Integer.parseInt(words[i + 7]);
                     try {
@@ -75,9 +75,17 @@ public class Admin {
                     }
                     catch (InputMismatchException e)
                     {
+                        System.out.println("Invalid capacity");
+                    }
+                    double volume = Double.parseDouble(words[i + 2]);
+                    try {
+                        volume = Integer.parseInt(words[i + 2]);
+                    }
+                    catch (InputMismatchException e)
+                    {
                         System.out.println("Invalid value");
                     }
-                    double volume = Integer.parseInt(words[i + 2]);
+
                     if (Objects.equals(words[i + 3], "true")) {
                         auto = true;
                     } else {
@@ -88,48 +96,187 @@ public class Admin {
                     Admin1.getAdmin1().getVehicles().add(car);
                 } else if (Objects.equals(words[i + 1], "bikeCycle")) {
                     double price = Double.parseDouble(words[i + 5]);
+                    try{
+                        price = Double.parseDouble(words[i + 5]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+
                     int capacity = Integer.parseInt(words[i + 6]);
+                    try{
+                        capacity = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
                     bikeCycle bike = new bikeCycle(words[i + 4], price, 0, capacity, Product.category.VEHICLES, words[i + 3], bikeCycle.bikeCycle1.valueOf(words[i + 2]), "nothing");
                     Admin1.getAdmin1().getProducts().add(bike);
                     Admin1.getAdmin1().getVehicles().add(bike);
                 } else if (Objects.equals(words[i + 1], "computer")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
                     int capacity = Integer.parseInt(words[i + 8]);
+                    try{
+                        capacity = Integer.parseInt(words[i + 8]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
                     double weight = Integer.parseInt(words[i + 4]);
                     double dimension = Integer.parseInt(words[i + 5]);
                     int RAM = Integer.parseInt(words[i + 6]);
+                    try{
+                        weight = Double.parseDouble(words[i + 4]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid weight");
+                    }
+                    try{
+                        dimension = Double.parseDouble(words[i + 5]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid dimension");
+                    }
+                    try{
+                        RAM = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid RAM");
+                    }
                     Computer computer = new Computer(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, RAM, words[i + 7], "nothing");
                     Admin1.getAdmin1().getProducts().add(computer);
                     Admin1.getAdmin1().getDigitals().add(computer);
                 } else if (Objects.equals(words[i + 1], "information")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     double weight = Double.parseDouble(words[i + 4]);
                     double dimension = Double.parseDouble(words[i + 5]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
+                    try{
+                        weight = Double.parseDouble(words[i + 4]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid weight");
+                    }
+                    try{
+                        dimension = Double.parseDouble(words[i + 5]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid dimension");
+                    }
                     informationStorage informationStorage = new informationStorage(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, "nothing");
                     Admin1.getAdmin1().getProducts().add(informationStorage);
                     Admin1.getAdmin1().getDigitals().add(informationStorage);
                 } else if (Objects.equals(words[i + 1], "flash")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     double weight = Double.parseDouble(words[i + 4]);
                     double dimension = Double.parseDouble(words[i + 5]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                         capacity = Integer.parseInt(words[i + 7]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
+                    try{
+                        weight = Double.parseDouble(words[i + 4]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid weight");
+                    }
+                    try{
+                        dimension = Double.parseDouble(words[i + 5]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid dimension");
+                    }
                     Flash flash = new Flash(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, words[i + 6], "nothing");
                     Admin1.getAdmin1().getProducts().add(flash);
                     Admin1.getAdmin1().getDigitals().add(flash);
                 } else if (Objects.equals(words[i + 1], "SSD")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 9]);
                     double weight = Double.parseDouble(words[i + 4]);
                     double dimension = Double.parseDouble(words[i + 5]);
                     double readingSpeed = Double.parseDouble(words[i + 7]);
                     double writingSpeed = Double.parseDouble(words[i + 8]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 9]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
+                    try{
+                        weight = Double.parseDouble(words[i + 4]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid weight");
+                    }
+                    try{
+                        dimension = Double.parseDouble(words[i + 5]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid dimension");
+                    }
+                    try{
+                        readingSpeed = Double.parseDouble(words[i + 7]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid reading speed");
+                    }
+                    try{
+                        writingSpeed = Double.parseDouble(words[i + 8]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid writing speed");
+                    }
                     SSD ssd = new SSD(words[i + 2], price, 0, capacity, Product.category.DIGITAL, weight, dimension, readingSpeed, writingSpeed, "nothing");
                     Admin1.getAdmin1().getProducts().add(ssd);
                     Admin1.getAdmin1().getDigitals().add(ssd);
                 } else if (Objects.equals(words[i + 1], "pen")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
                     Pen pen = new Pen(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], "nothing");
                     Admin1.getAdmin1().getProducts().add(pen);
                     Admin1.getAdmin1().getStationaries().add(pen);
@@ -137,24 +284,67 @@ public class Admin {
                         Admin1.getAdmin1().getStationaries().get(u).getPens().add(pen);
                     }
                 } else if (Objects.equals(words[i + 1], "pencil")) {
-                    int price = Integer.parseInt(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
                     Pencil pencil = new Pencil(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], Pencil.pencil.valueOf(words[i + 5]), "nothing");
                     Admin1.getAdmin1().getProducts().add(pencil);
                     Admin1.getAdmin1().getStationaries().add(pencil);
                 } else if (Objects.equals(words[i + 1], "notebook")) {
-                    long price = Long.parseLong(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     int page = Integer.parseInt(words[i + 6]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 7]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
+                    try{
+                        page = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid page");
+                    }
                     noteBook noteBook = new noteBook(words[i + 2], price, 0, capacity, Product.category.STATIONARY, words[i + 4], words[i + 5], page, "nothing");
                     Admin1.getAdmin1().getProducts().add(noteBook);
                     Admin1.getAdmin1().getStationaries().add(noteBook);
                 } else if (Objects.equals(words[i + 1], "food")) {
-                    long price = Integer.parseInt(words[i + 3]);
+                    Double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
+                    try{
+                        price = Double.parseDouble(words[i + 3]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid price");
+                    }
+                    try{
+                        capacity = Integer.parseInt(words[i + 6]);
+                    }catch (InputMismatchException e)
+                    {
+                        System.out.println("Invalid capacity");
+                    }
                     Food food = new Food(words[i + 2], price, 0, capacity, Product.category.FOOD, words[i + 4], words[i + 5], "nothing");
                     Admin1.getAdmin1().getProducts().add(food);
                     Admin1.getAdmin1().getFoods().add(food);
+
 
                 }
 

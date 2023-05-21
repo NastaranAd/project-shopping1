@@ -4,6 +4,7 @@ import Model.*;
 
 import Exception.*;
 
+import java.time.LocalTime;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -407,33 +408,27 @@ public class signIn {
     }
 
     public void discountChecker() {
-        boolean bool900 = false;
-        while (bool900 == false) {
-            System.out.println("please enter the username of the shopper : ");
-            String name = cin.nextLine();
-            for (int y = 0; y < Admin1.getAdmin1().getShoppers().size(); y++) {
-                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(y).getUserName(), name)) {
-                    bool900 = true;
-                    System.out.println("How many discount do you want to save?");
-                    int number = cin.nextInt();
-                    for(int o = 0 ;o<number;o++)
-                    {
-                        System.out.println("please enter the discount code : ");
-                        String code2 =  cin.nextLine();
-                        cin.nextLine();
-                        System.out.println("please enter the amount of discount : ");
-                        double percent = cin.nextInt();
-                        Discount discount = new Discount(code2,percent);
-                       // Admin1.getAdmin1().getDiscounts().add(discount);
-                        Admin1.getAdmin1().getShoppers().get(y).getDiscounts().add(discount);
-                    }
 
-                } else {
-                    System.out.println("we do not have this user");
-                }
+            System.out.println("please enter the Amount of discount code : ");
+            double percent = cin.nextInt();
+            cin.nextLine();
+            System.out.println("please enter the Discount code validity : ");
+            LocalTime time = LocalTime.now();
+            cin.nextLine();
+            System.out.println("please enter the capacity of Discount code : ");
+            int capacity = cin.nextInt();
+            cin.nextLine();
+            Discount discount = new Discount(percent,capacity,time);
+            Admin1.getAdmin1().getDiscounts().add(discount);
+            for (int i = 0 ; i<Admin1.getAdmin1().getShoppers().size();i++)
+            if (Admin1.getAdmin1().getShoppers().get(i).getFactors().size()>=3)
+            {
+                Admin1.getAdmin1().getShoppers().get(i).getDiscounts().add(discount);
+
             }
 
-        }
+
+
     }
 }
 

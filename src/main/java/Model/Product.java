@@ -42,7 +42,7 @@ public class Product implements Comparable {
     public int getCapacity() {
         return this.capacity;
     }
-
+    @SuppressWarnings("unchecked")
     @Override
     public int compareTo(Object o) {
         Product product100 = (Product) o;

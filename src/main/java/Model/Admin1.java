@@ -13,7 +13,7 @@ public class Admin1 {
     final private ArrayList<Opinion> opinions = new ArrayList<>();
     final private ArrayList<Stationary> stationaries = new ArrayList<>();
     final private ArrayList<Basket> baskets = new ArrayList<>();
-
+    final private ArrayList<Discount> discounts = new ArrayList<>();
     public ArrayList<Shopper> getShoppers() {
         return shoppers;
     }
@@ -38,6 +38,10 @@ public class Admin1 {
     }
     public ArrayList<Food> getFoods() {
         return foods;
+    }
+    public ArrayList<Discount>getDiscounts()
+    {
+        return discounts;
     }
 
     final private ArrayList<Basket1>basket1s= new ArrayList<>();

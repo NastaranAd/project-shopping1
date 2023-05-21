@@ -4,6 +4,7 @@ import Model.*;
 import View.signIn;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Objects;
 
@@ -344,8 +345,7 @@ public class Admin {
                     Food food = new Food(words[i + 2], price, 0, capacity, Product.category.FOOD, words[i + 4], words[i + 5], "nothing");
                     Admin1.getAdmin1().getProducts().add(food);
                     Admin1.getAdmin1().getFoods().add(food);
-
-
+                    Collections.sort( Admin1.getAdmin1().getProducts());
                 }
 
 
@@ -405,5 +405,17 @@ public class Admin {
 
         }
 
+    }
+    public void discountCode(String order)
+    {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "Discount")) {
+                if (Objects.equals(words[t + 1], "code")) {
+
+                }
+            }
+
+        }
     }
 }

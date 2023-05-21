@@ -198,6 +198,14 @@ public class Shopper {
         }
         return stringBuilder;
     }
-
+    public StringBuilder showDiscountCode(int i) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int t = 0; t < Admin1.getAdmin1().getShoppers().get(i).getDiscounts().size(); t++) {
+            stringBuilder.append(Admin1.getAdmin1().getShoppers().get(i).getUserName()+"\n");
+            stringBuilder.append(Admin1.getAdmin1().getShoppers().get(i).getDiscounts().get(t).toString() + "\n");
+            stringBuilder.append("\n");
+        }
+        return stringBuilder;
+    }
 }
 

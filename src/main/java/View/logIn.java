@@ -30,7 +30,7 @@ public class logIn {
                 printMenu();
                 System.out.println("please enter your choice : ");
                 int choice1 = cin.nextInt();
-                while (choice1 != 15) {
+                while (choice1 != 16) {
                     if (choice1 == 1) {
                         printAccount();
                         cin.nextLine();
@@ -124,7 +124,11 @@ public class logIn {
                         System.out.println("    ");
 
                     }
-                    if (choice1 == 6) {
+                    if (choice1==6){
+
+
+                    }
+                    if (choice1 == 7) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the category : ");
@@ -132,7 +136,7 @@ public class logIn {
                         System.out.println(admin3.filterByCategory(kind));
                     }
 
-                    if (choice1 == 7) {
+                    if (choice1 == 8) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the period of your price : ");
@@ -145,12 +149,12 @@ public class logIn {
                         System.out.println(admin3.filterByPrice(max, min));
 
                     }
-                    if (choice1 == 8) {
+                    if (choice1 == 9) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println(admin3.filterByCapacity());
                     }
-                    if (choice1 == 9) {
+                    if (choice1 == 10) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the company name :");
@@ -158,14 +162,14 @@ public class logIn {
                         System.out.println(admin3.filterByCompany(company));
 
                     }
-                    if (choice1 == 10) {
+                    if (choice1 == 11) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the country name :");
                         String country = cin.nextLine();
                         System.out.println(admin3.filterByCountry(country));
                     }
-                    if (choice1==11)
+                    if (choice1==12)
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
@@ -173,7 +177,7 @@ public class logIn {
                         String color = cin.nextLine();
                         System.out.println(admin3.filterByColor(color));
                     }
-                    if (choice1==12)
+                    if (choice1==13)
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
@@ -186,7 +190,7 @@ public class logIn {
                         double min = cin.nextDouble();
                         System.out.println(admin3.filterByWeight(max,min));
                     }
-                    if (choice1==13)
+                    if (choice1==14)
                     {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
@@ -199,7 +203,7 @@ public class logIn {
                         double min = cin.nextDouble();
                         System.out.println(admin3.filterByDimension(max,min));
                     }
-                    if (choice1 == 14) {
+                    if (choice1 == 15) {
                         System.out.println(admin3.Showing());
                         cin.nextLine();
                         System.out.println("please enter the product name :");
@@ -228,16 +232,17 @@ public class logIn {
         System.out.println("3.shopping");
         System.out.println("4.increase account credit");
         System.out.println("5.Invoice display");
-        System.out.println("6.filter by category");
-        System.out.println("7.filter by price");
-        System.out.println("8.filter by capacity");
-        System.out.println("9.filter by company");
-        System.out.println("10.filter by country");
-        System.out.println("11.filter by color");
-        System.out.println("12.filter by weight");
-        System.out.println("13.filter by dimension");
-        System.out.println("14.search by name ");
-        System.out.println("15.EXIT");
+        System.out.println("6.View the discount code");
+        System.out.println("7.filter by category");
+        System.out.println("8.filter by price");
+        System.out.println("9.filter by capacity");
+        System.out.println("10.filter by company");
+        System.out.println("11.filter by country");
+        System.out.println("12.filter by color");
+        System.out.println("13.filter by weight");
+        System.out.println("14.filter by dimension");
+        System.out.println("15.search by name ");
+        System.out.println("16.EXIT");
     }
 
     public void printAccount() {

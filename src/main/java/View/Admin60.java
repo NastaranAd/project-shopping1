@@ -98,6 +98,7 @@ public class Admin60 {
         System.out.println("if you want to change the product name -> Change name");
         System.out.println("if you want to change the product price -> Change price");
         System.out.println("if you want to change the product capacity -> Change capacity");
+        System.out.println("if you want to give the specific shopper a discount code -> Discount code");
         System.out.println("1.EXIT");
     }
 

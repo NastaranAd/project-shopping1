@@ -3,6 +3,7 @@ package View;
 import Model.*;
 
 import Exception.*;
+
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -28,7 +29,7 @@ public class signIn {
             boolean found = matcher.find();
             if (found == true) {
                 helper = true;
-            } else if (found==false&&helper==false){
+            } else if (found == false && helper == false) {
                 throw new InvalidEmail("invalid email");
             }
         }
@@ -42,7 +43,7 @@ public class signIn {
             boolean found1 = matcher.find();
             if (found1 == true) {
                 helper1 = true;
-            }else if (found1==false&&helper1==false){
+            } else if (found1 == false && helper1 == false) {
                 throw new InvalidPassword("invalid password");
             }
         }
@@ -56,8 +57,7 @@ public class signIn {
             boolean found2 = matcher.find();
             if (found2 == true) {
                 helper2 = true;
-            }
-            else if (found2==false&&helper2==false){
+            } else if (found2 == false && helper2 == false) {
                 throw new InvalidPassword("invalid phone number ");
             }
         }
@@ -228,7 +228,12 @@ public class signIn {
                     sum = sum + Admin1.getAdmin1().getShoppers().get(index).getBaskets().get(j).getMoney100();
                 }
                 if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >= 0) {
-                    if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
+                    System.out.println("do you want to use your deposit code?");
+                    String yes = cin.nextLine();
+                    if (Objects.equals(yes, "yes")) {
+                        System.out.println("please enter your deposit code");
+                        String code = cin.nextLine();
+                    } else if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                         Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
                         Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
                         Basket1 basket1 = new Basket1(Admin1.getAdmin1().getProducts().get(l).getProductName());
@@ -401,5 +406,34 @@ public class signIn {
         System.out.println("your request has send to admin if admin agree with your suggestion your account balance will change");
     }
 
+    public void discountChecker() {
+        boolean bool900 = false;
+        while (bool900 == false) {
+            System.out.println("please enter the username of the shopper : ");
+            String name = cin.nextLine();
+            for (int y = 0; y < Admin1.getAdmin1().getShoppers().size(); y++) {
+                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(y).getUserName(), name)) {
+                    bool900 = true;
+                    System.out.println("How many discount do you want to save?");
+                    int number = cin.nextInt();
+                    for(int o = 0 ;o<number;o++)
+                    {
+                        System.out.println("please enter the discount code : ");
+                        String code2 =  cin.nextLine();
+                        cin.nextLine();
+                        System.out.println("please enter the amount of discount : ");
+                        double percent = cin.nextInt();
+                        Discount discount = new Discount(code2,percent);
+                       // Admin1.getAdmin1().getDiscounts().add(discount);
+                        Admin1.getAdmin1().getShoppers().get(y).getDiscounts().add(discount);
+                    }
+
+                } else {
+                    System.out.println("we do not have this user");
+                }
+            }
+
+        }
+    }
 }
 

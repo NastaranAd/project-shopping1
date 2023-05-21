@@ -229,11 +229,30 @@ public class signIn {
                     sum = sum + Admin1.getAdmin1().getShoppers().get(index).getBaskets().get(j).getMoney100();
                 }
                 if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >= 0) {
-                    System.out.println("do you want to use your deposit code?");
+                    System.out.println("do you want to use your discount code?");
                     String yes = cin.nextLine();
                     if (Objects.equals(yes, "yes")) {
-                        System.out.println("please enter your deposit code");
+                        System.out.println("please enter your discount code : ");
                         String code = cin.nextLine();
+                        for (int r = 0; r < Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size(); r++) {
+                            if (Objects.equals(code, Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).codeMaker()))
+                            {
+                                 double newPrice = Admin1.getAdmin1().getProducts().get(l).getProductPrice()-(Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getPercent()/100.0)*Admin1.getAdmin1().getProducts().get(l).getProductPrice();
+                                  System.out.println("the price without discount is  " +Admin1.getAdmin1().getProducts().get(l).getProductPrice()+" ----> "+"the new price of product is  "+newPrice);
+                                  if (sum+newPrice<= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials())
+                                  {
+                                      Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + newPrice);
+                                      Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + newPrice);
+                                      Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
+                                      Basket1 basket1 = new Basket1(Admin1.getAdmin1().getProducts().get(l).getProductName());
+                                      Admin1.getAdmin1().getBasket1().add(basket1);
+                                  }
+                            }
+                            else
+                            {
+                                System.out.println("nini");
+                            }
+                        }
                     } else if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                         Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
                         Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
@@ -409,26 +428,21 @@ public class signIn {
 
     public void discountChecker() {
 
-            System.out.println("please enter the Amount of discount code : ");
-            double percent = cin.nextInt();
-            cin.nextLine();
-            System.out.println("please enter the Discount code validity : ");
-            LocalTime time = LocalTime.now();
-            cin.nextLine();
-            System.out.println("please enter the capacity of Discount code : ");
-            int capacity = cin.nextInt();
-            cin.nextLine();
-            Discount discount = new Discount(percent,capacity,time);
-            Admin1.getAdmin1().getDiscounts().add(discount);
-            for (int i = 0 ; i<Admin1.getAdmin1().getShoppers().size();i++)
-            if (Admin1.getAdmin1().getShoppers().get(i).getFactors().size()>=3)
-            {
+        System.out.println("please enter the Amount of discount code : ");
+        double percent = cin.nextInt();
+        cin.nextLine();
+        System.out.println("please enter the Discount code validity : ");
+        LocalTime time = LocalTime.now();
+        cin.nextLine();
+        System.out.println("please enter the capacity of Discount code : ");
+        int capacity = cin.nextInt();
+        cin.nextLine();
+        Discount discount = new Discount(percent, capacity, time);
+        Admin1.getAdmin1().getDiscounts().add(discount);
+        for (int i = 0; i < Admin1.getAdmin1().getShoppers().size(); i++)
+            if (Admin1.getAdmin1().getShoppers().get(i).getFactors().size() >= 2) {
                 Admin1.getAdmin1().getShoppers().get(i).getDiscounts().add(discount);
-
             }
-
-
-
     }
 }
 

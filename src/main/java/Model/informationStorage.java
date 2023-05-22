@@ -14,4 +14,13 @@ public class informationStorage extends Digital {
                 "capacity : "+capacity1;
     }
 
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
+    }
 }

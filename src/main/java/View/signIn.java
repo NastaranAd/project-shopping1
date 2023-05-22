@@ -62,6 +62,7 @@ public class signIn {
                 throw new InvalidPassword("invalid phone number ");
             }
         }
+
         cin.nextLine();
         System.out.println("please enter your username : ");
         userName = cin.nextLine();
@@ -191,6 +192,9 @@ public class signIn {
                 helper2 = true;
             }
         }
+        for (int e = 0; e < Admin1.getAdmin1().getShoppers().get(i).getBaskets().size(); e++) {
+            Admin1.getAdmin1().getShoppers().get(i).getBaskets().remove(e);
+        }
         cin.nextLine();
         System.out.println("you bought the thing that you want");
         cin.nextLine();
@@ -203,7 +207,7 @@ public class signIn {
             while (choice99 != 2) {
                 System.out.println("which product do you want to ");
                 cin.nextLine();
-                System.out.println(admin3.showBaskest(i));
+                System.out.println(admin3.showFactors(i));
                 cin.nextLine();
                 System.out.println("please enter the name : ");
                 String name1000 = cin.nextLine();
@@ -229,28 +233,41 @@ public class signIn {
                     sum = sum + Admin1.getAdmin1().getShoppers().get(index).getBaskets().get(j).getMoney100();
                 }
                 if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >= 0) {
-                    System.out.println("do you want to use your discount code?");
-                    String yes = cin.nextLine();
-                    if (Objects.equals(yes, "yes")) {
-                        System.out.println("please enter your discount code : ");
-                        String code = cin.nextLine();
-                        for (int r = 0; r < Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size(); r++) {
-                            if (Objects.equals(code, Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).codeMaker()))
-                            {
-                                 double newPrice = Admin1.getAdmin1().getProducts().get(l).getProductPrice()-(Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getPercent()/100.0)*Admin1.getAdmin1().getProducts().get(l).getProductPrice();
-                                  System.out.println("the price without discount is  " +Admin1.getAdmin1().getProducts().get(l).getProductPrice()+" ----> "+"the new price of product is  "+newPrice);
-                                  if (sum+newPrice<= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials())
-                                  {
-                                      Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + newPrice);
-                                      Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + newPrice);
-                                      Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
-                                      Basket1 basket1 = new Basket1(Admin1.getAdmin1().getProducts().get(l).getProductName());
-                                      Admin1.getAdmin1().getBasket1().add(basket1);
-                                  }
-                            }
-                            else
-                            {
-                                System.out.println("nini");
+                    if (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size() != 0) {
+                        System.out.println("do you want to use your discount code?");
+                        String yes = cin.nextLine();
+                        if (Objects.equals(yes, "yes")) {
+                            System.out.println("please enter your discount code : ");
+                            String code = cin.nextLine();
+                            boolean bool500 = false;
+                            boolean bool501 = false;
+                            for (int r = 0; r < Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size(); r++) {
+                                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getCode(), code)) {
+                                    bool500 = true;
+                                    if (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getDiscountCapacity() != 0) {
+                                        double newPrice = sum - (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getPercent() / 100) * sum;
+                                        System.out.println("the price without discount is  " + Admin1.getAdmin1().getProducts().get(l).getProductPrice() + " ----> " + "the new price is  " + newPrice);
+                                        bool501 = true;
+                                        if (sum + newPrice <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
+                                            Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + newPrice);
+                                            Basket shop = new Basket(Admin1.getAdmin1().getProducts().get(l).getProductName(), sum + newPrice);
+                                            Admin1.getAdmin1().getShoppers().get(index).getBaskets().add(shop);
+                                            Basket1 basket1 = new Basket1(Admin1.getAdmin1().getProducts().get(l).getProductName());
+                                            Admin1.getAdmin1().getBasket1().add(basket1);
+                                            Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
+                                            Admin1.getAdmin1().getShoppers().get(index).getFactors().add(factor);
+                                            System.out.println("you take the thing that you want ");
+                                            Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
+                                            Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).setDiscountCapacity();
+                                            index1 = l;
+                                        }
+                                    } else if (bool501 == false) {
+                                        System.out.println("you have used your Discount code ");
+                                    }
+
+                                } else if (bool500 == false) {
+                                    System.out.println("you do not have the Discount code");
+                                }
                             }
                         }
                     } else if (sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice() <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
@@ -443,6 +460,29 @@ public class signIn {
             if (Admin1.getAdmin1().getShoppers().get(i).getFactors().size() >= 2) {
                 Admin1.getAdmin1().getShoppers().get(i).getDiscounts().add(discount);
             }
+    }
+
+    public void removeDiscountCode() {
+        for (int e = 0; e < Admin1.getAdmin1().getDiscounts().size(); e++) {
+            System.out.println(e + 1 + ". " + Admin1.getAdmin1().getDiscounts().get(e).getCode());
+        }
+        cin.nextLine();
+        System.out.println("please enter the code that you want to remove");
+        String code = cin.nextLine();
+        for (int t = 0; t < Admin1.getAdmin1().getDiscounts().size(); t++) {
+            if (Objects.equals(code, Admin1.getAdmin1().getDiscounts().get(t).getCode())) {
+                Admin1.getAdmin1().getDiscounts().remove(t);
+                for (int u = 0; u < Admin1.getAdmin1().getShoppers().size(); u++) {
+                    for (int w = 0; w < Admin1.getAdmin1().getShoppers().get(u).getDiscounts().size(); w++) {
+                        if (Objects.equals(Admin1.getAdmin1().getShoppers().get(u).getDiscounts().get(w).getCode(),code))
+                        {
+                            Admin1.getAdmin1().getShoppers().get(u).getDiscounts().remove(w);
+                            System.out.println("you remove the code");
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

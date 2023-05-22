@@ -1,8 +1,7 @@
 package Model;
 
-abstract public class Digital extends Product
+abstract public class Digital extends Product implements Code
 {
-
     private double weight;
     private double dimension;
     Digital(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension,String comment) {

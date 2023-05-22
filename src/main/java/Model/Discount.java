@@ -17,7 +17,7 @@ public class Discount {
     }
 
     public String getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(String code) {
@@ -30,6 +30,14 @@ public class Discount {
 
     public void setPercent(double percent) {
         this.percent = percent;
+    }
+
+    public int getDiscountCapacity() {
+        return discountCapacity;
+    }
+
+    public void setDiscountCapacity() {
+        this.discountCapacity =this. discountCapacity-1;
     }
 
     @Override
@@ -48,4 +56,5 @@ public class Discount {
         String code = makeCode.toString();
         return code;
     }
+
 }

@@ -18,4 +18,14 @@ public class Computer extends Digital
         return super.toString()+"\n"+
                 "RAM : "+RAM+" , processor : "+processorModel;
     }
+
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
+    }
 }

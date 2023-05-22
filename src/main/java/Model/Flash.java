@@ -14,4 +14,13 @@ public class Flash extends Digital {
                 "usb version : "+usbVersion;
     }
 
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
+    }
 }

@@ -126,7 +126,7 @@ public class logIn {
                     }
                     if (choice1==6){
 
-
+                        System.out.println(admin3.showDiscountCode(i));
                     }
                     if (choice1 == 7) {
                         System.out.println(admin3.Showing());

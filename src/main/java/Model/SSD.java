@@ -16,4 +16,14 @@ public class SSD extends Digital
         return super.toString()+"\n"+
                 "readingSpeed : "+readingSpeed +" , writingSpeed : "+writingSpeed;
     }
+
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
+    }
 }

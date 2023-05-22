@@ -60,6 +60,13 @@ public class Admin60 {
                     else if (order.contains("Add")) {
                         admin.addingAdmin(order);
                     }
+                    else if (Objects.equals(order, "Discount code")){
+                        admin.discountCode(order);
+                    }
+                    else if (Objects.equals(order,"Remove discount code"))
+                    {
+                        admin.removeDiscountCode(order);
+                    }
                     else {
                         System.out.println("wo do not have this order");
                     }

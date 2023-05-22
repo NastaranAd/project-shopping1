@@ -1,6 +1,6 @@
 package Model;
 
-public class Pen extends Stationary {
+public class Pen extends Stationary implements Code {
     private String color;
 
    public  Pen(String productName,double productPrice,double averageScore,int capacity,category product,String country, String color,String comment) {
@@ -16,5 +16,15 @@ public class Pen extends Stationary {
     public String getColor()
     {
         return this.color;
+    }
+
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
     }
 }

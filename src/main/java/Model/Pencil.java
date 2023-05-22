@@ -1,8 +1,18 @@
 package Model;
 
 
-public class Pencil extends Stationary {
-   public enum pencil {
+public class Pencil extends Stationary implements Code {
+    @Override
+    public void addDiscountCode() {
+
+    }
+
+    @Override
+    public void removeDiscountCode() {
+
+    }
+
+    public enum pencil {
         HB, H, B, F, H2
     }
 

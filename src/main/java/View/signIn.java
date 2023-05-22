@@ -223,7 +223,7 @@ public class signIn {
 
     }
 
-    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct {
+    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct, InvalidDiscountCode {
         boolean bool = false;
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
@@ -266,7 +266,7 @@ public class signIn {
                                     }
 
                                 } else if (bool500 == false) {
-                                    System.out.println("you do not have the Discount code");
+                                   throw new InvalidDiscountCode( "Invalid discount code");
                                 }
                             }
                         }

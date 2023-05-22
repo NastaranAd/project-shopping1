@@ -26,7 +26,8 @@ public class Product implements Comparable {
         this.product = product;
         this.comment = comment;
     }
-    private int percent ;
+
+    private int percent;
 
     public String getProductName() {
         return this.productName;
@@ -47,39 +48,55 @@ public class Product implements Comparable {
     @Override
     public int compareTo(Object o) {
         Product product100 = (Product) o;
-        if (this.productName.compareTo(product100.productName) < 0) {
+        if (product100.product == category.DIGITAL && this.getCategory() != category.DIGITAL) {
+            return 1;
+        } else if (product100.product != category.DIGITAL && this.getCategory() == category.DIGITAL) {
             return -1;
-
-        } else if (this.productName.compareTo(product100.productName) == 0) {
-            if (this.averageScore < product100.averageScore) {
-                return -1;
-            } else if (this.averageScore > product100.averageScore) {
+        } else {
+            if (product100.product == category.STATIONARY && this.getCategory() != category.STATIONARY) {
                 return 1;
-            } else if (this.averageScore == product100.averageScore) {
-                if (this.productPrice<product100.productPrice)
-                {
-                    return -1;
-                }
-                else if(this.productPrice>product100.productPrice)
-                {
+            } else if (product100.product == category.FOOD && this.getCategory() == category.STATIONARY) {
+                return -1;
+            } else {
+                if (product100.product == category.VEHICLES && this.getCategory() != category.VEHICLES) {
                     return 1;
-                }
-                else if (this.productPrice==product100.productPrice)
-                {
-                    if (this.capacity<product100.capacity)
-                    {
-                        return -1;
-                    }
-                    else if (this.capacity>product100.capacity)
-                    {
+                } else if (product100.product == category.VEHICLES && this.getCategory() == category.VEHICLES) {
+                    return -1;
+                } else {
+                    if (product100.product == category.VEHICLES && this.getCategory() != category.FOOD) {
                         return 1;
+                    } else if (product100.product == category.VEHICLES && this.getCategory() == category.FOOD) {
+                        return 1;
+                    } else {
+                        if (this.productName.compareTo(product100.productName) < 0) {
+                            return -1;
+
+                        } else if (this.productName.compareTo(product100.productName) == 0) {
+                            if (this.averageScore < product100.averageScore) {
+                                return -1;
+                            } else if (this.averageScore > product100.averageScore) {
+                                return 1;
+                            } else if (this.averageScore == product100.averageScore) {
+                                if (this.productPrice < product100.productPrice) {
+                                    return -1;
+                                } else if (this.productPrice > product100.productPrice) {
+                                    return 1;
+                                } else if (this.productPrice == product100.productPrice) {
+                                    if (this.capacity < product100.capacity) {
+                                        return -1;
+                                    } else if (this.capacity > product100.capacity) {
+                                        return 1;
+                                    }
+                                }
+                            }
+                        } else if (this.productName.compareTo(product100.productName) > 0) {
+                            return 1;
+                        }
+                        return 0;
                     }
                 }
             }
-        } else if (this.productName.compareTo(product100.productName) > 0) {
-            return 1;
         }
-        return 0;
     }
 
     public enum category {

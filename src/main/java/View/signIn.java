@@ -223,7 +223,7 @@ public class signIn {
 
     }
 
-    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct, InvalidDiscountCode {
+    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct, InvalidDiscountCode, InvalidDiscountCapacity {
         boolean bool = false;
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
@@ -246,7 +246,7 @@ public class signIn {
                                     bool500 = true;
                                     if (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getDiscountCapacity() != 0) {
                                         double newPrice = sum - (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getPercent() / 100) * sum;
-                                        System.out.println("the price without discount is  " + Admin1.getAdmin1().getProducts().get(l).getProductPrice() + " ----> " + "the new price is  " + newPrice);
+                                        System.out.println("the price without discount is  " + sum + " ----> " + "the new price is  " + newPrice);
                                         bool501 = true;
                                         if (sum + newPrice <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                                             Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + newPrice);
@@ -262,7 +262,7 @@ public class signIn {
                                             index1 = l;
                                         }
                                     } else if (bool501 == false) {
-                                        System.out.println("you have used your Discount code ");
+                                       throw new InvalidDiscountCapacity("you have used the Discount code");
                                     }
 
                                 } else if (bool500 == false) {

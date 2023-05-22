@@ -1,7 +1,7 @@
 package Exception;
 
 public class InvalidPhoneNumber extends InvalidEntrance{
-    InvalidPhoneNumber(String text)
+    public InvalidPhoneNumber(String text)
     {
        super(text);
     }

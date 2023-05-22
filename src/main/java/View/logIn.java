@@ -85,7 +85,7 @@ public class logIn {
                                 String name = cin.nextLine();
                                 try {
                                     helper5.Shopping(name,i);
-                                } catch (LackOfMoney | OutOfProduct | InvalidDiscountCode e) {
+                                } catch (LackOfMoney | OutOfProduct | InvalidDiscountCode | InvalidDiscountCapacity e) {
                                     System.out.println(e.getMessage());
                                 }
                             }

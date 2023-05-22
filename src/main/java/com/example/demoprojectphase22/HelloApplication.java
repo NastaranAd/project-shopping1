@@ -39,7 +39,7 @@ public class HelloApplication extends Application {
                         user.signIn1();
                         w = false;
                     } catch (InvalidEmail | InvalidPassword e) {
-                        System.out.println(e);
+                        System.out.println(e.getMessage());
                     }
                 }
             }

@@ -60,12 +60,13 @@ public class Admin {
     }
 
     public void addingAdmin(String order) {
+
         String[] words = order.split("\\s");
         for (int i = 0; i < words.length; i++) {
             if (Objects.equals(words[i], "Add")) {
                 if (Objects.equals(words[i + 1], "car")) {
                     boolean auto;
-                    Double price = Double.parseDouble(words[i + 6]);
+                    double price = Double.parseDouble(words[i + 6]);
                     try {
                         price = Double.parseDouble(words[i + 6]);
                     } catch (InputMismatchException e) {
@@ -176,7 +177,7 @@ public class Admin {
                     Admin1.getAdmin1().getDigitals().add(informationStorage);
                     Collections.sort(Admin1.getAdmin1().getProducts());
                 } else if (Objects.equals(words[i + 1], "flash")) {
-                    Double price = Double.parseDouble(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     double weight = Double.parseDouble(words[i + 4]);
                     double dimension = Double.parseDouble(words[i + 5]);
@@ -205,7 +206,7 @@ public class Admin {
                     Admin1.getAdmin1().getDigitals().add(flash);
                     Collections.sort(Admin1.getAdmin1().getProducts());
                 } else if (Objects.equals(words[i + 1], "SSD")) {
-                    Double price = Double.parseDouble(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 9]);
                     double weight = Double.parseDouble(words[i + 4]);
                     double dimension = Double.parseDouble(words[i + 5]);
@@ -246,7 +247,7 @@ public class Admin {
                     Admin1.getAdmin1().getDigitals().add(ssd);
                     Collections.sort(Admin1.getAdmin1().getProducts());
                 } else if (Objects.equals(words[i + 1], "pen")) {
-                    Double price = Double.parseDouble(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     try {
                         price = Double.parseDouble(words[i + 3]);
@@ -267,7 +268,7 @@ public class Admin {
 
                     }
                 } else if (Objects.equals(words[i + 1], "pencil")) {
-                    Double price = Double.parseDouble(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 6]);
                     try {
                         price = Double.parseDouble(words[i + 3]);
@@ -284,7 +285,7 @@ public class Admin {
                     Admin1.getAdmin1().getStationaries().add(pencil);
                     Collections.sort(Admin1.getAdmin1().getProducts());
                 } else if (Objects.equals(words[i + 1], "notebook")) {
-                    Double price = Double.parseDouble(words[i + 3]);
+                    double price = Double.parseDouble(words[i + 3]);
                     int capacity = Integer.parseInt(words[i + 7]);
                     int page = Integer.parseInt(words[i + 6]);
                     try {
@@ -403,6 +404,56 @@ public class Admin {
                 if (Objects.equals(words[t + 1], "discount")) {
 
                     user1.removeDiscountCode();
+
+                }
+
+            }
+        }
+    }
+
+    public void addDiscountPercent(String order) {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "discount")) {
+                for (int i = 0; i < Admin1.getAdmin1().getProducts().size(); i++) {
+                    if (Objects.equals(Admin1.getAdmin1().getProducts().get(i).getProductName(), words[t + 1])) {
+                        double percent = Double.parseDouble(words[t + 2]);
+                        if (Admin1.getAdmin1().getProducts().get(i) instanceof Digital) {
+                            ((Digital) Admin1.getAdmin1().getProducts().get(i)).addDiscountCode(words[t + 1], percent);
+                        }
+                        if (Admin1.getAdmin1().getProducts().get(i).getClass().toString().equals("Pen")) {
+                            ((Pen) Admin1.getAdmin1().getProducts().get(i)).addDiscountCode(words[t + 1], percent);
+                        }
+                        if (Admin1.getAdmin1().getProducts().get(i).getClass().toString().equals("Pencil")) {
+                            ((Pencil) Admin1.getAdmin1().getProducts().get(i)).addDiscountCode(words[t + 1], percent);
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    public void removeDiscountPercent(String order) {
+        String[] words = order.split("\\s");
+        for (int t = 0; t < words.length; t++) {
+            if (Objects.equals(words[t], "remove")) {
+                if (Objects.equals(words[t + 1], "percent")) {
+                    for (int j = 0; j < Admin1.getAdmin1().getProducts().size(); j++) {
+                        if (Objects.equals(Admin1.getAdmin1().getProducts().get(j).getProductName(), words[t + 2])) {
+                            if (Admin1.getAdmin1().getProducts().get(j) instanceof Digital) {
+                                ((Digital) Admin1.getAdmin1().getProducts().get(j)).removeDiscountCode(words[t+2]);
+                            }
+                            if (Admin1.getAdmin1().getProducts().get(j).getClass().toString().equals("Pen")) {
+                                ((Pen) Admin1.getAdmin1().getProducts().get(j)).removeDiscountCode(words[t + 2]);
+                            }
+                            if (Admin1.getAdmin1().getProducts().get(j).getClass().toString().equals("Pencil")) {
+                                ((Pencil) Admin1.getAdmin1().getProducts().get(j)).removeDiscountCode(words[t + 2]);
+                            }
+                        }
+                    }
 
                 }
 

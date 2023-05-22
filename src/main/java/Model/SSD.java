@@ -2,6 +2,7 @@ package Model;
 
 public class SSD extends Digital
 {
+    private double percent;
     private double readingSpeed;
     private double writingSpeed;
    public SSD(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension ,double readingSpeed,double writingSpeed,String comment)
@@ -17,13 +18,4 @@ public class SSD extends Digital
                 "readingSpeed : "+readingSpeed +" , writingSpeed : "+writingSpeed;
     }
 
-    @Override
-    public void addDiscountCode() {
-
-    }
-
-    @Override
-    public void removeDiscountCode() {
-
-    }
 }

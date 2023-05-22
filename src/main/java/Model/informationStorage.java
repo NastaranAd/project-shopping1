@@ -2,6 +2,7 @@ package Model;
 
 public class informationStorage extends Digital {
     private int capacity1;
+    private double percent;
 
     public informationStorage(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension,String comment) {
         super(productName,productPrice, averageScore,capacity,product,weight,dimension,comment);
@@ -13,14 +14,4 @@ public class informationStorage extends Digital {
         return super.toString()+"\n"+
                 "capacity : "+capacity1;
     }
-
-    @Override
-    public void addDiscountCode() {
-
     }
-
-    @Override
-    public void removeDiscountCode() {
-
-    }
-}

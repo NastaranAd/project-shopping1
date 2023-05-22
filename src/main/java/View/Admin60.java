@@ -67,6 +67,14 @@ public class Admin60 {
                     {
                         admin.removeDiscountCode(order);
                     }
+                    else if (order.contains("discount" ))
+                    {
+                        admin.addDiscountPercent(order);
+                    }
+                    else if (order.contains("remove"))
+                    {
+                        admin.removeDiscountPercent(order);
+                    }
                     else {
                         System.out.println("wo do not have this order");
                     }
@@ -106,6 +114,8 @@ public class Admin60 {
         System.out.println("if you want to change the product price -> Change price");
         System.out.println("if you want to change the product capacity -> Change capacity");
         System.out.println("if you want to give the specific shopper a discount code -> Discount code");
+        System.out.println("if you want to discount the specific product -> discount name number(percent)");
+        System.out.println("if you want remove discount -> remove percent name ");
         System.out.println("1.EXIT");
     }
 

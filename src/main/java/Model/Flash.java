@@ -2,6 +2,7 @@ package Model;
 
 public class Flash extends Digital {
     private String usbVersion;
+    private double percent;
 
     public Flash(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension , String usbVersion,String comment) {
         super(productName,productPrice, averageScore,capacity,product,weight,dimension,comment);
@@ -14,13 +15,4 @@ public class Flash extends Digital {
                 "usb version : "+usbVersion;
     }
 
-    @Override
-    public void addDiscountCode() {
-
-    }
-
-    @Override
-    public void removeDiscountCode() {
-
-    }
 }

@@ -4,6 +4,7 @@ public class Computer extends Digital
 {
     private String processorModel;
     private int RAM;
+    private double percent;
 
    public Computer(String productName, double productPrice, double averageScore, int capacity, category product, double weight, double dimension , int RAM, String processorModel,String comment)
     {
@@ -19,13 +20,4 @@ public class Computer extends Digital
                 "RAM : "+RAM+" , processor : "+processorModel;
     }
 
-    @Override
-    public void addDiscountCode() {
-
-    }
-
-    @Override
-    public void removeDiscountCode() {
-
-    }
 }

@@ -86,7 +86,7 @@ public class logIn {
                                 try {
                                     helper5.Shopping(name,i);
                                 } catch (LackOfMoney | OutOfProduct e) {
-                                    System.out.println(e);
+                                    System.out.println(e.getMessage());
                                 }
                             }
                             if (choice80==2)

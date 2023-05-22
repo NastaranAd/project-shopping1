@@ -1,7 +1,7 @@
 package Model;
 
 public interface Code {
-    public void addDiscountCode ();
-    public void removeDiscountCode();
-    String name = null;
+    public void addDiscountCode (String name,double percent);
+    public void removeDiscountCode(String name);
+
 }

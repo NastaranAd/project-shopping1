@@ -26,6 +26,7 @@ public class Product implements Comparable {
         this.product = product;
         this.comment = comment;
     }
+    private int percent ;
 
     public String getProductName() {
         return this.productName;
@@ -42,7 +43,7 @@ public class Product implements Comparable {
     public int getCapacity() {
         return this.capacity;
     }
-    @SuppressWarnings("unchecked")
+
     @Override
     public int compareTo(Object o) {
         Product product100 = (Product) o;

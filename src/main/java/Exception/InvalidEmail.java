@@ -5,7 +5,5 @@ public class InvalidEmail extends InvalidEntrance {
     {
         super(text);
     }
-    public InvalidEmail (){
-        super("Wrong");
-    }
+
 }

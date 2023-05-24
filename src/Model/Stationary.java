@@ -10,7 +10,7 @@ abstract public class Stationary extends Product {
         return pens;
     }
 
-   public Stationary(String productName,long productPrice,double averageScore,int capacity,category product,String country,String comment) {
+   public Stationary(String productName,double productPrice,double averageScore,int capacity,category product,String country,String comment) {
         super(productName,productPrice, averageScore,capacity,product,comment);
         this.country = country;
     }

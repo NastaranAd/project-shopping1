@@ -4,7 +4,7 @@ public class SSD extends Digital
 {
     private double readingSpeed;
     private double writingSpeed;
-   public SSD(String productName,long productPrice,double averageScore,int capacity,category product,double weight, double dimension ,double readingSpeed,double writingSpeed,String comment)
+   public SSD(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension ,double readingSpeed,double writingSpeed,String comment)
     {
         super(productName,productPrice, averageScore,capacity,product,weight,dimension,comment);
         this.readingSpeed=readingSpeed;

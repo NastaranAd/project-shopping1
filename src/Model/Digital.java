@@ -5,7 +5,7 @@ abstract public class Digital extends Product
 
     private double weight;
     private double dimension;
-    Digital(String productName,long productPrice,double averageScore,int capacity,category product,double weight, double dimension,String comment) {
+    Digital(String productName,double productPrice,double averageScore,int capacity,category product,double weight, double dimension,String comment) {
         super(productName,productPrice, averageScore,capacity,product,comment);
         this.weight = weight;
         this.dimension = dimension;

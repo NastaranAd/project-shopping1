@@ -9,20 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="371.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Main">
    <children>
-      <Button fx:id="main" layoutX="367.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#main" prefHeight="25.0" prefWidth="140.0" text="sign in">
+      <Button fx:id="main" layoutX="367.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#main" prefHeight="25.0" prefWidth="140.0" text="sign in">
          <font>
             <Font name="Algerian" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="login" layoutX="367.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="25.0" prefWidth="140.0" text="log in ">
+      <Button fx:id="login" layoutX="367.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="25.0" prefWidth="140.0" text="log in ">
          <font>
             <Font name="Algerian" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="products" layoutX="367.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#showProducts" prefHeight="25.0" prefWidth="140.0" text="Products">
+      <Button fx:id="products" layoutX="367.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#showProducts" prefHeight="25.0" prefWidth="140.0" text="Products">
          <font>
             <Font name="Algerian" size="22.0" />
          </font>
@@ -41,13 +40,21 @@
             </Lighting>
          </effect>
       </ImageView>
+      <Button fx:id="backbutton" layoutX="367.0" layoutY="263.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="41.0" prefWidth="140.0" text="BACK">
+         <font>
+            <Font name="Algerian" size="22.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="22.0" prefHeight="371.0" prefWidth="17.0" style="-fx-background-color: black;" />
+      <AnchorPane layoutY="329.0" prefHeight="17.0" prefWidth="528.0" style="-fx-background-color: black;" />
    </children>
    <effect>
-      <Lighting diffuseConstant="0.89" specularConstant="0.44" specularExponent="9.15">
+      <Lighting diffuseConstant="0.92" specularConstant="0.7" specularExponent="9.15">
          <bumpInput>
             <Shadow />
          </bumpInput>
          <light>
+
          </light>
       </Lighting>
    </effect>

@@ -13,7 +13,6 @@ public class Admin60 {
     int choice6 = 0;
 
     public void adminDuty() {
-        cin.nextLine();
         System.out.println("please enter your user name : ");
         String userName30 = cin.nextLine();
         System.out.println("please enter your password : ");

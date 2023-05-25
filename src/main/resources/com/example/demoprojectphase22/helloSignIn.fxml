@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
@@ -25,12 +26,17 @@
          <children>
             <ImageView fitHeight="114.0" fitWidth="111.0" layoutX="45.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images%202.png" />
+                  <Image url="@images 2.png" />
                </image>
             </ImageView>
-            <Text fill="#fff4f4" layoutX="62.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user sign in ">
+            <Text fill="#fff4f4" layoutX="37.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user sign in " textAlignment="CENTER" wrappingWidth="126.7435290813446">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="12.0" />
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="65.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME" wrappingWidth="84.14257669448853">
+               <font>
+                  <Font name="Algerian" size="14.0" />
                </font>
             </Text>
          </children>
@@ -39,15 +45,21 @@
       <TextField fx:id="password" layoutX="252.0" layoutY="104.0" promptText="password" />
       <TextField fx:id="phonenumber" layoutX="252.0" layoutY="155.0" promptText="phoneNumber" />
       <TextField fx:id="username" layoutX="252.0" layoutY="200.0" promptText="username" />
-      <Button fx:id="signinbutton" layoutX="245.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#checking" prefHeight="25.0" prefWidth="75.0" text="submit">
+      <Button fx:id="signinbutton" layoutX="227.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#checking" prefHeight="25.0" prefWidth="75.0" text="submit">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="370.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#backing" prefHeight="25.0" prefWidth="75.0" text="back">
+      <Button fx:id="back" layoutX="343.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#backing" prefHeight="25.0" prefWidth="75.0" text="back">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
+      <AnchorPane layoutY="357.0" prefHeight="14.0" prefWidth="528.0" style="-fx-background-color: black;">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="483.0" layoutY="193.0" prefHeight="200.0" prefWidth="14.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

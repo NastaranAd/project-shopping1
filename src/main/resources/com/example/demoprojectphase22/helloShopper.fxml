@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.HelloShopper">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: BLACK;">
+         <effect>
+            <Lighting diffuseConstant="1.08" specularConstant="0.7" specularExponent="4.81">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+
+               </light>
+            </Lighting>
+         </effect>
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="111.0" layoutX="45.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images 2.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="65.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME" wrappingWidth="64.80337524414062">
+               <font>
+                  <Font name="Algerian" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="46.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="log in user">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="username" layoutX="265.0" layoutY="75.0" promptText="username" />
+      <TextField fx:id="password" layoutX="265.0" layoutY="168.0" promptText="password" />
+      <Button fx:id="submit" layoutX="227.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#submit" prefHeight="25.0" prefWidth="75.0" text="submit">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="364.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="25.0" prefWidth="75.0" text="back">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutY="357.0" prefHeight="14.0" prefWidth="528.0" style="-fx-background-color: black;" />
+      <AnchorPane layoutX="483.0" layoutY="193.0" prefHeight="200.0" prefWidth="14.0" style="-fx-background-color: black;" />
+   </children>
+</AnchorPane>

@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demoprojectphase22.HelloLogIn"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="371.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.HelloLogIn">
+   <children>
+      <AnchorPane layoutX="-1.0" prefHeight="371.0" prefWidth="244.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="132.0" fitWidth="121.0" layoutX="61.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images user.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="customer" layoutX="72.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#shopper" prefHeight="50.0" prefWidth="100.0" text="CUSTOMER">
+               <font>
+                  <Font name="Algerian" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="284.0" prefHeight="371.0" prefWidth="244.0" style="-fx-background-color: silver;">
+         <children>
+            <ImageView fitHeight="130.0" fitWidth="169.0" layoutX="38.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imaje admin.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="ADMIN" layoutX="72.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#admin" prefHeight="50.0" prefWidth="100.0" text="ADMIN">
+               <font>
+                  <Font name="Algerian" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="241.0" prefHeight="371.0" prefWidth="43.0" style="-fx-background-color: black;">
+         <children>
+            <Button fx:id="back" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#backButton" prefHeight="24.0" prefWidth="43.0" text="back">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <Lighting diffuseConstant="1.28" specularConstant="0.0" specularExponent="7.6" surfaceScale="0.0">
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+         </light>
+      </Lighting>
+   </effect>
 </AnchorPane>

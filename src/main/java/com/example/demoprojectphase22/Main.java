@@ -21,10 +21,25 @@ public class Main {
 
     @FXML
     private Button products;
+    @FXML
+    private Button backbutton;
 
     @FXML
-    void login(MouseEvent event) {
+    void backButton(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menu.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    @FXML
+    void login(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("helloLogIn.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

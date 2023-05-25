@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="362.0" prefWidth="274.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Menu">
+   <children>
+      <Button fx:id="MainMenu" layoutX="81.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#menu" prefHeight="25.0" prefWidth="113.0" text="MENU">
+         <font>
+            <Font name="Andalus" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@101.jpg" />
+         </image>
+         <effect>
+            <Lighting diffuseConstant="1.14" specularConstant="1.11" surfaceScale="2.81">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
+   </children>
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow />
+         </bumpInput>
+         <light>
+         </light>
+      </Lighting>
+   </effect>
+</AnchorPane>

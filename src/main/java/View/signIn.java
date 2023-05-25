@@ -19,12 +19,9 @@ public class signIn {
     Scanner cin = new Scanner(System.in);
     Controller.Shopper admin3 = new Controller.Shopper();
 
-    public void signIn1() throws InvalidEmail, InvalidPassword {
+    public void signIn1(String userName ,String email , String password,String phoneNumber) throws InvalidEmail, InvalidPassword, InvalidPhoneNumber {
         boolean helper = false;
         while (helper == false) {
-            cin.nextLine();
-            System.out.println("please enter your email : ");
-            email = cin.nextLine();
             Pattern pattern = Pattern.compile("^(.+)@(gmail|yahoo)\\.com$");
             Matcher matcher = pattern.matcher(email);
             boolean found = matcher.find();
@@ -36,9 +33,6 @@ public class signIn {
         }
         boolean helper1 = false;
         while (helper1 == false) {
-            cin.nextLine();
-            System.out.println("please enter your password : ");
-            password = cin.nextLine();
             Pattern pattern1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&]).{6,20}$");
             Matcher matcher = pattern1.matcher(password);
             boolean found1 = matcher.find();
@@ -50,26 +44,18 @@ public class signIn {
         }
         boolean helper2 = false;
         while (helper2 == false) {
-            cin.nextLine();
-            System.out.println("please enter your phone number : ");
-            phoneNumber = cin.nextLine();
             Pattern pattern2 = Pattern.compile("^09\\d{9}$");
             Matcher matcher = pattern2.matcher(phoneNumber);
             boolean found2 = matcher.find();
             if (found2 == true) {
                 helper2 = true;
             } else if (found2 == false && helper2 == false) {
-                throw new InvalidPassword("invalid phone number ");
+                throw new InvalidPhoneNumber("invalid phone number ");
             }
         }
 
-        cin.nextLine();
-        System.out.println("please enter your username : ");
-        userName = cin.nextLine();
-        cin.nextLine();
-        System.out.println("   ");
         if (Admin1.getAdmin1().getShoppers().size() == 0) {
-            System.out.println("your log in request has sent to admin");
+           // System.out.println("your log in request has sent to admin");
             Request request = new Request(email, userName, phoneNumber, password);
             Request request1 = new Request(userName, 0);
             Admin1.getAdmin1().getSignInRequests().add(request);
@@ -84,7 +70,8 @@ public class signIn {
                 }
             }
             if (bool1000 == false) {
-                System.out.println("your log in request has sent to admin");
+                //System.out.println("your log in request has sent to admin");
+
                 Request request = new Request(email, userName, phoneNumber, password);
                 Request request1 = new Request(userName, 0);
                 Admin1.getAdmin1().getSignInRequests().add(request);

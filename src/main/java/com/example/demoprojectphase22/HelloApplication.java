@@ -36,42 +36,6 @@ public class HelloApplication extends Application {
         Admin60 admin60 = new Admin60();
         signIn user = new signIn();
         logIn user1 = new logIn();
-        System.out.println("       *****     WELCOME     *****");
-        cin.nextLine();
-        user.printCharacter();
-        System.out.println("please enter your choice : ");
-        int choice8 = cin.nextInt();
-        while (choice8 != 4) {
-            if (choice8 == 1) {
-                boolean w = true;
-            }
-
-        if (choice8 == 2) {
-            user.printChoice();
-            cin.nextLine();
-            System.out.println("please enter your choice : ");
-            int choice9 = cin.nextInt();
-            while (choice9 != 3) {
-                if (choice9 == 1) {
-                    admin60.adminDuty();
-                }
-                if (choice9 == 2) {
-                    user1.logIn1();
-                }
-                user.printChoice();
-                cin.nextLine();
-                System.out.println("please enter your choice : ");
-                choice9 = cin.nextInt();
-            }
-
-        }
-        if (choice8 == 3) {
-            System.out.println(admin40.Showing());
-        }
-        user.printCharacter();
-        System.out.println("please enter your choice : ");
-        choice8 = cin.nextInt();
-    }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 274, 362);
         stage.setScene(scene);

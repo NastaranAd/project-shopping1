@@ -1,7 +1,9 @@
 package Controller;
 
+import Exception.*;
 import Model.Admin1;
 import Model.Product;
+import javafx.scene.control.Alert;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -108,7 +110,7 @@ public class Shopper {
         return stringBuilder;
     }
 
-    public StringBuilder changingEmail(String email1) {
+    public StringBuilder changingEmail(String email1) throws InvalidEmail {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -121,6 +123,14 @@ public class Shopper {
                 if (found == true) {
                     helper = true;
                     Admin1.getAdmin1().getShoppers().get(k).setEmail(email1);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("New Email");
+                    alert.setContentText(email1);
+                    alert.showAndWait();
+                }
+                else
+                {
+                  throw new InvalidEmail("Invalid email");
                 }
             }
             stringBuilder1.append(Admin1.getAdmin1().getShoppers().get(k).getEmail());
@@ -128,7 +138,7 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public StringBuilder changingPhoneNumber(String phoneNumber1) {
+    public StringBuilder changingPhoneNumber(String phoneNumber1) throws InvalidPhoneNumber {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -141,6 +151,14 @@ public class Shopper {
                 if (found == true) {
                     helper = true;
                     Admin1.getAdmin1().getShoppers().get(k).setPhoneNumber(phoneNumber1);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("New Email");
+                    alert.setContentText(phoneNumber1);
+                    alert.showAndWait();
+                }
+                else
+                {
+                    throw new InvalidPhoneNumber("Invalid phoneNumber");
                 }
             }
             stringBuilder1.append(Admin1.getAdmin1().getShoppers().get(k).getPhoneNumber());
@@ -148,7 +166,7 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public StringBuilder changingPassword(String password1) {
+    public StringBuilder changingPassword(String password1) throws InvalidPassword {
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getShoppers().size(); k++) {
@@ -161,6 +179,14 @@ public class Shopper {
                 if (found == true) {
                     helper = true;
                     Admin1.getAdmin1().getShoppers().get(k).setPassword(password1);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("New Email");
+                    alert.setContentText(password1);
+                    alert.showAndWait();
+                }
+                else
+                {
+                    throw new InvalidPassword("Invalid password");
                 }
             }
             stringBuilder1.append(Admin1.getAdmin1().getShoppers().get(k).getPassword());

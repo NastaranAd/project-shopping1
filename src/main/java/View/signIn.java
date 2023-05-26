@@ -3,6 +3,7 @@ package View;
 import Model.*;
 
 import Exception.*;
+import javafx.scene.control.Alert;
 
 import java.time.LocalTime;
 import java.util.Objects;
@@ -55,27 +56,35 @@ public class signIn {
         }
 
         if (Admin1.getAdmin1().getShoppers().size() == 0) {
-           // System.out.println("your log in request has sent to admin");
             Request request = new Request(email, userName, phoneNumber, password);
             Request request1 = new Request(userName, 0);
             Admin1.getAdmin1().getSignInRequests().add(request);
             Admin1.getAdmin1().getSignInRequests().add(request1);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sign In Request");
+            alert.setContentText("your sign in request has sent to admin");
+            alert.showAndWait();
 
         } else {
             boolean bool1000 = false;
             for (int r = 0; r < Admin1.getAdmin1().getShoppers().size(); r++) {
                 if (Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getUserName(), userName) && Objects.equals(Admin1.getAdmin1().getShoppers().get(r).getPassword(), password)) {
-                    System.out.println("you have already sign in");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("WRONG! ");
+                    alert.setContentText("you have already sign in");
+                    alert.showAndWait();
                     bool1000 = true;
                 }
             }
             if (bool1000 == false) {
-                //System.out.println("your log in request has sent to admin");
-
                 Request request = new Request(email, userName, phoneNumber, password);
                 Request request1 = new Request(userName, 0);
                 Admin1.getAdmin1().getSignInRequests().add(request);
                 Admin1.getAdmin1().getSignInRequests().add(request1);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sign In Request");
+                alert.setContentText("your sign in request has sent to admin");
+                alert.showAndWait();
             }
         }
     }

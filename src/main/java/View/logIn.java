@@ -5,7 +5,15 @@ import Controller.Shopper;
 import Model.Admin1;
 import Model.Product;
 import Model.Request200;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,213 +24,9 @@ public class logIn {
     signIn helper5 = new signIn();
 
 
-    public void logIn1() {
-        cin.nextLine();
-        System.out.println("please enter your user name : ");
-        String userName = cin.nextLine();
-        System.out.println("please enter your password : ");
-        String password = cin.nextLine();
-        boolean bool = false;
-        for (int i = 0; i < Admin1.getAdmin1().getShoppers().size(); i++)
-            if ( Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getPassword(), password) && Objects.equals(Admin1.getAdmin1().getShoppers().get(i).getUserName(), userName)) {
-                bool=true;
-                System.out.println("        *****     WELCOME     *****");
-                printMenu();
-                System.out.println("please enter your choice : ");
-                int choice1 = cin.nextInt();
-                while (choice1 != 16) {
-                    if (choice1 == 1) {
-                        printAccount();
-                        cin.nextLine();
-                        System.out.println("please enter your choice : ");
-                        int choice2 = cin.nextInt();
-                        while (choice2 != 5) {
-                            if (choice2 == 1) {
-                                System.out.println("please enter you new email : ");
-                                cin.nextLine();
-                                String email1 = cin.nextLine();
-                                System.out.println("your new email is :");
-                                System.out.println(admin3.changingEmail(email1));
-                            }
-                            if (choice2 == 2) {
-                                System.out.println("please enter you new password : ");
-                                cin.nextLine();
-                                String password1 = cin.nextLine();
-                                System.out.println("your new password is :");
-                                System.out.println(admin3.changingPassword(password1));
-                            }
-                            if (choice2 == 3) {
-                                System.out.println("please enter you new phone number : ");
-                                cin.nextLine();
-                                String phoneNumber1 = cin.nextLine();
-                                System.out.println("your new phone number is :");
-                                System.out.println(admin3.changingPhoneNumber(phoneNumber1));
-                            }
-                            if (choice2 == 4) {
-                                System.out.println(admin3.showInformation());
-                            }
-                            printAccount();
-                            System.out.println("please enter your choice : ");
-                            choice2 = cin.nextInt();
-                        }
+    public void logIn1(String userName, String password, MouseEvent event) throws IOException {
 
 
-                    }
-                    if (choice1 == 2) {
-                        System.out.println(admin3.Showing());
-                    }
-                    if (choice1 == 3)
-                    {
-                        printShopperDuty();
-                        cin.nextLine();
-                        System.out.println("please enter your choice : ");
-                        int choice80 = cin.nextInt();
-                        while (choice80 != 3) {
-                            if (choice80 == 1) {
-                                System.out.println(admin3.Showing());
-                                cin.nextLine();
-                                System.out.println("please enter the product name : ");
-                                String name = cin.nextLine();
-                                try {
-                                    helper5.Shopping(name,i);
-                                } catch (LackOfMoney | OutOfProduct | InvalidDiscountCode | InvalidDiscountCapacity e) {
-                                    System.out.println(e.getMessage());
-                                }
-                            }
-                            if (choice80==2)
-                            {
-                                System.out.println(admin3.showBaskest(i));
-                                cin.nextLine();
-                                System.out.println("are you done with shopping ?");
-                                String done = cin.nextLine();
-                                if (Objects.equals(done, "yes")) {
-                                    helper5.Shopping1(i);
-                                }
-                                if (Objects.equals(done,"no"))
-                                {
-                                    break;
-                                }
-                            }
-                            cin.nextLine();
-                            printShopperDuty();
-                            cin.nextLine();
-                            System.out.println("please enter your choice : ");
-                            choice80 = cin.nextInt();
-                        }
-                    }
-                    if (choice1 == 4) {
-                        System.out.println("how much do you want to increase your Bank account balance?");
-                        long money = cin.nextInt();
-                        Request200 request70 = new Request200(Admin1.getAdmin1().getShoppers().get(i).getUserName(), money);
-                        Admin1.getAdmin1().getRequest200().add(request70);
-                        Request200 request200 = new Request200(i);
-                        Admin1.getAdmin1().getRequest200().add(request200);
-                        helper5.Shopper200();
-                    }
-                    if (choice1 == 5) {
-                        System.out.println(admin3.showFactors(i));
-                        System.out.println("    ");
-
-                    }
-                    if (choice1==6){
-
-                        System.out.println(admin3.showDiscountCode(i));
-                    }
-                    if (choice1 == 7) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the category : ");
-                        Product.category kind = Product.category.valueOf(cin.nextLine());
-                        System.out.println(admin3.filterByCategory(kind));
-                    }
-
-                    if (choice1 == 8) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the period of your price : ");
-                        cin.nextLine();
-                        System.out.println("max : ");
-                        long max = cin.nextLong();
-                        cin.nextLine();
-                        System.out.println("min : ");
-                        long min = cin.nextLong();
-                        System.out.println(admin3.filterByPrice(max, min));
-
-                    }
-                    if (choice1 == 9) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println(admin3.filterByCapacity());
-                    }
-                    if (choice1 == 10) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the company name :");
-                        String company = cin.nextLine();
-                        System.out.println(admin3.filterByCompany(company));
-
-                    }
-                    if (choice1 == 11) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the country name :");
-                        String country = cin.nextLine();
-                        System.out.println(admin3.filterByCountry(country));
-                    }
-                    if (choice1==12)
-                    {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the country color:");
-                        String color = cin.nextLine();
-                        System.out.println(admin3.filterByColor(color));
-                    }
-                    if (choice1==13)
-                    {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the period of the weight:");
-                        cin.nextLine();
-                        System.out.println("max : ");
-                        double max = cin.nextDouble();
-                        cin.nextLine();
-                        System.out.println("min : ");
-                        double min = cin.nextDouble();
-                        System.out.println(admin3.filterByWeight(max,min));
-                    }
-                    if (choice1==14)
-                    {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the  dimension:");
-                        cin.nextLine();
-                        System.out.println("max : ");
-                        double max = cin.nextDouble();
-                        cin.nextLine();
-                        System.out.println("min : ");
-                        double min = cin.nextDouble();
-                        System.out.println(admin3.filterByDimension(max,min));
-                    }
-                    if (choice1 == 15) {
-                        System.out.println(admin3.Showing());
-                        cin.nextLine();
-                        System.out.println("please enter the product name :");
-                        String name1 = cin.nextLine();
-                        System.out.println(admin3.searchByName(name1));
-
-                    }
-                    printMenu();
-                    System.out.println("please enter your choice : ");
-                    choice1 = cin.nextInt();
-
-                }
-
-
-            }
-        if (bool==false)
-        {
-            System.out.println("we do not have this user");
-        }
 
     }
 

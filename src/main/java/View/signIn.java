@@ -274,6 +274,10 @@ public class signIn {
                         System.out.println("you take the thing that you want ");
                         Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                         index1 = l;
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Basket");
+                        alert.setContentText("you take the thing that you want ");
+                        alert.showAndWait();
                     } else {
                         throw new LackOfMoney("Lack of money");
                     }
@@ -284,7 +288,10 @@ public class signIn {
 
         }
         if (bool == false) {
-            System.out.println("we do not have this product");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Product");
+            alert.setContentText("we do not have this product ");
+            alert.showAndWait();
         }
     }
 

@@ -23,9 +23,8 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class Products implements Initializable
-{
-    ObservableList<Product> list = FXCollections.observableArrayList(Admin1.getAdmin1().getProducts());
+public class Products implements Initializable {
+
     @FXML
     private TableView<Product> view;
 
@@ -50,7 +49,7 @@ public class Products implements Initializable
     @FXML
     void backButton(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
-        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
@@ -58,9 +57,13 @@ public class Products implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        Name.setCellValueFactory(new PropertyValueFactory<Product,String>("productName"));
-        price.setCellValueFactory(new PropertyValueFactory<Product,Double>("productPrice"));
-        view.setItems(list);
+            ObservableList<Product> list = FXCollections.observableArrayList(Admin1.getAdmin1().getProducts());
+            Name.setCellValueFactory(new PropertyValueFactory<>("productName"));
+            price.setCellValueFactory(new PropertyValueFactory<Product, Double>("productPrice"));
+            score.setCellValueFactory(new PropertyValueFactory<Product, Double>("averageScore"));
+            capacity.setCellValueFactory(new PropertyValueFactory<Product, Integer>("capacity"));
+            comment.setCellValueFactory(new PropertyValueFactory<Product, String>("comment"));
+            score.setCellValueFactory(new PropertyValueFactory<Product, Double>("averageScore"));
+            view.setItems(list);
     }
 }

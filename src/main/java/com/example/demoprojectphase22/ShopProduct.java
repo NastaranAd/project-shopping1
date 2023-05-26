@@ -12,36 +12,33 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Basket {
+public class ShopProduct {
     @FXML
-    private Button store;
+    private Button backButton;
 
     @FXML
-    private Button basket;
-
-    @FXML
-    private Button back;
+    private Button nextButton;
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
+
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("shopperMenu.fxml")));
         Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    void basket(MouseEvent event) {
 
     }
 
     @FXML
-    void store(MouseEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ShopProduct.fxml")));
+    void nextbutton(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("next.fxml")));
         Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
+
+
     }
+
 }

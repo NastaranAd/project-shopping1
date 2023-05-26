@@ -3,9 +3,9 @@ package Model;
 public class Request200
 {
     private String userName;
-    private long money;
+    private double money;
     private int index;
-    public Request200(String userName , long money )
+    public Request200(String userName , double money )
     {
         this.userName=userName;
         this.money = money;
@@ -14,7 +14,7 @@ public class Request200
     {
         return this.userName;
     }
-    public long getMoney()
+    public double getMoney()
     {
         return this.money;
     }

@@ -54,7 +54,11 @@ public class Changing {
     }
 
     @FXML
-    void changingPhoneNumber(MouseEvent event) {
-
+    void changingPhoneNumber(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("changePhoneNumber.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 }

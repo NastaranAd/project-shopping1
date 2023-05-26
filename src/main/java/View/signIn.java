@@ -3,6 +3,7 @@ package View;
 import Model.*;
 
 import Exception.*;
+import com.example.demoprojectphase22.Customer;
 import javafx.scene.control.Alert;
 
 import java.time.LocalTime;
@@ -12,10 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class signIn {
-    String email;
-    String password;
-    String phoneNumber;
-    String userName;
     int index1;
     Scanner cin = new Scanner(System.in);
     Controller.Shopper admin3 = new Controller.Shopper();
@@ -398,45 +395,55 @@ public class signIn {
         }
     }
 
-    public void Shopper200() {
+    public void Shopper200(String cartNumber,String password,String cvv2) {
         boolean helper = false;
         while (helper == false) {
-            cin.nextLine();
-            System.out.println("please enter your cart number : ");
-            String cartNumber = cin.nextLine();
             Pattern pattern = Pattern.compile("^\\d{16}$");
             Matcher matcher = pattern.matcher(cartNumber);
             boolean found = matcher.find();
             if (found == true) {
                 helper = true;
             }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Invalid cart number");
+                alert.setContentText("WRONG INFORMATION");
+                alert.showAndWait();
+            }
         }
         boolean helper1 = false;
         while (helper1 == false) {
-            cin.nextLine();
-            System.out.println("please enter your password : ");
-            String password99 = cin.nextLine();
             Pattern pattern1 = Pattern.compile("^\\d{4}$");
-            Matcher matcher = pattern1.matcher(password99);
+            Matcher matcher = pattern1.matcher(password);
             boolean found1 = matcher.find();
             if (found1 == true) {
                 helper1 = true;
             }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Invalid password");
+                alert.setContentText("WRONG INFORMATION");
+                alert.showAndWait();
+            }
         }
         boolean helper2 = false;
         while (helper2 == false) {
-            cin.nextLine();
-            System.out.println("please enter your cvv2 : ");
-            String cvv2 = cin.nextLine();
             Pattern pattern2 = Pattern.compile("^\\d{4}$");
             Matcher matcher = pattern2.matcher(cvv2);
             boolean found2 = matcher.find();
             if (found2 == true) {
                 helper2 = true;
             }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Invalid CVV2");
+                alert.setContentText("WRONG INFORMATION");
+                alert.showAndWait();
+            }
         }
-        cin.nextLine();
-        System.out.println("your request has send to admin if admin agree with your suggestion your account balance will change");
     }
 
     public void discountChecker() {

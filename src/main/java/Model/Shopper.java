@@ -62,7 +62,7 @@ public class Shopper {
     {
         return  this.userAccountCredentials;
     }
-    public double setUserAccountCredentials(long money)
+    public double setUserAccountCredentials(double money)
     {
         return this.userAccountCredentials=this.userAccountCredentials+money;
     }

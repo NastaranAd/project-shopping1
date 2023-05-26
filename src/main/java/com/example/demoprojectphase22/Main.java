@@ -52,8 +52,12 @@ public class Main {
     }
 
     @FXML
-    void showProducts(MouseEvent event) {
-
+    void showProducts(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("products.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

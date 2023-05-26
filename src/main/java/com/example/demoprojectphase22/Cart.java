@@ -1,6 +1,7 @@
 package com.example.demoprojectphase22;
-import Exception.*;
+
 import Controller.Shopper;
+import View.signIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,11 +16,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+public class Cart {
+    signIn helper5 = new signIn();
 
-public class ChangeEmail {
-    Shopper shopper = new Shopper();
     @FXML
-    private TextField email;
+    private TextField cartNumber;
+
+    @FXML
+    private TextField password;
+
+    @FXML
+    private TextField cvv2;
 
     @FXML
     private Button submit;
@@ -29,24 +36,23 @@ public class ChangeEmail {
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("changing.fxml")));
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bankAccount.fxml")));
         Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
-    void newEmail(MouseEvent event) {
-        String email1 = email.getText();
-        try {
-            shopper.changingEmail(email1);
-        } catch (InvalidEmail e) {
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(e.getMessage());
-            alert.setContentText("WRONG INFORMATION");
-            alert.showAndWait();
-        }
+    void submitButton(MouseEvent event) {
+        String cart = cartNumber.getText();
+        String password1 = password.getText();
+        String cvv = cvv2.getText();
+        helper5.Shopper200(cart, password1, cvv);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Money Request");
+        alert.setContentText("your request has send to admin");
+        alert.showAndWait();
     }
 }

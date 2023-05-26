@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class ShopperMenu {
+    @FXML
+    private Button backButton;
 
     @FXML
     private Button Account;
@@ -51,13 +53,22 @@ public class ShopperMenu {
     }
 
     @FXML
-    void bankAccount(MouseEvent event) {
+    void bankAccount(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("bankAccount.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     @FXML
-    void discountCode(MouseEvent event) {
-
+    void discountCode(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("discountCode.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -74,4 +85,13 @@ public class ShopperMenu {
     void showingProducts(MouseEvent event) {
 
     }
+    @FXML
+    void backButton(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

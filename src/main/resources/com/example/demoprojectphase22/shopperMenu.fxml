@@ -19,17 +19,17 @@
             <Image url="@downloadrecipt1.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="118.0" fitWidth="137.0" layoutX="205.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="118.0" fitWidth="137.0" layoutX="196.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@products.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="100.0" layoutX="43.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="83.0" fitWidth="100.0" layoutX="55.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@shpper1.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="400.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="355.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@pol.png" />
          </image>
@@ -64,19 +64,24 @@
             <Font name="Algerian" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="shopping" layoutX="56.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#ShoppingMenu1" text="Shopping">
+      <Button fx:id="shopping" layoutX="68.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#ShoppingMenu1" text="Shopping">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="products" layoutX="227.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#showingProducts" text="Products">
+      <Button fx:id="products" layoutX="218.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#showingProducts" text="Products">
          <font>
             <Font name="Algerian" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="bank" layoutX="397.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#bankAccount" text="Bank Account">
+      <Button fx:id="bank" layoutX="355.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#bankAccount" text="Bank Account">
          <font>
             <Font name="Algerian" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#backButton" text="back">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
    </children>

@@ -14,6 +14,17 @@ import java.util.Objects;
 
 public class Filter {
     @FXML
+    private Button backButton;
+
+    @FXML
+    void backButton(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("shopperMenu.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     private Button category;
 
     @FXML
@@ -69,13 +80,22 @@ public class Filter {
     }
 
     @FXML
-    void filterByPrice(MouseEvent event) {
+    void filterByPrice(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("price.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
     @FXML
-    void filterBycolor(MouseEvent event) {
-
+    void filterBycolor(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dimension.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -89,7 +109,12 @@ public class Filter {
     }
 
     @FXML
-    void searchName(MouseEvent event) {
+    void searchName(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("name.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
 
     }
 

@@ -30,7 +30,7 @@ public class Shopper {
         return stringBuilder;
     }
 
-    public StringBuilder filterByPrice(long max, long min) {
+    public StringBuilder filterByPrice(double max, double min) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if ((min <= Admin1.getAdmin1().getProducts().get(k).getProductPrice()) && (Admin1.getAdmin1().getProducts().get(k).getProductPrice() <= max)) {

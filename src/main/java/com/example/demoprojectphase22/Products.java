@@ -1,6 +1,7 @@
 package com.example.demoprojectphase22;
 
 import Model.Admin1;
+import Model.Car;
 import Model.Product;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -26,25 +27,17 @@ import java.util.ResourceBundle;
 public class Products implements Initializable {
 
     @FXML
+    private Button backButton;
+
+    @FXML
     private TableView<Product> view;
 
     @FXML
-    private TableColumn<Product, String> Name;
+    private TableColumn<Product, String> name;
 
+    private ObservableList<Product> list = FXCollections.observableArrayList(Admin1.getAdmin1().getProducts());
     @FXML
-    private TableColumn<Product, Double> price;
-
-    @FXML
-    private TableColumn<Product, Double> score;
-
-    @FXML
-    private TableColumn<Product, Integer> capacity;
-
-    @FXML
-    private TableColumn<Product, String> comment;
-
-    @FXML
-    private Button backButton;
+    private TableColumn<Product, Integer> phone;
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
@@ -57,13 +50,18 @@ public class Products implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            ObservableList<Product> list = FXCollections.observableArrayList(Admin1.getAdmin1().getProducts());
-            Name.setCellValueFactory(new PropertyValueFactory<>("productName"));
-            price.setCellValueFactory(new PropertyValueFactory<Product, Double>("productPrice"));
-            score.setCellValueFactory(new PropertyValueFactory<Product, Double>("averageScore"));
-            capacity.setCellValueFactory(new PropertyValueFactory<Product, Integer>("capacity"));
-            comment.setCellValueFactory(new PropertyValueFactory<Product, String>("comment"));
-            score.setCellValueFactory(new PropertyValueFactory<Product, Double>("averageScore"));
-            view.setItems(list);
+
+        Car product1 = new Car("BMW", 1000, 0, 3, Product.category.VEHICLES, "BMW", true, 3500, "nothing");
+        Admin1.getAdmin1().getProducts().add(product1);
+    //Name.setCellValueFactory(new PropertyValueFactory<Product , String>("productName"));
+            //price.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
+//            score.setCellValueFactory(new PropertyValueFactory<>("averageScore"));
+//            capacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+//            comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
+//            score.setCellValueFactory(new PropertyValueFactory<>("averageScore"));
+//            view.setItems(list);
+        name.setCellValueFactory(new PropertyValueFactory<Product , String>("productName"));
+        phone.setCellValueFactory(new PropertyValueFactory<Product , Integer>("productPrice"));
+        view.setItems(list);
     }
 }

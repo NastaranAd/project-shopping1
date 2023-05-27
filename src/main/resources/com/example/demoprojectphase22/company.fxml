@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="399.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Company">
    <children>
-      <Button fx:id="searchButton" layoutX="68.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#searchButton" text="search">
+      <Button fx:id="searchButton" layoutX="77.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#searchButton" text="search">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
@@ -20,13 +19,13 @@
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="company" layoutX="94.0" layoutY="187.0" promptText="company name" />
-      <ImageView fitHeight="170.0" fitWidth="244.0" layoutX="83.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="company" layoutX="97.0" layoutY="187.0" promptText="company name" />
+      <AnchorPane layoutX="32.0" prefHeight="399.0" prefWidth="7.0" style="-fx-background-color: black;" />
+      <AnchorPane layoutY="357.0" prefHeight="7.0" prefWidth="343.0" style="-fx-background-color: black;" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="96.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@company1.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="32.0" prefHeight="399.0" prefWidth="7.0" style="-fx-background-color: black;" />
-      <AnchorPane layoutY="357.0" prefHeight="7.0" prefWidth="343.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

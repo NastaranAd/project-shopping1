@@ -216,7 +216,7 @@ public class signIn {
 
     }
 
-    public void Shopping(String name1, int index) throws LackOfMoney, OutOfProduct, InvalidDiscountCode, InvalidDiscountCapacity {
+    public void Shopping(String name1, int index,String text,String text1 ) throws LackOfMoney, OutOfProduct, InvalidDiscountCode, InvalidDiscountCapacity {
         boolean bool = false;
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
@@ -227,19 +227,19 @@ public class signIn {
                 }
                 if (Admin1.getAdmin1().getProducts().get(l).getCapacity() - 1 >= 0) {
                     if (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size() != 0) {
-                        System.out.println("do you want to use your discount code?");
-                        String yes = cin.nextLine();
-                        if (Objects.equals(yes, "yes")) {
-                            System.out.println("please enter your discount code : ");
-                            String code = cin.nextLine();
+                        if (Objects.equals(text, "yes")) {
                             boolean bool500 = false;
                             boolean bool501 = false;
                             for (int r = 0; r < Admin1.getAdmin1().getShoppers().get(index).getDiscounts().size(); r++) {
-                                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getCode(), code)) {
+                                if (Objects.equals(Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getCode(), text1)) {
                                     bool500 = true;
                                     if (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getDiscountCapacity() != 0) {
                                         double newPrice = sum - (Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).getPercent() / 100) * sum;
-                                        System.out.println("the price without discount is  " + sum + " ----> " + "the new price is  " + newPrice);
+                                        //System.out.println("the price without discount is  " + sum + " ----> " + "the new price is  " + newPrice);
+                                        Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                                        alert1.setTitle("Basket");
+                                        alert1.setContentText("the price without discount is " + sum + " ----> " + "the new price is  " + newPrice);
+                                        alert1.showAndWait();
                                         bool501 = true;
                                         if (sum + newPrice <= Admin1.getAdmin1().getShoppers().get(index).getUserAccountCredentials()) {
                                             Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + newPrice);
@@ -249,7 +249,11 @@ public class signIn {
                                             Admin1.getAdmin1().getBasket1().add(basket1);
                                             Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
                                             Admin1.getAdmin1().getShoppers().get(index).getFactors().add(factor);
-                                            System.out.println("you take the thing that you want ");
+                                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                            alert.setTitle("Basket");
+                                            alert.setContentText("you take the thing that you want");
+                                            alert.showAndWait();
+                                            //System.out.println("you take the thing that you want ");
                                             Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                                             Admin1.getAdmin1().getShoppers().get(index).getDiscounts().get(r).setDiscountCapacity();
                                             index1 = l;
@@ -271,7 +275,7 @@ public class signIn {
                         Admin1.getAdmin1().getShoppers().get(index).setUserAccountCredentialsShopper(sum + Admin1.getAdmin1().getProducts().get(l).getProductPrice());
                         Factor factor = new Factor("4/4", Admin1.getAdmin1().getProducts().get(l).getProductPrice(), Admin1.getAdmin1().getProducts().get(l).getProductName());
                         Admin1.getAdmin1().getShoppers().get(index).getFactors().add(factor);
-                        System.out.println("you take the thing that you want ");
+                        //System.out.println("you take the thing that you want ");
                         Admin1.getAdmin1().getProducts().get(l).setProductCapacitymines();
                         index1 = l;
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);

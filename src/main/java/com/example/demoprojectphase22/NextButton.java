@@ -19,6 +19,7 @@ import java.util.Objects;
 
 public class NextButton {
     signIn user = new signIn();
+    DoYouWantDiscount doYouWantDiscount = new DoYouWantDiscount();
     @FXML
     private TextField productName;
 
@@ -27,27 +28,42 @@ public class NextButton {
 
     @FXML
     private Button search;
+    private String name10 = productName.getText();
+
+    public String getName10() {
+        return name10;
+    }
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ShopProduct.fxml")));
-        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    void searchButton(MouseEvent event) {
-        String name10 = productName.getText();
-        try {
-            user.Shopping(name10,Customer.getIndex());
-        } catch (LackOfMoney |OutOfProduct| InvalidDiscountCode | InvalidDiscountCapacity e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(e.getMessage());
-            alert.setContentText("WRONG INFORMATION");
-            alert.showAndWait();
+    void searchButton(MouseEvent event) throws IOException {
+        if (Admin1.getAdmin1().getShoppers().get(Customer.getIndex()).getDiscounts().size() == 0) {
+
+            try {
+                user.Shopping(name10, Customer.getIndex(),"no","");
+            } catch (LackOfMoney | OutOfProduct | InvalidDiscountCode | InvalidDiscountCapacity e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle(e.getMessage());
+                alert.setContentText("WRONG INFORMATION");
+                alert.showAndWait();
+            }
+        }
+        else
+        {
+            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("wantDiscount.fxml")));
+            Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.show();
+            //String text = String.valueOf(doYouWantDiscount.getChoice());
         }
     }
-
 }

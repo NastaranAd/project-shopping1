@@ -52,7 +52,13 @@ public class Filter {
     private Button capacity;
 
     @FXML
-    void filterByCapacity(MouseEvent event) {
+    void filterByCapacity(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("capacity.fxml")));
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 
@@ -75,7 +81,12 @@ public class Filter {
     }
 
     @FXML
-    void filterByDimension(MouseEvent event) {
+    void filterByDimension(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("dimension12.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -104,8 +115,12 @@ public class Filter {
     }
 
     @FXML
-    void filterbyweight(MouseEvent event) {
-
+    void filterbyweight(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("weight.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

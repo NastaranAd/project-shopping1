@@ -7,11 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="399.0" prefWidth="336.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Price">
+
+<AnchorPane prefHeight="399.0" prefWidth="336.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Dimension12">
    <children>
       <TextField fx:id="max" layoutX="94.0" layoutY="187.0" promptText="max" />
       <TextField fx:id="min" layoutX="94.0" layoutY="238.0" promptText="min" />
-      <Button fx:id="searchButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#searchButton" text="search">
+      <Button fx:id="submitButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#submitButtom" text="search">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
@@ -21,9 +22,9 @@
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="104.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@price1.jpg" />
+            <Image url="@dimension3.jpg" />
          </image>
       </ImageView>
    </children>

@@ -2,7 +2,7 @@ package com.example.demoprojectphase22;
 
 public class Customer {
     static private Customer customer;
-    static private  int index;
+    static private  int index=0;
 
     public static int getIndex() {
         return Customer.index ;

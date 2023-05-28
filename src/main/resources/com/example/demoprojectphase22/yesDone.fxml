@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.YesDone">
+   <children>
+      <TextField fx:id="cartNumber" layoutX="94.0" layoutY="34.0" promptText="cart number" />
+      <TextField fx:id="cvv2" layoutX="94.0" layoutY="171.0" promptText="cvv2" />
+      <TextField fx:id="password" layoutX="94.0" layoutY="105.0" promptText="password" />
+      <Button fx:id="submitButton" layoutX="68.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#submitButton" text="submit">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="225.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#backButton" text="back">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

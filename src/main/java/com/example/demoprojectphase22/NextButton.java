@@ -63,7 +63,6 @@ public class NextButton {
             Scene scene = new Scene(parent);
             stage.setScene(scene);
             stage.show();
-            //String text = String.valueOf(doYouWantDiscount.getChoice());
         }
     }
 }

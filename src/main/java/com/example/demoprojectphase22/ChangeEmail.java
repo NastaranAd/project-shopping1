@@ -42,7 +42,6 @@ public class ChangeEmail {
         try {
             shopper.changingEmail(email1);
         } catch (InvalidEmail e) {
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(e.getMessage());
             alert.setContentText("WRONG INFORMATION");

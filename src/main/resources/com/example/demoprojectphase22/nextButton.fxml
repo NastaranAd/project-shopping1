@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.NextButton1">
+   <children>
+      <Text layoutX="68.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you done with your shopping ?" AnchorPane.leftAnchor="67.783203125" AnchorPane.rightAnchor="67.216796875">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Button fx:id="noBtton" layoutX="68.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#noButton" text="No" />
+      <Button fx:id="yesButton" layoutX="235.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#yesButton" text="Yes" />
+   </children>
+</AnchorPane>

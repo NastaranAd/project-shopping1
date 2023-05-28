@@ -1,5 +1,6 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,35 +14,40 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ShopProduct {
+public class BasketShop
+{
+    Shopper shopper = new Shopper();
+
     @FXML
-    private Button backButton;
+    private TextArea BasketArea;
+
     @FXML
-    private TextArea prductShop;
+    private Button searchButton;
 
     @FXML
     private Button nextButton;
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
-
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("shopperMenu.fxml")));
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("basket.fxml")));
         Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
-    void nextbutton(MouseEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("next.fxml")));
+    void nextButton(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("nextButton.fxml")));
         Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
+    @FXML
+    void searchButton(MouseEvent event) {
+     String basket = shopper.showBaskest(Customer.getIndex());
+     BasketArea.setText(basket);
+    }
 }

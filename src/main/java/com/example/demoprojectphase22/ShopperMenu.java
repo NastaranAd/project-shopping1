@@ -76,8 +76,12 @@ public class ShopperMenu {
     }
 
     @FXML
-    void receipt(MouseEvent event) {
-
+    void receipt(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("receipt.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -92,7 +96,7 @@ public class ShopperMenu {
     @FXML
     void showingProducts(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("products.fxml")));
-        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();

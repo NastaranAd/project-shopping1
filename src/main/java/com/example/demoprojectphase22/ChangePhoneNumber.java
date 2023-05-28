@@ -1,5 +1,4 @@
 package com.example.demoprojectphase22;
-import Exception.*;
 import Controller.Shopper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
+import Exception.*;
 import java.io.IOException;
 import java.util.Objects;
 

@@ -147,12 +147,9 @@ public class signIn {
 
     }
 
-    public void Shopping1(int i) {
+    public void Shopping1(int i,String cartNumber,String password99,String cvv2) {
         boolean helper = false;
         while (helper == false) {
-            cin.nextLine();
-            System.out.println("please enter your cart number : ");
-            String cartNumber = cin.nextLine();
             Pattern pattern = Pattern.compile("^\\d{16}$");
             Matcher matcher = pattern.matcher(cartNumber);
             boolean found = matcher.find();
@@ -162,9 +159,6 @@ public class signIn {
         }
         boolean helper1 = false;
         while (helper1 == false) {
-            cin.nextLine();
-            System.out.println("please enter your password : ");
-            String password99 = cin.nextLine();
             Pattern pattern1 = Pattern.compile("^\\d{4}$");
             Matcher matcher = pattern1.matcher(password99);
             boolean found1 = matcher.find();
@@ -174,9 +168,6 @@ public class signIn {
         }
         boolean helper2 = false;
         while (helper2 == false) {
-            cin.nextLine();
-            System.out.println("please enter your cvv2 : ");
-            String cvv2 = cin.nextLine();
             Pattern pattern2 = Pattern.compile("^\\d{4}$");
             Matcher matcher = pattern2.matcher(cvv2);
             boolean found2 = matcher.find();

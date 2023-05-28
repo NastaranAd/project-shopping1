@@ -1,5 +1,6 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
 import com.example.demoprojectphase22.Model.Admin1;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -17,26 +19,31 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class DiscountCode implements Initializable {
+public class DiscountCode {
+    Shopper shopper = new Shopper();
     @FXML
-    private Text DiscountCode;
+    private Button searchButton;
 
+    @FXML
+    private TextArea DiscountCodeArea;
     @FXML
     private Button backButton;
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("shopperMenu.fxml")));
-        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (int y = 0; y<Admin1.getAdmin1().getShoppers().get(Customer.getIndex()).getDiscounts().size();y++)
-        DiscountCode.setText(Admin1.getAdmin1().getShoppers().get(Customer.getIndex()).getDiscounts().get(y).getCode());
+
+    @FXML
+    void searchButton(MouseEvent event) {
+    String discount = shopper.showDiscountCode(Customer.getIndex());
+    DiscountCodeArea.setText(discount);
     }
+
 }

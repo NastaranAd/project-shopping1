@@ -1,5 +1,6 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Basket {
+    Shopper shopper = new Shopper();
     @FXML
     private Button store;
 
@@ -33,6 +35,8 @@ public class Basket {
 
     @FXML
     void basket(MouseEvent event) {
+    String basket = shopper.showBaskest(Customer.getIndex());
+
 
     }
 

@@ -110,8 +110,12 @@ public class Filter {
     }
 
     @FXML
-    void filterbycategory(MouseEvent event) {
-
+    void filterbycategory(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("category.fxml")));
+        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

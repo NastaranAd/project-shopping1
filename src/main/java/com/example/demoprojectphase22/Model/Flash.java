@@ -1,4 +1,4 @@
-package Model;
+package com.example.demoprojectphase22.Model;
 
 public class Flash extends Digital {
     private String usbVersion;

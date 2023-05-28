@@ -1,11 +1,10 @@
 package Controller;
 
-import Model.*;
+import com.example.demoprojectphase22.Model.*;
 import View.signIn;
+import com.example.demoprojectphase22.Model.Product;
 
-import java.util.Collection;
 import java.util.Collections;
-import java.util.InputMismatchException;
 import java.util.Objects;
 
 public class Admin {

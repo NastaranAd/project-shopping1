@@ -1,15 +1,18 @@
 package com.example.demoprojectphase22;
 
-import Model.Product;
+import Controller.Shopper;
+import com.example.demoprojectphase22.Model.Admin1;
+import com.example.demoprojectphase22.Model.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -17,37 +20,34 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextArea;
 
-public class TableViewCountry implements Initializable {
+public class TableViewCountry  {
+    Shopper shopper = new Shopper();
+    Country country100 = new Country();
     @FXML
-    private TableView<Product> view;
-
+    Button backButton;
     @FXML
-    private TableColumn<Product, String> name;
-
-    @FXML
-    private TableColumn<Product, Double> price;
-
-    @FXML
-    private TableColumn<Product, Integer> capacity;
-
-    @FXML
-    private TableColumn<Product, String> country;
-
-    @FXML
-    private Button backButton;
-
+    private TextArea country;
     @FXML
     void backButton(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("country.fxml")));
-        Stage stage = (Stage) ((Node)(event.getSource())).getScene().getWindow();
+        Stage stage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    @FXML
+    private Button searchButton;
+
+
+    @FXML
+    void searchButton(MouseEvent event) {
 
     }
+
+
 }

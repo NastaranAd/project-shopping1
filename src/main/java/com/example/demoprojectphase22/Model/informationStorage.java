@@ -1,4 +1,4 @@
-package Model;
+package com.example.demoprojectphase22.Model;
 
 public class informationStorage extends Digital {
     private int capacity1;

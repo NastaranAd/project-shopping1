@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="399.0" prefWidth="336.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoprojectphase22.Dimension12">
    <children>
-      <TextField fx:id="max" layoutX="94.0" layoutY="187.0" promptText="max" />
-      <TextField fx:id="min" layoutX="94.0" layoutY="238.0" promptText="min" />
-      <Button fx:id="submitButton" layoutX="73.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#submitButtom" text="search">
+      <TextField fx:id="max" layoutX="94.0" layoutY="152.0" promptText="max" />
+      <TextField fx:id="min" layoutX="94.0" layoutY="200.0" promptText="min" />
+      <Button fx:id="submitButton" layoutX="76.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#submitButtom" text="search">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="backButton" layoutX="221.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#backButton" text="back">
+      <Button fx:id="backButton" layoutX="221.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#backButton" text="back">
          <font>
             <Font name="Arial Rounded MT Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="104.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="104.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@dimension3.jpg" />
          </image>
       </ImageView>
+      <TextArea fx:id="dimensionArea" layoutX="104.0" layoutY="298.0" prefHeight="63.0" prefWidth="149.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" />
    </children>
 </AnchorPane>

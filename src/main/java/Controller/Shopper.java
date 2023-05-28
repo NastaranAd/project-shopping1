@@ -1,8 +1,8 @@
 package Controller;
 
 import Exception.*;
-import Model.Admin1;
-import Model.Product;
+import com.example.demoprojectphase22.Model.Admin1;
+import com.example.demoprojectphase22.Model.Product;
 import javafx.scene.control.Alert;
 
 import java.util.Objects;
@@ -30,76 +30,73 @@ public class Shopper {
         return stringBuilder;
     }
 
-    public StringBuilder filterByPrice(double max, double min) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByPrice(double max, double min) {
+        String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if ((min <= Admin1.getAdmin1().getProducts().get(k).getProductPrice()) && (Admin1.getAdmin1().getProducts().get(k).getProductPrice() <= max)) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
-                stringBuilder.append("\n");
+                result +=Admin1.getAdmin1().getProducts().get(k).toString();
             }
-        return stringBuilder;
+        return result;
     }
 
-    public StringBuilder filterByCapacity() {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByCapacity() {
+      String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getProducts().size(); k++)
             if (Admin1.getAdmin1().getProducts().get(k).getCapacity() > 0) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
-                stringBuilder.append("\n");
+                result +=Admin1.getAdmin1().getProducts().get(k).toString();
             }
-        return stringBuilder;
+        return result;
     }
 
-    public StringBuilder filterByCompany(String company) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByCompany(String company) {
+        String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getVehicles().size(); k++)
             if (Objects.equals(Admin1.getAdmin1().getVehicles().get(k).getCompany(), company)) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(k).toString() + "\n");
-                stringBuilder.append("\n");
+                result +=Admin1.getAdmin1().getProducts().get(k).toString();
             }
-        return stringBuilder;
+        return result;
     }
 
-    public StringBuilder filterByWeight(double max, double min) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByWeight(double max, double min) {
+        String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
             if (min <= Admin1.getAdmin1().getDigitals().get(k).getWeight() && Admin1.getAdmin1().getDigitals().get(k).getWeight() <= max) {
-                stringBuilder.append(Admin1.getAdmin1().getDigitals().toString() + "\n");
-                stringBuilder.append("\n");
+                result += Admin1.getAdmin1().getDigitals().get(k).toString();
+
             }
-        return stringBuilder;
+        return result;
     }
 
-    public StringBuilder filterByDimension(double max, double min) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByDimension(double max, double min) {
+        String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getDigitals().size(); k++)
             if (min <= Admin1.getAdmin1().getDigitals().get(k).getDimension() && Admin1.getAdmin1().getDigitals().get(k).getDimension() <= max) {
-                stringBuilder.append(Admin1.getAdmin1().getDigitals().toString() + "\n");
-                stringBuilder.append("\n");
+                result += Admin1.getAdmin1().getDigitals().get(k).toString();
             }
-        return stringBuilder;
+       return result;
     }
 
-    public StringBuilder filterByColor(String color) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String filterByColor(String color) {
+
+        String result = "";
         for (int k = 0; k < Admin1.getAdmin1().getStationaries().get(k).getPens().size(); k++)
             if (Objects.equals(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).getColor(), color)) {
-                    stringBuilder.append(Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).toString() + "\n");
-                    stringBuilder.append("\n");
-                }
+                result +=Admin1.getAdmin1().getStationaries().get(k).getPens().get(k).toString();
+            }
 
-        return stringBuilder;
+        return result;
     }
 
 
-    public StringBuilder filterByCountry(String country) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int b = 0; b < Admin1.getAdmin1().getStationaries().size(); b++)
+    public String filterByCountry(String country) {
+        String result = "";
+        for (int b = 0; b < Admin1.getAdmin1().getStationaries().size(); b++) {
             if (Objects.equals(Admin1.getAdmin1().getStationaries().get(b).getCountry(), country)) {
-                stringBuilder.append((b + 1) + "." + Admin1.getAdmin1().getStationaries().get(b).toString() + "\n");
-                stringBuilder.append("\n");
+                result += Admin1.getAdmin1().getStationaries().get(b).toString();
             }
-        return stringBuilder;
+
+        }
+        return result;
     }
 
     public StringBuilder showInformation() {
@@ -127,10 +124,8 @@ public class Shopper {
                     alert.setTitle("New Email");
                     alert.setContentText(email1);
                     alert.showAndWait();
-                }
-                else
-                {
-                  throw new InvalidEmail("Invalid email");
+                } else {
+                    throw new InvalidEmail("Invalid email");
                 }
             }
             stringBuilder1.append(Admin1.getAdmin1().getShoppers().get(k).getEmail());
@@ -155,9 +150,7 @@ public class Shopper {
                     alert.setTitle("New Email");
                     alert.setContentText(phoneNumber1);
                     alert.showAndWait();
-                }
-                else
-                {
+                } else {
                     throw new InvalidPhoneNumber("Invalid phoneNumber");
                 }
             }
@@ -183,9 +176,7 @@ public class Shopper {
                     alert.setTitle("New Email");
                     alert.setContentText(password1);
                     alert.showAndWait();
-                }
-                else
-                {
+                } else {
                     throw new InvalidPassword("Invalid password");
                 }
             }
@@ -194,16 +185,14 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public void searchByName(String name1) {
+    public String searchByName(String name1) {
+        String result = "";
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Product Information");
-                alert.setContentText( Admin1.getAdmin1().getProducts().get(l).getProductName()+"  "+Admin1.getAdmin1().getProducts().get(l).getProductPrice()+"  "+Admin1.getAdmin1().getProducts().get(l).getCapacity());
-                alert.showAndWait();
-
+               result+= Admin1.getAdmin1().getProducts().get(l).toString();
             }
         }
+        return result;
     }
 
     public StringBuilder showFactors(int k) {
@@ -225,6 +214,7 @@ public class Shopper {
         }
         return stringBuilder;
     }
+
     public StringBuilder showDiscountCode(int i) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int t = 0; t < Admin1.getAdmin1().getShoppers().get(i).getDiscounts().size(); t++) {

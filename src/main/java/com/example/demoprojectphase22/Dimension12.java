@@ -1,11 +1,13 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -14,6 +16,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Dimension12 {
+    Shopper shopper = new Shopper();
+    @FXML
+    private TextArea dimensionArea;
     @FXML
     private TextField max;
 
@@ -37,6 +42,9 @@ public class Dimension12 {
 
     @FXML
     void submitButtom(MouseEvent event) {
-
+        double maximum = Double.parseDouble(max.getText());
+        double minimum = Double.parseDouble(min.getText());
+        String helper = shopper.filterByDimension(maximum,minimum);
+        dimensionArea.setText(helper);
     }
 }

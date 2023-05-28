@@ -1,7 +1,7 @@
 package com.example.demoprojectphase22;
 
 import Exception.*;
-import Model.Admin1;
+import com.example.demoprojectphase22.Model.Admin1;
 import View.signIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

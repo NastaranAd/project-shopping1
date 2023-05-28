@@ -1,6 +1,6 @@
 package com.example.demoprojectphase22;
 
-import Model.Admin1;
+import com.example.demoprojectphase22.Model.Admin1;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

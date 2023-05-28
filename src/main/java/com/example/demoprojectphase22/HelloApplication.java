@@ -1,25 +1,15 @@
 package com.example.demoprojectphase22;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import Model.Admin1;
+import com.example.demoprojectphase22.Model.Admin1;
 import View.signIn;
 import View.logIn;
 import View.Admin60;
 import Controller.*;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Objects;
 import java.util.Scanner;
 import java.io.IOException;
 

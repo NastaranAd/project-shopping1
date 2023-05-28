@@ -1,7 +1,4 @@
-package Model;
-
-import java.security.Key;
-import java.util.Objects;
+package com.example.demoprojectphase22.Model;
 
 public class Pen extends Stationary implements Code {
     private String color;

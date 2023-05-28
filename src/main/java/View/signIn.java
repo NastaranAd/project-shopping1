@@ -1,9 +1,8 @@
 package View;
 
-import Model.*;
+import com.example.demoprojectphase22.Model.*;
 
 import Exception.*;
-import com.example.demoprojectphase22.Customer;
 import javafx.scene.control.Alert;
 
 import java.time.LocalTime;

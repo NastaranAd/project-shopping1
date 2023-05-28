@@ -1,4 +1,6 @@
-package Model;
+package com.example.demoprojectphase22.Model;
+
+import com.example.demoprojectphase22.Model.Product;
 
 abstract public class Digital extends Product implements Code
 {

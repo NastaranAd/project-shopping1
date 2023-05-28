@@ -1,9 +1,7 @@
 package com.example.demoprojectphase22;
 
-import Model.Admin1;
-
-import Model.Product;
-import javafx.beans.Observable;
+import com.example.demoprojectphase22.Model.Admin1;
+import com.example.demoprojectphase22.Model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -52,7 +50,7 @@ public class Products implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    //Name.setCellValueFactory(new PropertyValueFactory<Product , String>("productName"));
+    name.setCellValueFactory(new PropertyValueFactory<Product , String>("productName"));
             //price.setCellValueFactory(new PropertyValueFactory<Product,Double>("productPrice"));
 //            score.setCellValueFactory(new PropertyValueFactory<>("averageScore"));
 //            capacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));

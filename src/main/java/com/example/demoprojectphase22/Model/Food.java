@@ -1,6 +1,8 @@
-package Model;
+package com.example.demoprojectphase22.Model;
 
- public class Food extends Product{
+import com.example.demoprojectphase22.Model.Product;
+
+public class Food extends Product {
     private String dateOfManufacture;
     private String expirationDate;
 

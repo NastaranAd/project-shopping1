@@ -1,11 +1,14 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
+import com.example.demoprojectphase22.Model.Admin1;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -16,10 +19,11 @@ import java.util.Objects;
 public class Country {
     @FXML
     private TextField country;
-
+Shopper shopper = new Shopper();
     @FXML
     private Button search;
-
+    @FXML
+    private TextArea itemDescription;
     @FXML
     private Button backButton;
 
@@ -33,7 +37,9 @@ public class Country {
     }
 
     @FXML
-    void searchButton(MouseEvent event) {
-
+    void searchButton(MouseEvent event) throws IOException {
+        String country1 =  country.getText();
+        String country2 = shopper.filterByCountry(country1);
+        itemDescription.setText(country2);
     }
 }

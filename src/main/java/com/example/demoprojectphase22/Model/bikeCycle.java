@@ -1,4 +1,4 @@
-package Model;
+package com.example.demoprojectphase22.Model;
 
 public class bikeCycle extends Vehicle {
     public enum bikeCycle1 {

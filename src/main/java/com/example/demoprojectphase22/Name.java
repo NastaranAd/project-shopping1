@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -24,6 +25,9 @@ public class Name {
 
     @FXML
     private TextField productName;
+    @FXML
+    private TextArea nameArea;
+
 
     @FXML
     void backButton(MouseEvent event) throws IOException {
@@ -37,7 +41,7 @@ public class Name {
     @FXML
     void searchButton(MouseEvent event) {
         String name = productName.getText();
-        shopper.searchByName(name);
-
+        String name1 = shopper.searchByName(name);
+        nameArea.setText(name1);
     }
 }

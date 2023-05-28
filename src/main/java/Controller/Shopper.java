@@ -194,15 +194,16 @@ public class Shopper {
         return stringBuilder1;
     }
 
-    public StringBuilder searchByName(String name1) {
-        StringBuilder stringBuilder = new StringBuilder();
+    public void searchByName(String name1) {
         for (int l = 0; l < Admin1.getAdmin1().getProducts().size(); l++) {
             if (Objects.equals(Admin1.getAdmin1().getProducts().get(l).getProductName(), name1)) {
-                stringBuilder.append(Admin1.getAdmin1().getProducts().get(l).toString());
-                stringBuilder.append("\n");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Product Information");
+                alert.setContentText( Admin1.getAdmin1().getProducts().get(l).getProductName()+"  "+Admin1.getAdmin1().getProducts().get(l).getProductPrice()+"  "+Admin1.getAdmin1().getProducts().get(l).getCapacity());
+                alert.showAndWait();
+
             }
         }
-        return stringBuilder;
     }
 
     public StringBuilder showFactors(int k) {

@@ -1,5 +1,6 @@
 package com.example.demoprojectphase22;
 
+import Controller.Shopper;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Name {
+    Shopper shopper = new Shopper();
     @FXML
     private Button searchButton;
 
@@ -35,6 +37,7 @@ public class Name {
     @FXML
     void searchButton(MouseEvent event) {
         String name = productName.getText();
+        shopper.searchByName(name);
 
     }
 }

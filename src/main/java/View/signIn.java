@@ -175,34 +175,33 @@ public class signIn {
                 helper2 = true;
             }
         }
-        for (int e = 0; e < Admin1.getAdmin1().getShoppers().get(i).getBaskets().size(); e++) {
-            Admin1.getAdmin1().getShoppers().get(i).getBaskets().remove(e);
-        }
-        cin.nextLine();
-        System.out.println("you bought the thing that you want");
-        cin.nextLine();
-        System.out.println("do you want to send your opinion about the products that you just bought?");
-        String opinion = cin.nextLine();
-        if (Objects.equals(opinion, "yes")) {
-            cin.nextLine();
-            printOpinionMenu();
-            int choice99 = cin.nextInt();
-            while (choice99 != 2) {
-                System.out.println("which product do you want to ");
-                cin.nextLine();
-                System.out.println(admin3.showFactors(i));
-                cin.nextLine();
-                System.out.println("please enter the name : ");
-                String name1000 = cin.nextLine();
-                showOpinion(name1000, i);
-                cin.nextLine();
-                printOpinionMenu();
-                choice99 = cin.nextInt();
-            }
-        }
-        if (Objects.equals(opinion, "no")) {
-            System.out.println("you did not send your opinion");
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Basket");
+        alert.setContentText("you bought the thing that you want");
+        alert.showAndWait();
+
+       // System.out.println("do you want to send your opinion about the products that you just bought?");
+       // String opinion = cin.nextLine();
+       // if (Objects.equals(opinion, "yes")) {
+           // cin.nextLine();
+          //  printOpinionMenu();
+         //   int choice99 = cin.nextInt();
+          //  while (choice99 != 2) {
+              //  System.out.println("which product do you want to ");
+               // cin.nextLine();
+               // System.out.println(admin3.showFactors(i));
+               // cin.nextLine();
+                //System.out.println("please enter the name : ");
+               // String name1000 = cin.nextLine();
+              //  showOpinion(name1000, i);
+             //   cin.nextLine();
+             //   printOpinionMenu();
+           //     choice99 = cin.nextInt();
+         //   }
+      //  }
+        //if (Objects.equals(opinion, "no")) {
+         //   System.out.println("you did not send your opinion");
+     //   }
 
     }
 
@@ -341,22 +340,27 @@ public class signIn {
 
     }
 
-    public void showOpinion(String name900, int j) {
+    public void showOpinion(String name900, int j,String comment,int number) {
         for (int i = 0; i < Admin1.getAdmin1().getShoppers().get(j).getBaskets().size(); i++) {
             if (Objects.equals(name900, Admin1.getAdmin1().getShoppers().get(j).getBaskets().get(i).getProductName100())) {
-                System.out.println("please enter one number between 1 to 5");
-                int number200 = cin.nextInt();
-                cin.nextLine();
-                System.out.println("please enter your opinion : ");
-                String opinion = cin.nextLine();
-                Opinion opinion1 = new Opinion(Admin1.getAdmin1().getShoppers().get(j).getBaskets().get(i).getProductName100(), opinion, number200);
+                //System.out.println("please enter one number between 1 to 5");
+                //int number200 = cin.nextInt();
+               // cin.nextLine();
+                //System.out.println("please enter your opinion : ");
+               // String opinion = cin.nextLine();
+                Opinion opinion1 = new Opinion(Admin1.getAdmin1().getShoppers().get(j).getBaskets().get(i).getProductName100(), comment, number);
                 Admin1.getAdmin1().getOpinion().add(opinion1);
                 Opinion opinion2 = new Opinion(j);
                 Admin1.getAdmin1().getOpinion().add(opinion2);
-                System.out.println("your opinion has send to admin");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Opinion request");
+                alert.setContentText("your opinion has send to admin");
+                alert.showAndWait();
+                for (int e = 0; e < Admin1.getAdmin1().getShoppers().get(j).getBaskets().size(); e++) {
+                    Admin1.getAdmin1().getShoppers().get(j).getBaskets().remove(e);
+                }
             }
         }
-
 
     }
 
